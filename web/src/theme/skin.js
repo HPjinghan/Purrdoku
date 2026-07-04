@@ -42,6 +42,30 @@ function roomCount(rooms) {
   return m + 1;
 }
 
+// Orthogonally-connected obstacle cells read as a pond; otherwise pillars.
+function buildObstacle(cells, n) {
+  if (!cells.length) return { set: new Set(), emoji: "", name: "" };
+  const set = new Set(cells);
+  const seen = new Set([cells[0]]);
+  const stack = [cells[0]];
+  while (stack.length) {
+    const cur = stack.pop();
+    const r = Math.floor(cur / n);
+    const c = cur % n;
+    for (const [dr, dc] of [[-1, 0], [1, 0], [0, -1], [0, 1]]) {
+      const z = (r + dr) * n + (c + dc);
+      if (r + dr >= 0 && r + dr < n && c + dc >= 0 && c + dc < n && set.has(z) && !seen.has(z)) {
+        seen.add(z);
+        stack.push(z);
+      }
+    }
+  }
+  const pond = cells.length >= 2 && seen.size === cells.length;
+  return pond
+    ? { set, emoji: "💧", name: "水池" }
+    : { set, emoji: "🪵", name: "立柱" };
+}
+
 export function skinPuzzle(puzzle) {
   const rng = makeRng((puzzle.seed ^ 0x9e3779b9) >>> 0);
   const n = puzzle.size;
@@ -70,10 +94,18 @@ export function skinPuzzle(puzzle) {
     };
   });
 
-  // Group cells by room; row-major order makes cells[0] the top-left anchor.
+  // Obstacle cells (pillars / pond) — no cat, no furniture there.
+  const obsCells = (puzzle.obstacles || []).map(([r, c]) => r * n + c);
+  const obsSet = new Set(obsCells);
+  const obstacle = buildObstacle(obsCells, n);
+
+  // Group cells by room; row-major order makes cells[0] the top-left anchor
+  // (skip obstacle cells so the room label doesn't sit on a pond/pillar).
   const roomCells = Array.from({ length: kRooms }, () => []);
   for (let cell = 0; cell < n * n; cell++) roomCells[roomOf(cell)].push(cell);
-  const roomAnchor = roomCells.map((cells) => cells[0]);
+  const roomAnchor = roomCells.map(
+    (cells) => cells.find((c) => !obsSet.has(c)) ?? cells[0]
+  );
 
   // Name rooms by size rank: biggest → 客厅, smallest → 储物间/衣帽间.
   const rankOrder = roomCells
@@ -97,9 +129,10 @@ export function skinPuzzle(puzzle) {
   const furniture = Array(n * n).fill(null);
   roomCells.forEach((cells, rid) => {
     const set = roomType[rid].furniture;
-    const forced = cells.filter((c) => mustFurnish.has(c));
-    const rest = cells.filter((c) => !mustFurnish.has(c));
-    const target = Math.max(forced.length, Math.min(set.length, Math.round(cells.length * 0.6)));
+    const usable = cells.filter((c) => !obsSet.has(c)); // no furniture on obstacles
+    const forced = usable.filter((c) => mustFurnish.has(c));
+    const rest = usable.filter((c) => !mustFurnish.has(c));
+    const target = Math.max(forced.length, Math.min(set.length, Math.round(usable.length * 0.6)));
     const extra = sampleWithoutReplacement(rest, Math.max(0, target - forced.length), rng);
     const chosenCells = [...forced, ...extra];
     const pieces = sampleWithoutReplacement(set, Math.min(set.length, Math.max(1, chosenCells.length)), rng);
@@ -130,7 +163,8 @@ export function skinPuzzle(puzzle) {
     const room = clue.room != null ? roomNames[clue.room] : s.room;
     const mess = clue.room != null ? roomMess[clue.room]?.name : pick(roomMess, rng).name;
     const sizeLabel = clue.size ? SIZE_LABEL[clue.size] || "" : undefined;
-    return tmpl({ A, B, room, mess, dir, furniture: s.furniture, spot: s.spot, sizeLabel });
+    const line = clue.line != null ? clue.line + 1 : undefined; // 1-indexed
+    return tmpl({ A, B, room, mess, dir, furniture: s.furniture, spot: s.spot, sizeLabel, line });
   };
 
   const title = pick(TITLE_TEMPLATES, rng)({
@@ -140,5 +174,5 @@ export function skinPuzzle(puzzle) {
   });
   const clues = puzzle.clues.map((clue) => ({ ...clue, text: renderClue(clue) }));
 
-  return { cats, roomNames, roomMess, roomAnchor, furniture, title, clues };
+  return { cats, roomNames, roomMess, roomAnchor, furniture, title, clues, obstacle };
 }

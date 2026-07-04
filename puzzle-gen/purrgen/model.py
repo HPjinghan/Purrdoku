@@ -20,9 +20,12 @@ RELPOS = "relpos"
 DIAG_ADJ = "diag_adj"
 AT_CELL = "at_cell"      # cat A sits at exactly this cell (rendered as "on the X")
 CELL_SIZE = "cell_size"  # the cat at this cell is of a given size class
+IN_ROW = "in_row"        # cat A is in row `line`
+IN_COL = "in_col"        # cat A is in column `line`
+ADJ_FURN = "adj_furn"    # cat A is orthogonally next to landmark cell `cell`
 
 # Unary = restricts a single cat's candidate cells.
-UNARY_TYPES = (IN_ROOM, NOT_IN_ROOM, AT_CELL)
+UNARY_TYPES = (IN_ROOM, NOT_IN_ROOM, AT_CELL, IN_ROW, IN_COL, ADJ_FURN)
 BINARY_TYPES = (SAME_ROOM, DIFF_ROOM, RELPOS, DIAG_ADJ)
 CELL_TYPES = (CELL_SIZE,)  # restricts which cats may occupy a given cell
 ALL_TYPES = UNARY_TYPES + BINARY_TYPES + CELL_TYPES
@@ -40,6 +43,7 @@ class Clue:
     cell: Optional[int] = None
     size: Optional[str] = None
     cats: Optional[tuple] = None  # for CELL_SIZE: cats allowed at `cell`
+    line: Optional[int] = None  # for IN_ROW / IN_COL: the row / column index
 
     @property
     def is_unary(self) -> bool:
@@ -63,6 +67,8 @@ class Clue:
             d["cell"] = self.cell
         if self.size is not None:
             d["size"] = self.size
+        if self.line is not None:
+            d["line"] = self.line
         return d
 
 
@@ -74,14 +80,23 @@ def iter_bits(mask: int) -> Iterator[int]:
 
 
 class Geometry:
-    """Precomputed bitmask tables for an n x n grid plus a room partition."""
+    """Precomputed bitmask tables for an n x n grid plus a room partition.
 
-    def __init__(self, n: int, rooms: list[list[int]]):
+    ``obstacles`` are cells no cat may occupy (pillars / ponds). They are simply
+    removed from ``full``, so every candidate set excludes them automatically.
+    """
+
+    def __init__(self, n: int, rooms: list[list[int]], obstacles=None):
         self.n = n
         nn = n * n
         self.nn = nn
         self.rooms = rooms
-        self.full = (1 << nn) - 1
+        self.obstacles = tuple(obstacles or ())
+        obstacle_mask = 0
+        for o in self.obstacles:
+            obstacle_mask |= 1 << o
+        self.obstacle_mask = obstacle_mask
+        self.full = ((1 << nn) - 1) & ~obstacle_mask
         self.row_of = [i // n for i in range(nn)]
         self.col_of = [i % n for i in range(nn)]
         self.room_of = [rooms[i // n][i % n] for i in range(nn)]
@@ -116,15 +131,22 @@ class Geometry:
             self.rows_gt[r] = self.full & ~self.rows_lt[r] & ~self.row_mask[r]
 
         self.diag_mask = [0] * nn
+        self.orth_mask = [0] * nn  # up/down/left/right neighbours (for adj_furn)
         for i in range(nn):
             r, c = i // n, i % n
-            m = 0
+            dm = 0
             for dr in (-1, 1):
                 for dc in (-1, 1):
                     rr, cc = r + dr, c + dc
                     if 0 <= rr < n and 0 <= cc < n:
-                        m |= 1 << (rr * n + cc)
-            self.diag_mask[i] = m
+                        dm |= 1 << (rr * n + cc)
+            self.diag_mask[i] = dm
+            om = 0
+            for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1)):
+                rr, cc = r + dr, c + dc
+                if 0 <= rr < n and 0 <= cc < n:
+                    om |= 1 << (rr * n + cc)
+            self.orth_mask[i] = om
 
         self.rowcol_mask = [
             self.row_mask[i // n] | self.col_mask[i % n] for i in range(nn)
@@ -138,6 +160,12 @@ class Geometry:
             return self.full & ~self.room_mask[clue.room]
         if clue.type == AT_CELL:
             return 1 << clue.cell
+        if clue.type == IN_ROW:
+            return self.row_mask[clue.line]
+        if clue.type == IN_COL:
+            return self.col_mask[clue.line]
+        if clue.type == ADJ_FURN:
+            return self.orth_mask[clue.cell]
         raise ValueError(clue.type)
 
     def allowed_mask(self, clue: Clue, fixed_role: str, cell: int) -> int:
@@ -189,6 +217,12 @@ def clue_holds(clue: Clue, pos: list[int], geo: Geometry) -> bool:
     pa = pos[clue.a]
     if clue.type == AT_CELL:
         return pa == clue.cell
+    if clue.type == IN_ROW:
+        return pa // n == clue.line
+    if clue.type == IN_COL:
+        return pa % n == clue.line
+    if clue.type == ADJ_FURN:
+        return bool((geo.orth_mask[clue.cell] >> pa) & 1)
     if clue.type == IN_ROOM:
         return geo.room_of[pa] == clue.room
     if clue.type == NOT_IN_ROOM:

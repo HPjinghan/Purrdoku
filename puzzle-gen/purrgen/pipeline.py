@@ -24,11 +24,14 @@ from .clues import enumerate_pool
 from .difficulty import BY_ID, LEVELS, Level, level_for
 from .layout import generate_solution
 from .model import (
+    ADJ_FURN,
     AT_CELL,
     CELL_SIZE,
     DIAG_ADJ,
     DIFF_ROOM,
+    IN_COL,
     IN_ROOM,
+    IN_ROW,
     NOT_IN_ROOM,
     RELPOS,
     SAME_ROOM,
@@ -49,16 +52,17 @@ from .solver_logical import LogicalSolver
 # make the low tiers easy WITHOUT resorting to many tiny rooms, so they are
 # weighted high there and dropped from the pool at tier >= 3 (see ALLOWED).
 TYPE_PRIORS: dict[int, dict[str, float]] = {
-    1: {AT_CELL: 5.0, CELL_SIZE: 4.0, IN_ROOM: 2.5, NOT_IN_ROOM: 1.0, SAME_ROOM: 1.5, DIAG_ADJ: 1.0, RELPOS: 1.0, DIFF_ROOM: 0.5},
-    2: {AT_CELL: 2.0, IN_ROOM: 2.5, NOT_IN_ROOM: 1.5, SAME_ROOM: 2.0, DIAG_ADJ: 1.5, RELPOS: 1.5, DIFF_ROOM: 1.0},
-    3: {IN_ROOM: 1.5, NOT_IN_ROOM: 1.5, SAME_ROOM: 2.0, DIAG_ADJ: 2.0, RELPOS: 2.5, DIFF_ROOM: 1.5},
-    4: {IN_ROOM: 0.8, NOT_IN_ROOM: 1.2, SAME_ROOM: 1.5, DIAG_ADJ: 2.0, RELPOS: 3.0, DIFF_ROOM: 2.0},
+    1: {AT_CELL: 2.5, CELL_SIZE: 2.0, ADJ_FURN: 2.5, IN_ROW: 2.0, IN_COL: 2.0, IN_ROOM: 2.0, NOT_IN_ROOM: 0.8, SAME_ROOM: 1.2, DIAG_ADJ: 1.0, RELPOS: 1.0, DIFF_ROOM: 0.5},
+    2: {AT_CELL: 1.5, ADJ_FURN: 2.5, IN_ROW: 2.0, IN_COL: 2.0, IN_ROOM: 2.0, NOT_IN_ROOM: 1.5, SAME_ROOM: 2.0, DIAG_ADJ: 1.5, RELPOS: 1.5, DIFF_ROOM: 1.0},
+    3: {ADJ_FURN: 2.0, IN_ROW: 1.2, IN_COL: 1.2, IN_ROOM: 1.5, NOT_IN_ROOM: 1.5, SAME_ROOM: 2.0, DIAG_ADJ: 2.0, RELPOS: 2.5, DIFF_ROOM: 1.5},
+    4: {ADJ_FURN: 1.0, IN_ROOM: 0.8, NOT_IN_ROOM: 1.2, SAME_ROOM: 1.5, DIAG_ADJ: 2.0, RELPOS: 3.0, DIFF_ROOM: 2.0},
     5: {IN_ROOM: 0.4, NOT_IN_ROOM: 1.0, SAME_ROOM: 1.2, DIAG_ADJ: 2.0, RELPOS: 3.0, DIFF_ROOM: 2.5},
 }
 
-# Which clue types may appear at each tier. The outright pins (AT_CELL and, for
-# the singleton size classes, CELL_SIZE) are reserved for the tutorial tiers so
-# they cannot trivialise the harder puzzles.
+# Which clue types may appear at each tier. The outright pins (AT_CELL, and for
+# the singleton size classes CELL_SIZE) are reserved for the tutorial tiers so
+# they cannot trivialise the harder puzzles; the low tiers now lean on varied,
+# less-direct clues (line, furniture-adjacency) rather than pin spam.
 ALLOWED: dict[int, set] = {t: set(pri) for t, pri in TYPE_PRIORS.items()}
 
 
@@ -66,8 +70,9 @@ CANDIDATE_SCAN = 12  # progressing candidates compared before committing one
 
 # Trim priority during polish: drop the strongest clue kinds first so the
 # surviving set leans on weak clues, which is what forces chain reasoning.
-TRIM_RANK = {AT_CELL: 0, CELL_SIZE: 1, IN_ROOM: 2, DIAG_ADJ: 3, SAME_ROOM: 4,
-             NOT_IN_ROOM: 5, RELPOS: 6, DIFF_ROOM: 7}
+TRIM_RANK = {AT_CELL: 0, CELL_SIZE: 1, IN_ROW: 2, IN_COL: 2, ADJ_FURN: 3,
+             IN_ROOM: 4, DIAG_ADJ: 5, SAME_ROOM: 6, NOT_IN_ROOM: 7,
+             RELPOS: 8, DIFF_ROOM: 9}
 
 
 def assign_sizes(n: int, rng: random.Random) -> list[str]:
@@ -81,6 +86,42 @@ def assign_sizes(n: int, rng: random.Random) -> list[str]:
     if n >= 3:
         sizes[idx[1]] = "small"
     return sizes
+
+
+def place_obstacles(n: int, pos: list[int], rng: random.Random, tier: int) -> list[int]:
+    """Cells no cat may occupy — scattered pillars or a small connected pond.
+    Placed only on non-solution cells so the layout stays solvable; adds visual
+    and logical variety."""
+    prob = 0.3 if tier <= 2 else 0.5
+    if rng.random() > prob:
+        return []
+    occupied = set(pos)
+    free = [c for c in range(n * n) if c not in occupied]
+    if not free:
+        return []
+    rng.shuffle(free)
+    if rng.random() < 0.5:  # 1-2 scattered pillars
+        return sorted(free[: rng.randint(1, 2)])
+    freeset = set(free)  # a small connected pond
+    blob = {free[0]}
+    frontier = [free[0]]
+    target = rng.randint(2, 4)
+    while len(blob) < target and frontier:
+        cur = frontier[rng.randrange(len(frontier))]
+        r, c = divmod(cur, n)
+        neigh = [
+            rr * n + cc
+            for dr, dc in ((-1, 0), (1, 0), (0, -1), (0, 1))
+            if 0 <= (rr := r + dr) < n and 0 <= (cc := c + dc) < n
+            and (rr * n + cc) in freeset and (rr * n + cc) not in blob
+        ]
+        if neigh:
+            z = neigh[rng.randrange(len(neigh))]
+            blob.add(z)
+            frontier.append(z)
+        else:
+            frontier.remove(cur)
+    return sorted(blob)
 
 
 def _solved_within(geo: Geometry, clues: list[Clue], cap: int) -> bool:
@@ -106,6 +147,7 @@ class Puzzle:
     pos: list[int]  # solution: cell per cat
     clues: list[Clue]
     sizes: list[str]  # size class per cat (large/medium/small)
+    obstacles: list[int]  # cells no cat may occupy (pillars / pond)
     level_id: str
     seed: int
     max_tier: int
@@ -124,6 +166,7 @@ class Puzzle:
             "difficulty": self.level_id,
             "rooms": self.rooms,
             "sizes": self.sizes,
+            "obstacles": [[o // n, o % n] for o in self.obstacles],
             "clues": [cl.to_json() for cl in self.clues],
             "solution": [[p // n, p % n] for p in self.pos],
             "stats": {
@@ -158,9 +201,10 @@ def attempt_puzzle(level: Level, seed: int, max_room=None) -> Puzzle | None:
     if max_room is None:
         max_room = max(6, round(0.42 * n * n))
     rooms = generate_rooms(n, rng, k, tiny=0, max_room=max_room)
-    geo = Geometry(n, rooms)
     pos = generate_solution(n, rng)
     sizes = assign_sizes(n, rng)
+    obstacles = place_obstacles(n, pos, rng, level.tier)
+    geo = Geometry(n, rooms, obstacles)
 
     pool = enumerate_pool(geo, pos, rng, sizes)
     allowed = ALLOWED[level.tier]
@@ -270,6 +314,7 @@ def attempt_puzzle(level: Level, seed: int, max_room=None) -> Puzzle | None:
         pos=pos,
         clues=chosen,
         sizes=sizes,
+        obstacles=obstacles,
         level_id="",  # assigned at bucketing time
         seed=seed,
         max_tier=res.max_tier,

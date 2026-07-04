@@ -25,6 +25,20 @@ export function clueStatus(clue, placement, rooms, n, sizes) {
     if (pa == null) return null;
     return pa === clue.cell;
   }
+  if (clue.type === "in_row") {
+    if (pa == null) return null;
+    return Math.floor(pa / n) === clue.line;
+  }
+  if (clue.type === "in_col") {
+    if (pa == null) return null;
+    return pa % n === clue.line;
+  }
+  if (clue.type === "adj_furn") {
+    if (pa == null) return null;
+    const dr = Math.abs(Math.floor(pa / n) - Math.floor(clue.cell / n));
+    const dc = Math.abs((pa % n) - (clue.cell % n));
+    return dr + dc === 1;
+  }
   if (clue.type === "in_room" || clue.type === "not_in_room") {
     if (pa == null) return null;
     const inRoom = roomOf(rooms, pa, n) === clue.room;

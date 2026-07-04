@@ -48,9 +48,10 @@ export default function Grid({
         const rid = roomOf(puzzle.rooms, cell, n);
         const cellNotes = notes[cell] || [];
         const conflict = conflicts.has(cell);
-        const furniture = showDressing ? skin.furniture?.[cell] : null;
-        const isAnchor = showDressing && skin.roomAnchor?.[rid] === cell;
-        const isBlocked = !cat && blocked.has(cell);
+        const isObstacle = skin.obstacle?.set?.has(cell);
+        const furniture = !isObstacle && showDressing ? skin.furniture?.[cell] : null;
+        const isAnchor = !isObstacle && showDressing && skin.roomAnchor?.[rid] === cell;
+        const isBlocked = !cat && !isObstacle && blocked.has(cell);
         const cls = [
           "cell",
           b.top ? "bt" : "",
@@ -60,6 +61,7 @@ export default function Grid({
           conflict ? "conflict" : "",
           cat ? "filled" : "",
           isBlocked ? "blocked" : "",
+          isObstacle ? "obstacle" : "",
         ]
           .filter(Boolean)
           .join(" ");
@@ -80,6 +82,11 @@ export default function Grid({
               r + 1
             },${c + 1}${furniture ? " · " + furniture.name : ""}`}
           >
+            {isObstacle && (
+              <span className="obstacle-mark" title={skin.obstacle.name}>
+                {skin.obstacle.emoji}
+              </span>
+            )}
             {isAnchor && (
               <span className="room-label" aria-hidden>
                 {skin.roomNames[rid]}
@@ -125,7 +132,7 @@ export default function Grid({
               <span className="blocked-mark" aria-hidden>
                 ✕
               </span>
-            ) : selectedCat != null ? (
+            ) : !isObstacle && selectedCat != null ? (
               <span className="ghost" aria-hidden>
                 {skin.cats[selectedCat]?.emoji}
               </span>

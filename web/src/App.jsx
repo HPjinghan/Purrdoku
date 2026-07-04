@@ -85,6 +85,7 @@ export default function App() {
 
   function placeCat(cell) {
     if (won) return;
+    if (skin?.obstacle?.set?.has(cell)) return; // no cats on pillars / ponds
     setChecked(false);
     if (notesMode) {
       toggleNote(cell);

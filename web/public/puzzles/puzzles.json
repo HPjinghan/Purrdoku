@@ -1,122 +1,128 @@
 {
  "version": 1,
- "generated": "2026-07-04T19:25:23+00:00",
+ "generated": "2026-07-04T20:30:26+00:00",
  "count": 34,
  "puzzles": [
   {
    "id": "very-easy-01",
-   "seed": 20260769782127,
+   "seed": 20260770782130,
    "size": 6,
    "difficulty": "very-easy",
    "rooms": [
     [
-     0,
-     0,
-     0,
-     1,
+     3,
      4,
-     4
+     1,
+     1,
+     1,
+     1
     ],
     [
-     0,
-     0,
-     0,
-     1,
+     3,
      4,
-     4
+     1,
+     1,
+     1,
+     1
     ],
     [
-     0,
      0,
      0,
      1,
-     5,
-     5
+     1,
+     1,
+     1
     ],
     [
+     0,
+     0,
      2,
      2,
      2,
-     2,
-     3,
-     3
+     2
     ],
     [
+     0,
+     0,
      2,
      2,
      2,
-     2,
-     3,
-     3
+     2
     ],
     [
+     0,
+     0,
      2,
      2,
      2,
-     2,
-     3,
-     3
+     2
     ]
    ],
    "sizes": [
     "medium",
+    "medium",
+    "medium",
     "small",
-    "medium",
-    "medium",
-    "medium",
-    "large"
+    "large",
+    "medium"
+   ],
+   "obstacles": [
+    [
+     5,
+     4
+    ]
    ],
    "clues": [
     {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 6
+    },
+    {
      "type": "at_cell",
+     "a": 2,
+     "cell": 21
+    },
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 33
+    },
+    {
+     "type": "adj_furn",
      "a": 4,
-     "cell": 34
+     "cell": 8
     },
     {
      "type": "cell_size",
-     "cell": 13,
+     "cell": 4,
      "size": "small"
-    },
-    {
-     "type": "at_cell",
-     "a": 3,
-     "cell": 23
-    },
-    {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 2
-    },
-    {
-     "type": "at_cell",
-     "a": 5,
-     "cell": 9
     }
    ],
    "solution": [
     [
-     0,
+     5,
      2
     ],
     [
-     2,
-     1
-    ],
-    [
      4,
-     0
-    ],
-    [
-     3,
      5
     ],
     [
-     5,
+     3,
+     3
+    ],
+    [
+     0,
      4
     ],
     [
      1,
-     3
+     1
+    ],
+    [
+     2,
+     0
     ]
    ],
    "stats": {
@@ -124,126 +130,260 @@
     "max_tier": 1,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 2,
+    "steps": 3,
     "tiers": {
-     "1": 2
+     "1": 3
     }
    }
   },
   {
    "id": "very-easy-02",
-   "seed": 20260769782132,
+   "seed": 20260770782135,
    "size": 6,
    "difficulty": "very-easy",
    "rooms": [
     [
-     1,
-     1,
+     2,
+     2,
+     3,
      4,
      4,
-     4,
-     3
+     4
     ],
     [
      1,
      1,
+     1,
      4,
      4,
-     4,
-     3
+     4
     ],
     [
-     2,
-     2,
+     1,
+     1,
+     1,
      4,
      4,
-     4,
-     3
+     4
     ],
     [
-     2,
-     2,
+     1,
+     1,
+     1,
      5,
      5,
+     5
+    ],
+    [
+     0,
+     0,
+     0,
      5,
-     3
+     5,
+     5
     ],
     [
-     2,
-     2,
      0,
      0,
      0,
-     0
-    ],
-    [
-     2,
-     2,
-     0,
-     0,
-     0,
-     0
+     5,
+     5,
+     5
     ]
    ],
    "sizes": [
-    "medium",
     "small",
     "medium",
+    "large",
     "medium",
     "medium",
-    "large"
+    "medium"
    ],
+   "obstacles": [],
    "clues": [
     {
-     "type": "at_cell",
+     "type": "cell_size",
+     "cell": 32,
+     "size": "small"
+    },
+    {
+     "type": "adj_furn",
      "a": 2,
+     "cell": 21
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
      "cell": 12
     },
     {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 28
-    },
-    {
-     "type": "at_cell",
-     "a": 3,
-     "cell": 33
-    },
-    {
-     "type": "at_cell",
+     "type": "in_col",
      "a": 5,
-     "cell": 2
+     "line": 3
     },
     {
-     "type": "at_cell",
-     "a": 4,
-     "cell": 11
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 14
+    },
+    {
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 26
     }
    ],
    "solution": [
     [
-     4,
+     5,
+     2
+    ],
+    [
+     0,
+     5
+    ],
+    [
+     3,
      4
+    ],
+    [
+     4,
+     1
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     2,
+     3
+    ]
+   ],
+   "stats": {
+    "clues": 6,
+    "max_tier": 1,
+    "chain_depth": 0,
+    "chain_passes": 0,
+    "steps": 3,
+    "tiers": {
+     "1": 3
+    }
+   }
+  },
+  {
+   "id": "very-easy-03",
+   "seed": 20260770782140,
+   "size": 6,
+   "difficulty": "very-easy",
+   "rooms": [
+    [
+     0,
+     0,
+     1,
+     2,
+     2,
+     2
+    ],
+    [
+     0,
+     0,
+     1,
+     2,
+     2,
+     2
+    ],
+    [
+     0,
+     0,
+     1,
+     3,
+     3,
+     3
+    ],
+    [
+     0,
+     0,
+     1,
+     3,
+     3,
+     3
+    ],
+    [
+     4,
+     4,
+     5,
+     5,
+     5,
+     5
+    ],
+    [
+     4,
+     4,
+     5,
+     5,
+     5,
+     5
+    ]
+   ],
+   "sizes": [
+    "medium",
+    "large",
+    "medium",
+    "medium",
+    "small",
+    "medium"
+   ],
+   "obstacles": [],
+   "clues": [
+    {
+     "type": "at_cell",
+     "a": 5,
+     "cell": 28
+    },
+    {
+     "type": "at_cell",
+     "a": 4,
+     "cell": 32
+    },
+    {
+     "type": "adj_furn",
+     "a": 2,
+     "cell": 18
+    },
+    {
+     "type": "cell_size",
+     "cell": 5,
+     "size": "large"
+    },
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 9
+    }
+   ],
+   "solution": [
+    [
+     2,
+     3
+    ],
+    [
+     0,
+     5
     ],
     [
      3,
      1
     ],
     [
-     2,
+     1,
      0
     ],
     [
      5,
-     3
-    ],
-    [
-     1,
-     5
-    ],
-    [
-     0,
      2
+    ],
+    [
+     4,
+     4
     ]
    ],
    "stats": {
@@ -258,119 +398,120 @@
    }
   },
   {
-   "id": "very-easy-03",
-   "seed": 20260769782137,
+   "id": "very-easy-04",
+   "seed": 20260770782141,
    "size": 6,
    "difficulty": "very-easy",
    "rooms": [
     [
-     0,
-     0,
      1,
      1,
-     1,
-     1
-    ],
-    [
-     0,
-     0,
-     1,
-     1,
-     1,
-     1
-    ],
-    [
-     0,
-     0,
-     1,
-     1,
-     1,
-     1
-    ],
-    [
-     0,
-     0,
      2,
-     2,
-     2,
-     2
+     0,
+     0,
+     0
     ],
     [
-     3,
-     3,
-     3,
-     4,
-     4,
-     4
+     1,
+     1,
+     2,
+     0,
+     0,
+     0
     ],
     [
-     3,
-     3,
-     3,
      4,
      4,
-     4
+     4,
+     4,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     3,
+     3
     ]
    ],
    "sizes": [
     "medium",
-    "medium",
-    "medium",
     "large",
+    "medium",
     "small",
+    "medium",
     "medium"
    ],
+   "obstacles": [],
    "clues": [
     {
      "type": "at_cell",
-     "a": 0,
-     "cell": 6
-    },
-    {
-     "type": "cell_size",
-     "cell": 1,
-     "size": "large"
+     "a": 4,
+     "cell": 3
     },
     {
      "type": "at_cell",
      "a": 2,
-     "cell": 14
+     "cell": 22
     },
     {
-     "type": "at_cell",
+     "type": "in_room",
      "a": 1,
-     "cell": 34
+     "room": 2
     },
     {
-     "type": "at_cell",
-     "a": 4,
-     "cell": 23
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 11
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 26
     }
    ],
    "solution": [
     [
-     1,
-     0
-    ],
-    [
-     5,
-     4
-    ],
-    [
      2,
-     2
-    ],
-    [
-     0,
-     1
-    ],
-    [
-     3,
      5
     ],
     [
-     4,
+     1,
+     2
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     0,
      3
+    ],
+    [
+     4,
+     1
     ]
    ],
    "stats": {
@@ -378,37 +519,435 @@
     "max_tier": 1,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 1,
+    "steps": 3,
     "tiers": {
-     "1": 1
+     "1": 3
     }
    }
   },
   {
-   "id": "very-easy-04",
-   "seed": 20260769782138,
+   "id": "very-easy-05",
+   "seed": 20260770782145,
+   "size": 6,
+   "difficulty": "very-easy",
+   "rooms": [
+    [
+     1,
+     2,
+     2,
+     2,
+     3,
+     3
+    ],
+    [
+     1,
+     2,
+     2,
+     2,
+     3,
+     3
+    ],
+    [
+     1,
+     2,
+     2,
+     2,
+     4,
+     4
+    ],
+    [
+     1,
+     2,
+     2,
+     2,
+     4,
+     4
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "sizes": [
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "small",
+    "large"
+   ],
+   "obstacles": [
+    [
+     2,
+     0
+    ],
+    [
+     2,
+     1
+    ]
+   ],
+   "clues": [
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 1
+    },
+    {
+     "type": "at_cell",
+     "a": 1,
+     "cell": 26
+    },
+    {
+     "type": "in_room",
+     "a": 3,
+     "room": 1
+    },
+    {
+     "type": "at_cell",
+     "a": 5,
+     "cell": 4
+    },
+    {
+     "type": "at_cell",
+     "a": 2,
+     "cell": 15
+    }
+   ],
+   "solution": [
+    [
+     1,
+     1
+    ],
+    [
+     4,
+     2
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     0,
+     4
+    ]
+   ],
+   "stats": {
+    "clues": 5,
+    "max_tier": 1,
+    "chain_depth": 0,
+    "chain_passes": 0,
+    "steps": 2,
+    "tiers": {
+     "1": 2
+    }
+   }
+  },
+  {
+   "id": "very-easy-06",
+   "seed": 20260770782146,
+   "size": 6,
+   "difficulty": "very-easy",
+   "rooms": [
+    [
+     4,
+     4,
+     4,
+     4,
+     0,
+     0
+    ],
+    [
+     4,
+     4,
+     4,
+     4,
+     0,
+     0
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     0,
+     0
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     1,
+     1
+    ],
+    [
+     2,
+     2,
+     3,
+     3,
+     1,
+     1
+    ],
+    [
+     2,
+     2,
+     3,
+     3,
+     1,
+     1
+    ]
+   ],
+   "sizes": [
+    "large",
+    "small",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "obstacles": [],
+   "clues": [
+    {
+     "type": "at_cell",
+     "a": 4,
+     "cell": 14
+    },
+    {
+     "type": "at_cell",
+     "a": 5,
+     "cell": 11
+    },
+    {
+     "type": "at_cell",
+     "a": 1,
+     "cell": 19
+    },
+    {
+     "type": "in_room",
+     "a": 2,
+     "room": 2
+    },
+    {
+     "type": "at_cell",
+     "a": 3,
+     "cell": 33
+    }
+   ],
+   "solution": [
+    [
+     0,
+     4
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     1,
+     5
+    ]
+   ],
+   "stats": {
+    "clues": 5,
+    "max_tier": 1,
+    "chain_depth": 0,
+    "chain_passes": 0,
+    "steps": 3,
+    "tiers": {
+     "1": 3
+    }
+   }
+  },
+  {
+   "id": "very-easy-07",
+   "seed": 20260770782150,
+   "size": 6,
+   "difficulty": "very-easy",
+   "rooms": [
+    [
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     0,
+     0,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     0,
+     0,
+     1,
+     1,
+     1,
+     1
+    ]
+   ],
+   "sizes": [
+    "medium",
+    "medium",
+    "small",
+    "medium",
+    "medium",
+    "large"
+   ],
+   "obstacles": [],
+   "clues": [
+    {
+     "type": "diag_adj",
+     "a": 2,
+     "b": 5
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 27
+    },
+    {
+     "type": "in_row",
+     "a": 4,
+     "line": 5
+    },
+    {
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 13
+    },
+    {
+     "type": "cell_size",
+     "cell": 28,
+     "size": "large"
+    },
+    {
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 15
+    }
+   ],
+   "solution": [
+    [
+     0,
+     0
+    ],
+    [
+     2,
+     2
+    ],
+    [
+     3,
+     5
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     4,
+     4
+    ]
+   ],
+   "stats": {
+    "clues": 6,
+    "max_tier": 1,
+    "chain_depth": 0,
+    "chain_passes": 0,
+    "steps": 3,
+    "tiers": {
+     "1": 3
+    }
+   }
+  },
+  {
+   "id": "very-easy-08",
+   "seed": 20260770782155,
    "size": 6,
    "difficulty": "very-easy",
    "rooms": [
     [
      0,
      0,
-     3,
-     3,
-     4,
-     4
+     0,
+     0,
+     0,
+     0
     ],
     [
      0,
      0,
-     3,
-     3,
-     4,
-     4
+     0,
+     0,
+     0,
+     0
     ],
     [
-     0,
-     0,
+     1,
+     1,
      3,
      3,
      4,
@@ -417,10 +956,10 @@
     [
      1,
      1,
-     2,
-     2,
-     2,
-     2
+     3,
+     3,
+     4,
+     4
     ],
     [
      1,
@@ -447,188 +986,67 @@
     "large",
     "small"
    ],
+   "obstacles": [],
    "clues": [
     {
-     "type": "in_room",
-     "a": 5,
-     "room": 3
-    },
-    {
-     "type": "at_cell",
+     "type": "adj_furn",
      "a": 1,
-     "cell": 34
+     "cell": 24
     },
     {
-     "type": "at_cell",
-     "a": 2,
-     "cell": 20
-    },
-    {
-     "type": "at_cell",
+     "type": "in_col",
      "a": 0,
-     "cell": 5
+     "line": 5
     },
     {
      "type": "at_cell",
      "a": 4,
-     "cell": 13
-    }
-   ],
-   "solution": [
-    [
-     0,
-     5
-    ],
-    [
-     5,
-     4
-    ],
-    [
-     3,
-     2
-    ],
-    [
-     4,
-     0
-    ],
-    [
-     2,
-     1
-    ],
-    [
-     1,
-     3
-    ]
-   ],
-   "stats": {
-    "clues": 5,
-    "max_tier": 1,
-    "chain_depth": 0,
-    "chain_passes": 0,
-    "steps": 2,
-    "tiers": {
-     "1": 2
-    }
-   }
-  },
-  {
-   "id": "very-easy-05",
-   "seed": 20260769782142,
-   "size": 6,
-   "difficulty": "very-easy",
-   "rooms": [
-    [
-     4,
-     4,
-     5,
-     5,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     5,
-     5,
-     0,
-     0
-    ],
-    [
-     3,
-     3,
-     3,
-     3,
-     1,
-     1
-    ],
-    [
-     3,
-     3,
-     3,
-     3,
-     1,
-     1
-    ],
-    [
-     2,
-     2,
-     2,
-     2,
-     1,
-     1
-    ],
-    [
-     2,
-     2,
-     2,
-     2,
-     1,
-     1
-    ]
-   ],
-   "sizes": [
-    "medium",
-    "medium",
-    "small",
-    "medium",
-    "medium",
-    "large"
-   ],
-   "clues": [
-    {
-     "type": "at_cell",
-     "a": 1,
-     "cell": 35
-    },
-    {
-     "type": "at_cell",
-     "a": 4,
-     "cell": 19
-    },
-    {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 15
-    },
-    {
-     "type": "diag_adj",
-     "a": 0,
-     "b": 5
+     "cell": 4
     },
     {
      "type": "cell_size",
-     "cell": 4,
+     "cell": 19,
      "size": "small"
+    },
+    {
+     "type": "same_room",
+     "a": 0,
+     "b": 4
+    },
+    {
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 16
     }
    ],
    "solution": [
     [
-     2,
-     3
+     1,
+     5
     ],
     [
      5,
-     5
+     0
+    ],
+    [
+     4,
+     2
+    ],
+    [
+     2,
+     3
     ],
     [
      0,
      4
     ],
     [
-     4,
-     0
-    ],
-    [
      3,
      1
-    ],
-    [
-     1,
-     2
     ]
    ],
    "stats": {
-    "clues": 5,
+    "clues": 6,
     "max_tier": 1,
     "chain_depth": 0,
     "chain_passes": 0,
@@ -639,508 +1057,139 @@
    }
   },
   {
-   "id": "very-easy-06",
-   "seed": 20260769782147,
-   "size": 6,
-   "difficulty": "very-easy",
+   "id": "easy-01",
+   "seed": 20260770782136,
+   "size": 7,
+   "difficulty": "easy",
    "rooms": [
     [
-     3,
-     3,
-     3,
      0,
      0,
-     0
-    ],
-    [
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     1,
-     1,
-     2
-    ],
-    [
-     4,
-     4,
-     4,
-     1,
-     1,
-     2
-    ]
-   ],
-   "sizes": [
-    "large",
-    "medium",
-    "small",
-    "medium",
-    "medium",
-    "medium"
-   ],
-   "clues": [
-    {
-     "type": "at_cell",
-     "a": 1,
-     "cell": 15
-    },
-    {
-     "type": "cell_size",
-     "cell": 19,
-     "size": "small"
-    },
-    {
-     "type": "at_cell",
-     "a": 3,
-     "cell": 11
-    },
-    {
-     "type": "cell_size",
-     "cell": 34,
-     "size": "large"
-    },
-    {
-     "type": "at_cell",
-     "a": 5,
-     "cell": 26
-    }
-   ],
-   "solution": [
-    [
-     5,
-     4
-    ],
-    [
      2,
-     3
-    ],
-    [
-     3,
+     2,
+     2,
+     1,
      1
     ],
     [
+     0,
+     0,
+     3,
+     3,
+     3,
      1,
-     5
+     1
     ],
     [
      0,
-     0
-    ],
-    [
-     4,
-     2
-    ]
-   ],
-   "stats": {
-    "clues": 5,
-    "max_tier": 1,
-    "chain_depth": 0,
-    "chain_passes": 0,
-    "steps": 2,
-    "tiers": {
-     "1": 2
-    }
-   }
-  },
-  {
-   "id": "very-easy-07",
-   "seed": 20260769782148,
-   "size": 6,
-   "difficulty": "very-easy",
-   "rooms": [
-    [
-     1,
-     1,
-     1,
-     1,
-     2,
-     2
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     2,
-     2
-    ],
-    [
-     3,
-     3,
-     3,
-     3,
      0,
-     0
+     3,
+     3,
+     3,
+     1,
+     1
     ],
     [
-     3,
-     3,
-     3,
-     3,
      0,
-     0
+     0,
+     3,
+     3,
+     3,
+     1,
+     1
     ],
     [
-     4,
-     4,
-     4,
-     4,
      0,
-     0
+     0,
+     5,
+     6,
+     6,
+     6,
+     4
     ],
     [
-     4,
-     4,
-     4,
-     4,
      0,
-     0
+     0,
+     5,
+     6,
+     6,
+     6,
+     4
+    ],
+    [
+     0,
+     0,
+     5,
+     6,
+     6,
+     6,
+     4
     ]
    ],
    "sizes": [
     "medium",
+    "medium",
+    "medium",
+    "medium",
     "large",
-    "medium",
     "small",
-    "medium",
     "medium"
+   ],
+   "obstacles": [
+    [
+     4,
+     1
+    ],
+    [
+     5,
+     1
+    ]
    ],
    "clues": [
     {
-     "type": "at_cell",
+     "type": "adj_furn",
+     "a": 2,
+     "cell": 44
+    },
+    {
+     "type": "adj_furn",
      "a": 5,
-     "cell": 29
+     "cell": 35
+    },
+    {
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 21
     },
     {
      "type": "at_cell",
+     "a": 0,
+     "cell": 19
+    },
+    {
+     "type": "in_row",
+     "a": 4,
+     "line": 5
+    },
+    {
+     "type": "adj_furn",
      "a": 4,
      "cell": 30
     },
     {
      "type": "at_cell",
-     "a": 0,
-     "cell": 20
-    },
-    {
-     "type": "at_cell",
-     "a": 2,
-     "cell": 1
-    },
-    {
-     "type": "in_room",
-     "a": 1,
-     "room": 2
-    }
-   ],
-   "solution": [
-    [
-     3,
-     2
-    ],
-    [
-     1,
-     4
-    ],
-    [
-     0,
-     1
-    ],
-    [
-     2,
-     3
-    ],
-    [
-     5,
-     0
-    ],
-    [
-     4,
-     5
-    ]
-   ],
-   "stats": {
-    "clues": 5,
-    "max_tier": 1,
-    "chain_depth": 0,
-    "chain_passes": 0,
-    "steps": 2,
-    "tiers": {
-     "1": 2
-    }
-   }
-  },
-  {
-   "id": "very-easy-08",
-   "seed": 20260769782152,
-   "size": 6,
-   "difficulty": "very-easy",
-   "rooms": [
-    [
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     1,
-     2,
-     2
-    ],
-    [
-     4,
-     4,
-     4,
-     1,
-     2,
-     2
-    ],
-    [
-     4,
-     4,
-     4,
-     1,
-     2,
-     2
-    ]
-   ],
-   "sizes": [
-    "small",
-    "medium",
-    "medium",
-    "large",
-    "medium",
-    "medium"
-   ],
-   "clues": [
-    {
-     "type": "at_cell",
-     "a": 2,
-     "cell": 5
-    },
-    {
-     "type": "at_cell",
-     "a": 1,
-     "cell": 28
-    },
-    {
-     "type": "at_cell",
-     "a": 5,
-     "cell": 6
-    },
-    {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 13
-    },
-    {
-     "type": "at_cell",
-     "a": 3,
-     "cell": 32
-    }
-   ],
-   "solution": [
-    [
-     2,
-     1
-    ],
-    [
-     4,
-     4
-    ],
-    [
-     0,
-     5
-    ],
-    [
-     5,
-     2
-    ],
-    [
-     3,
-     3
-    ],
-    [
-     1,
-     0
-    ]
-   ],
-   "stats": {
-    "clues": 5,
-    "max_tier": 1,
-    "chain_depth": 0,
-    "chain_passes": 0,
-    "steps": 2,
-    "tiers": {
-     "1": 2
-    }
-   }
-  },
-  {
-   "id": "easy-01",
-   "seed": 20260769782159,
-   "size": 7,
-   "difficulty": "easy",
-   "rooms": [
-    [
-     3,
-     3,
-     3,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     3,
-     3,
-     3,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     1,
-     2,
-     2,
-     2
-    ],
-    [
-     5,
-     5,
-     5,
-     1,
-     2,
-     2,
-     2
-    ],
-    [
-     5,
-     5,
-     5,
-     1,
-     2,
-     2,
-     2
-    ],
-    [
-     5,
-     5,
-     5,
-     1,
-     2,
-     2,
-     2
-    ]
-   ],
-   "sizes": [
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "small",
-    "medium",
-    "large"
-   ],
-   "clues": [
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "at_cell",
      "a": 6,
-     "cell": 11
-    },
-    {
-     "type": "same_room",
-     "a": 2,
-     "b": 5
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 3,
-     "dir": "below"
-    },
-    {
-     "type": "at_cell",
-     "a": 2,
-     "cell": 23
-    },
-    {
-     "type": "at_cell",
-     "a": 3,
-     "cell": 35
-    },
-    {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 5
+     "cell": 6
     }
    ],
    "solution": [
     [
-     0,
+     2,
      5
+    ],
+    [
+     1,
+     4
     ],
     [
      6,
@@ -1148,23 +1197,19 @@
     ],
     [
      3,
-     2
-    ],
-    [
-     5,
-     0
-    ],
-    [
-     4,
-     6
-    ],
-    [
-     2,
      1
     ],
     [
-     1,
-     4
+     5,
+     2
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     0,
+     6
     ]
    ],
    "stats": {
@@ -1181,70 +1226,70 @@
   },
   {
    "id": "easy-02",
-   "seed": 20260769782195,
+   "seed": 20260770782142,
    "size": 7,
    "difficulty": "easy",
    "rooms": [
     [
-     3,
-     3,
-     3,
-     3,
      0,
      0,
-     0
-    ],
-    [
-     3,
-     3,
-     3,
-     3,
      0,
      0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     4,
      0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     4,
-     0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     4,
-     0,
-     0,
-     0
-    ],
-    [
      1,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
      1,
-     1,
-     1,
-     2,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
      2,
      2
     ],
     [
-     1,
-     1,
-     1,
-     1,
+     3,
+     3,
+     3,
+     4,
+     4,
      2,
+     2
+    ],
+    [
+     3,
+     3,
+     3,
+     4,
+     4,
+     2,
+     2
+    ],
+    [
+     3,
+     3,
+     3,
+     4,
+     4,
+     2,
+     2
+    ],
+    [
+     3,
+     3,
+     3,
+     4,
+     4,
      2,
      2
     ]
@@ -1253,211 +1298,234 @@
     "medium",
     "medium",
     "medium",
-    "medium",
-    "large",
     "small",
-    "medium"
+    "medium",
+    "medium",
+    "large"
    ],
-   "clues": [
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "at_cell",
-     "a": 5,
-     "cell": 9
-    },
-    {
-     "type": "at_cell",
-     "a": 1,
-     "cell": 46
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 6,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "at_cell",
-     "a": 6,
-     "cell": 20
-    },
-    {
-     "type": "at_cell",
-     "a": 3,
-     "cell": 22
-    },
-    {
-     "type": "in_room",
-     "a": 0,
-     "room": 1
-    }
-   ],
-   "solution": [
-    [
-     5,
-     3
-    ],
-    [
-     6,
-     4
-    ],
+   "obstacles": [
     [
      0,
      0
     ],
     [
-     3,
-     1
-    ],
+     4,
+     2
+    ]
+   ],
+   "clues": [
+    {
+     "type": "in_col",
+     "a": 3,
+     "line": 6
+    },
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 4
+    },
+    {
+     "type": "in_row",
+     "a": 5,
+     "line": 2
+    },
+    {
+     "type": "in_room",
+     "a": 0,
+     "room": 3
+    },
+    {
+     "type": "in_col",
+     "a": 6,
+     "line": 4
+    },
+    {
+     "type": "in_col",
+     "a": 1,
+     "line": 5
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 31
+    },
+    {
+     "type": "adj_furn",
+     "a": 2,
+     "cell": 42
+    },
+    {
+     "type": "in_row",
+     "a": 1,
+     "line": 3
+    }
+   ],
+   "solution": [
     [
      4,
+     0
+    ],
+    [
+     3,
      5
     ],
     [
-     1,
-     2
+     6,
+     1
+    ],
+    [
+     0,
+     6
+    ],
+    [
+     5,
+     3
     ],
     [
      2,
-     6
+     2
+    ],
+    [
+     1,
+     4
     ]
    ],
    "stats": {
-    "clues": 8,
+    "clues": 9,
     "max_tier": 2,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 4,
+    "steps": 6,
     "tiers": {
-     "1": 3,
+     "1": 5,
      "2": 1
     }
    }
   },
   {
    "id": "easy-03",
-   "seed": 20260769782207,
+   "seed": 20260770782151,
    "size": 6,
    "difficulty": "easy",
    "rooms": [
     [
-     2,
-     2,
-     2,
-     2,
      0,
-     0
-    ],
-    [
-     2,
-     2,
-     2,
-     2,
      0,
-     0
-    ],
-    [
-     2,
-     2,
-     2,
-     2,
+     1,
+     1,
      1,
      1
     ],
     [
-     3,
-     4,
-     4,
-     5,
+     0,
+     0,
+     1,
+     1,
      1,
      1
     ],
     [
-     3,
-     4,
-     4,
-     5,
+     0,
+     0,
+     1,
+     1,
      1,
      1
     ],
     [
-     3,
-     4,
-     4,
-     5,
-     1,
-     1
+     0,
+     0,
+     2,
+     2,
+     2,
+     3
+    ],
+    [
+     0,
+     0,
+     2,
+     2,
+     2,
+     3
+    ],
+    [
+     0,
+     0,
+     2,
+     2,
+     2,
+     3
     ]
    ],
    "sizes": [
-    "small",
     "medium",
+    "small",
     "large",
     "medium",
     "medium",
     "medium"
    ],
+   "obstacles": [
+    [
+     1,
+     2
+    ],
+    [
+     1,
+     3
+    ]
+   ],
    "clues": [
     {
      "type": "at_cell",
-     "a": 4,
-     "cell": 24
-    },
-    {
-     "type": "at_cell",
-     "a": 5,
-     "cell": 16
-    },
-    {
-     "type": "diag_adj",
      "a": 0,
-     "b": 5
+     "cell": 18
     },
     {
      "type": "at_cell",
-     "a": 3,
+     "a": 1,
+     "cell": 17
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
      "cell": 7
     },
     {
-     "type": "same_room",
+     "type": "at_cell",
      "a": 2,
-     "b": 5
+     "cell": 26
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 3,
+     "dir": "above"
     }
    ],
    "solution": [
     [
      3,
-     3
-    ],
-    [
-     0,
-     2
-    ],
-    [
-     5,
-     5
-    ],
-    [
-     1,
-     1
-    ],
-    [
-     4,
      0
     ],
     [
      2,
+     5
+    ],
+    [
+     4,
+     2
+    ],
+    [
+     5,
+     3
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     1,
      4
     ]
    ],
@@ -1475,60 +1543,42 @@
   },
   {
    "id": "easy-04",
-   "seed": 20260769782221,
+   "seed": 20260770782158,
    "size": 7,
    "difficulty": "easy",
    "rooms": [
     [
-     4,
-     4,
-     4,
-     4,
-     4,
-     5,
-     5
-    ],
-    [
-     4,
-     4,
-     4,
-     4,
-     4,
-     5,
-     5
-    ],
-    [
-     4,
-     4,
-     4,
-     4,
-     4,
-     5,
-     5
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
      2,
      2,
-     3
+     2,
+     1,
+     1,
+     1,
+     1
     ],
     [
-     0,
-     0,
-     0,
-     0,
-     2,
-     2,
-     3
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1
     ],
     [
-     0,
-     0,
-     0,
-     0,
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     3,
+     3,
+     3,
+     1,
      1,
      1,
      1
@@ -1538,97 +1588,127 @@
      0,
      0,
      0,
-     1,
-     1,
-     1
+     4,
+     4,
+     5
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     4,
+     4,
+     5
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     4,
+     4,
+     5
     ]
    ],
    "sizes": [
-    "medium",
+    "large",
     "medium",
     "small",
     "medium",
     "medium",
     "medium",
-    "large"
+    "medium"
+   ],
+   "obstacles": [
+    [
+     3,
+     3
+    ],
+    [
+     5,
+     1
+    ]
    ],
    "clues": [
     {
-     "type": "in_room",
-     "a": 5,
-     "room": 4
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 6,
-     "dir": "above"
-    },
-    {
-     "type": "at_cell",
-     "a": 4,
-     "cell": 29
-    },
-    {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 13
-    },
-    {
-     "type": "relpos",
+     "type": "adj_furn",
      "a": 1,
-     "b": 4,
-     "dir": "left"
+     "cell": 41
     },
     {
-     "type": "relpos",
-     "a": 0,
-     "b": 5,
-     "dir": "below"
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 27
     },
     {
-     "type": "at_cell",
-     "a": 3,
-     "cell": 23
+     "type": "in_row",
+     "a": 5,
+     "line": 3
     },
     {
-     "type": "at_cell",
+     "type": "adj_furn",
      "a": 2,
-     "cell": 45
+     "cell": 0
+    },
+    {
+     "type": "not_in_room",
+     "a": 3,
+     "room": 0
+    },
+    {
+     "type": "in_col",
+     "a": 0,
+     "line": 0
+    },
+    {
+     "type": "in_row",
+     "a": 4,
+     "line": 1
+    },
+    {
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 31
+    },
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 44
     }
    ],
    "solution": [
-    [
-     1,
-     6
-    ],
     [
      2,
      0
     ],
     [
      6,
+     6
+    ],
+    [
+     0,
+     1
+    ],
+    [
+     4,
+     4
+    ],
+    [
+     1,
      3
     ],
     [
      3,
-     2
-    ],
-    [
-     4,
-     1
-    ],
-    [
-     0,
-     4
+     5
     ],
     [
      5,
-     5
+     2
     ]
    ],
    "stats": {
-    "clues": 8,
+    "clues": 9,
     "max_tier": 2,
     "chain_depth": 0,
     "chain_passes": 0,
@@ -1641,281 +1721,144 @@
   },
   {
    "id": "easy-05",
-   "seed": 20260769782232,
+   "seed": 20260770782178,
    "size": 7,
    "difficulty": "easy",
    "rooms": [
     [
+     0,
+     0,
      1,
      1,
-     2,
-     2,
-     2,
-     2,
-     2
-    ],
-    [
      1,
-     1,
-     2,
-     2,
-     2,
-     2,
-     2
-    ],
-    [
-     1,
-     1,
-     2,
-     2,
-     2,
-     2,
-     2
+     5,
+     5
     ],
     [
      0,
      0,
-     0,
-     4,
-     4,
-     4,
-     3
+     1,
+     1,
+     1,
+     5,
+     5
     ],
     [
      0,
      0,
-     0,
-     4,
-     4,
-     4,
-     3
+     1,
+     1,
+     1,
+     5,
+     5
     ],
-    [
-     0,
-     0,
-     0,
-     5,
-     5,
-     5,
-     3
-    ],
-    [
-     0,
-     0,
-     0,
-     5,
-     5,
-     5,
-     3
-    ]
-   ],
-   "sizes": [
-    "large",
-    "medium",
-    "medium",
-    "medium",
-    "small",
-    "medium",
-    "medium"
-   ],
-   "clues": [
-    {
-     "type": "same_room",
-     "a": 0,
-     "b": 3
-    },
-    {
-     "type": "in_room",
-     "a": 6,
-     "room": 1
-    },
-    {
-     "type": "at_cell",
-     "a": 4,
-     "cell": 20
-    },
-    {
-     "type": "at_cell",
-     "a": 5,
-     "cell": 40
-    },
-    {
-     "type": "at_cell",
-     "a": 1,
-     "cell": 10
-    },
-    {
-     "type": "not_in_room",
-     "a": 2,
-     "room": 5
-    },
-    {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 21
-    }
-   ],
-   "solution": [
     [
      3,
-     0
-    ],
-    [
-     1,
-     3
-    ],
-    [
-     4,
-     4
-    ],
-    [
-     6,
-     2
-    ],
-    [
+     3,
      2,
+     2,
+     2,
+     5,
+     5
+    ],
+    [
+     3,
+     3,
+     2,
+     2,
+     2,
+     6,
      6
     ],
     [
-     5,
-     5
-    ],
-    [
-     0,
-     1
-    ]
-   ],
-   "stats": {
-    "clues": 7,
-    "max_tier": 2,
-    "chain_depth": 0,
-    "chain_passes": 0,
-    "steps": 4,
-    "tiers": {
-     "1": 3,
-     "2": 1
-    }
-   }
-  },
-  {
-   "id": "easy-06",
-   "seed": 20260769782241,
-   "size": 6,
-   "difficulty": "easy",
-   "rooms": [
-    [
+     4,
+     4,
      2,
      2,
-     0,
-     0,
-     0,
-     0
+     2,
+     6,
+     6
     ],
     [
+     4,
+     4,
      2,
      2,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     3,
-     3,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     3,
-     3,
-     4,
-     4,
-     5,
-     5
-    ],
-    [
-     1,
-     1,
-     4,
-     4,
-     5,
-     5
-    ],
-    [
-     1,
-     1,
-     4,
-     4,
-     5,
-     5
+     2,
+     6,
+     6
     ]
    ],
    "sizes": [
     "medium",
-    "small",
+    "medium",
     "medium",
     "medium",
     "large",
+    "small",
     "medium"
    ],
+   "obstacles": [],
    "clues": [
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 39
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 31
+    },
     {
      "type": "at_cell",
      "a": 0,
-     "cell": 13
+     "cell": 16
     },
     {
-     "type": "at_cell",
+     "type": "adj_furn",
      "a": 3,
-     "cell": 30
-    },
-    {
-     "type": "diff_room",
-     "a": 2,
-     "b": 5
-    },
-    {
-     "type": "in_room",
-     "a": 4,
-     "room": 0
-    },
-    {
-     "type": "at_cell",
-     "a": 5,
-     "cell": 23
+     "cell": 46
     },
     {
      "type": "at_cell",
      "a": 1,
-     "cell": 9
+     "cell": 36
+    },
+    {
+     "type": "adj_furn",
+     "a": 2,
+     "cell": 20
     }
    ],
    "solution": [
     [
      2,
-     1
-    ],
-    [
-     1,
-     3
-    ],
-    [
-     4,
      2
     ],
     [
      5,
-     0
+     1
     ],
     [
-     0,
-     4
+     1,
+     6
+    ],
+    [
+     6,
+     5
     ],
     [
      3,
-     5
+     3
+    ],
+    [
+     0,
+     0
+    ],
+    [
+     4,
+     4
     ]
    ],
    "stats": {
@@ -1923,22 +1866,22 @@
     "max_tier": 2,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 4,
+    "steps": 3,
     "tiers": {
-     "1": 3,
+     "1": 2,
      "2": 1
     }
    }
   },
   {
-   "id": "easy-07",
-   "seed": 20260769782260,
+   "id": "easy-06",
+   "seed": 20260770782190,
    "size": 7,
    "difficulty": "easy",
    "rooms": [
     [
-     0,
-     0,
+     3,
+     3,
      0,
      0,
      0,
@@ -1946,8 +1889,17 @@
      0
     ],
     [
+     3,
+     3,
      0,
      0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     4,
      0,
      0,
      0,
@@ -1958,123 +1910,114 @@
      1,
      1,
      1,
-     4,
-     4,
-     4,
-     4
+     1,
+     2,
+     2,
+     2
     ],
     [
      1,
      1,
      1,
-     5,
-     5,
-     5,
-     5
-    ],
-    [
+     1,
      2,
      2,
+     2
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
      2,
-     5,
-     5,
-     5,
-     5
+     2,
+     2
     ],
     [
-     3,
-     3,
-     3,
-     5,
-     5,
-     5,
-     5
-    ],
-    [
-     3,
-     3,
-     3,
-     6,
-     6,
-     6,
-     6
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2
     ]
    ],
    "sizes": [
-    "medium",
-    "medium",
     "large",
     "medium",
-    "small",
     "medium",
-    "medium"
+    "medium",
+    "medium",
+    "medium",
+    "small"
    ],
+   "obstacles": [],
    "clues": [
     {
-     "type": "at_cell",
-     "a": 3,
-     "cell": 20
-    },
-    {
-     "type": "not_in_room",
-     "a": 1,
-     "room": 0
-    },
-    {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 25
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 2,
-     "dir": "left"
-    },
-    {
-     "type": "at_cell",
-     "a": 6,
-     "cell": 8
-    },
-    {
-     "type": "at_cell",
-     "a": 5,
-     "cell": 30
-    },
-    {
      "type": "same_room",
+     "a": 4,
+     "b": 5
+    },
+    {
+     "type": "adj_furn",
      "a": 0,
-     "b": 4
+     "cell": 34
+    },
+    {
+     "type": "at_cell",
+     "a": 2,
+     "cell": 19
+    },
+    {
+     "type": "in_col",
+     "a": 4,
+     "line": 2
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 43
+    },
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 33
+    },
+    {
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 14
     }
    ],
    "solution": [
     [
      3,
-     4
-    ],
-    [
-     6,
-     0
-    ],
-    [
-     0,
-     5
-    ],
-    [
-     2,
      6
     ],
     [
-     5,
+     0,
      3
     ],
     [
-     4,
-     2
+     2,
+     5
     ],
     [
      1,
+     0
+    ],
+    [
+     6,
+     2
+    ],
+    [
+     5,
      1
+    ],
+    [
+     4,
+     4
     ]
    ],
    "stats": {
@@ -2082,17 +2025,17 @@
     "max_tier": 2,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 4,
+    "steps": 7,
     "tiers": {
-     "1": 3,
-     "2": 1
+     "1": 5,
+     "2": 2
     }
    }
   },
   {
-   "id": "easy-08",
-   "seed": 20260769782276,
-   "size": 7,
+   "id": "easy-07",
+   "seed": 20260770782200,
+   "size": 6,
    "difficulty": "easy",
    "rooms": [
     [
@@ -2101,7 +2044,6 @@
      0,
      0,
      0,
-     0,
      0
     ],
     [
@@ -2110,124 +2052,260 @@
      0,
      0,
      0,
-     0,
      0
     ],
     [
+     3,
+     3,
+     4,
+     4,
      1,
+     1
+    ],
+    [
+     3,
+     3,
+     4,
+     4,
      1,
-     2,
-     2,
-     2,
+     1
+    ],
+    [
+     3,
+     3,
+     4,
+     4,
      2,
      2
     ],
     [
-     1,
-     1,
-     2,
-     2,
-     2,
+     3,
+     3,
+     4,
+     4,
      2,
      2
-    ],
-    [
-     1,
-     1,
-     3,
-     3,
-     3,
-     4,
-     4
-    ],
-    [
-     1,
-     1,
-     3,
-     3,
-     3,
-     4,
-     4
-    ],
-    [
-     1,
-     1,
-     3,
-     3,
-     3,
-     4,
-     4
     ]
    ],
    "sizes": [
     "medium",
     "large",
+    "medium",
     "small",
-    "medium",
-    "medium",
     "medium",
     "medium"
    ],
+   "obstacles": [],
    "clues": [
     {
-     "type": "diag_adj",
-     "a": 1,
-     "b": 4
-    },
-    {
-     "type": "at_cell",
-     "a": 0,
-     "cell": 34
-    },
-    {
-     "type": "at_cell",
-     "a": 1,
-     "cell": 10
-    },
-    {
-     "type": "in_room",
-     "a": 6,
-     "room": 2
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 31
     },
     {
      "type": "at_cell",
      "a": 3,
-     "cell": 23
+     "cell": 7
     },
     {
-     "type": "at_cell",
-     "a": 2,
-     "cell": 42
+     "type": "same_room",
+     "a": 0,
+     "b": 5
+    },
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 28
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 29
+    },
+    {
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 5
     }
    ],
    "solution": [
     [
      4,
-     6
-    ],
-    [
-     1,
      3
-    ],
-    [
-     6,
-     0
-    ],
-    [
-     3,
-     2
     ],
     [
      0,
      4
     ],
     [
-     5,
+     2,
+     0
+    ],
+    [
+     1,
      1
     ],
     [
-     2,
+     3,
      5
+    ],
+    [
+     5,
+     2
+    ]
+   ],
+   "stats": {
+    "clues": 6,
+    "max_tier": 2,
+    "chain_depth": 0,
+    "chain_passes": 0,
+    "steps": 7,
+    "tiers": {
+     "1": 6,
+     "2": 1
+    }
+   }
+  },
+  {
+   "id": "easy-08",
+   "seed": 20260770782202,
+   "size": 7,
+   "difficulty": "easy",
+   "rooms": [
+    [
+     4,
+     4,
+     5,
+     5,
+     5,
+     1,
+     1
+    ],
+    [
+     4,
+     4,
+     5,
+     5,
+     5,
+     1,
+     1
+    ],
+    [
+     4,
+     4,
+     5,
+     5,
+     5,
+     2,
+     2
+    ],
+    [
+     4,
+     4,
+     5,
+     5,
+     5,
+     2,
+     2
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     3,
+     2,
+     2
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     3,
+     0,
+     0
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     3,
+     0,
+     0
+    ]
+   ],
+   "sizes": [
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "small",
+    "large",
+    "medium"
+   ],
+   "obstacles": [],
+   "clues": [
+    {
+     "type": "in_room",
+     "a": 2,
+     "room": 1
+    },
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 26
+    },
+    {
+     "type": "at_cell",
+     "a": 3,
+     "cell": 29
+    },
+    {
+     "type": "at_cell",
+     "a": 4,
+     "cell": 37
+    },
+    {
+     "type": "at_cell",
+     "a": 0,
+     "cell": 0
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 11
+    }
+   ],
+   "solution": [
+    [
+     0,
+     0
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     4,
+     1
+    ],
+    [
+     5,
+     2
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     3,
+     6
     ]
    ],
    "stats": {
@@ -2237,93 +2315,93 @@
     "chain_passes": 0,
     "steps": 5,
     "tiers": {
-     "1": 4,
-     "2": 1
+     "1": 2,
+     "2": 3
     }
    }
   },
   {
    "id": "medium-01",
-   "seed": 20260769782129,
+   "seed": 20260770782132,
    "size": 8,
    "difficulty": "medium",
    "rooms": [
     [
+     0,
+     0,
+     0,
+     0,
      1,
      1,
      1,
-     5,
-     6,
-     6,
-     6,
-     6
-    ],
-    [
-     1,
-     1,
-     1,
-     5,
-     6,
-     6,
-     6,
-     6
-    ],
-    [
-     1,
-     1,
-     1,
-     5,
-     6,
-     6,
-     6,
-     6
-    ],
-    [
-     1,
-     1,
-     1,
-     5,
-     6,
-     6,
-     6,
-     6
-    ],
-    [
-     1,
-     1,
-     1,
-     5,
-     6,
-     6,
-     6,
-     6
+     1
     ],
     [
      0,
      0,
-     2,
-     2,
+     0,
+     0,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     5,
+     5,
+     6,
+     6,
      3,
+     3,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     6,
+     6,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     6,
+     6,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     2,
+     2,
+     2,
+     2,
+     4,
      4,
      4,
      4
     ],
     [
-     0,
-     0,
      2,
      2,
-     3,
+     2,
+     2,
      4,
-     4,
-     4
-    ],
-    [
-     0,
-     0,
-     2,
-     2,
-     3,
      4,
      4,
      4
@@ -2332,458 +2410,575 @@
    "sizes": [
     "medium",
     "medium",
-    "large",
-    "medium",
-    "medium",
     "medium",
     "small",
-    "medium"
+    "medium",
+    "medium",
+    "medium",
+    "large"
+   ],
+   "obstacles": [
+    [
+     3,
+     2
+    ]
    ],
    "clues": [
     {
-     "type": "relpos",
-     "a": 4,
-     "b": 6,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 5,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
+     "type": "adj_furn",
      "a": 2,
+     "cell": 42
+    },
+    {
+     "type": "relpos",
+     "a": 6,
      "b": 7,
      "dir": "left"
     },
     {
      "type": "relpos",
-     "a": 1,
-     "b": 5,
+     "a": 3,
+     "b": 6,
      "dir": "below"
     },
     {
-     "type": "in_room",
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 53
+    },
+    {
+     "type": "in_row",
+     "a": 0,
+     "line": 0
+    },
+    {
+     "type": "adj_furn",
      "a": 1,
-     "room": 2
+     "cell": 6
     },
     {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "below"
+     "type": "adj_furn",
+     "a": 7,
+     "cell": 37
     },
     {
-     "type": "relpos",
+     "type": "in_col",
      "a": 4,
-     "b": 5,
-     "dir": "right"
+     "line": 0
     },
     {
-     "type": "same_room",
-     "a": 0,
-     "b": 7
+     "type": "in_row",
+     "a": 5,
+     "line": 3
     },
     {
      "type": "relpos",
-     "a": 4,
+     "a": 5,
      "b": 6,
      "dir": "left"
     },
     {
-     "type": "same_room",
-     "a": 4,
-     "b": 6
-    },
-    {
-     "type": "relpos",
+     "type": "adj_furn",
      "a": 3,
-     "b": 4,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 2,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 5,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 4,
-     "dir": "above"
+     "cell": 46
     }
    ],
    "solution": [
     [
+     0,
+     7
+    ],
+    [
      1,
-     2
-    ],
-    [
-     7,
-     3
-    ],
-    [
-     2,
-     0
-    ],
-    [
-     5,
-     4
-    ],
-    [
-     3,
      6
     ],
     [
      6,
+     2
+    ],
+    [
+     5,
      5
     ],
     [
-     4,
-     7
+     7,
+     0
     ],
     [
-     0,
+     3,
      1
+    ],
+    [
+     2,
+     3
+    ],
+    [
+     4,
+     4
     ]
    ],
    "stats": {
-    "clues": 16,
+    "clues": 11,
     "max_tier": 3,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 15,
+    "steps": 6,
     "tiers": {
-     "1": 8,
-     "2": 4,
-     "3": 3
+     "1": 5,
+     "3": 1
     }
    }
   },
   {
    "id": "medium-02",
-   "seed": 20260769782130,
+   "seed": 20260770782133,
    "size": 8,
    "difficulty": "medium",
    "rooms": [
     [
-     4,
-     4,
-     4,
-     2,
-     2,
-     2,
-     2,
-     2
-    ],
-    [
-     4,
-     4,
-     4,
-     2,
-     2,
-     2,
-     2,
-     2
-    ],
-    [
-     5,
-     5,
-     5,
-     3,
-     3,
-     3,
-     3,
-     3
-    ],
-    [
-     5,
-     5,
-     5,
-     3,
-     3,
-     3,
-     3,
-     3
-    ],
-    [
+     1,
+     1,
      6,
      6,
      6,
-     3,
-     3,
-     3,
-     3,
-     3
-    ],
-    [
      6,
-     6,
-     6,
-     3,
-     3,
-     3,
-     3,
-     3
-    ],
-    [
      0,
-     0,
-     1,
-     1,
-     1,
-     1,
-     1,
-     1
+     0
     ],
     [
+     1,
+     1,
+     6,
+     6,
+     6,
+     6,
      0,
+     0
+    ],
+    [
+     1,
+     1,
+     6,
+     6,
+     6,
+     6,
      0,
+     0
+    ],
+    [
      1,
      1,
+     7,
+     7,
+     7,
+     7,
+     4,
+     4
+    ],
+    [
      1,
      1,
-     1,
-     1
+     7,
+     7,
+     7,
+     7,
+     4,
+     4
+    ],
+    [
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     4,
+     4
+    ],
+    [
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     5,
+     5
+    ],
+    [
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     5,
+     5
     ]
    ],
    "sizes": [
-    "medium",
-    "medium",
     "small",
+    "large",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "obstacles": [],
+   "clues": [
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 3,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 4,
+     "dir": "right"
+    },
+    {
+     "type": "adj_furn",
+     "a": 7,
+     "cell": 7
+    },
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 16
+    },
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 21
+    },
+    {
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 54
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 5,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 0,
+     "b": 5,
+     "dir": "right"
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 2
+    }
+   ],
+   "solution": [
+    [
+     2,
+     1
+    ],
+    [
+     6,
+     4
+    ],
+    [
+     4,
+     2
+    ],
+    [
+     5,
+     6
+    ],
+    [
+     0,
+     3
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     3,
+     5
+    ],
+    [
+     1,
+     7
+    ]
+   ],
+   "stats": {
+    "clues": 9,
+    "max_tier": 3,
+    "chain_depth": 0,
+    "chain_passes": 0,
+    "steps": 7,
+    "tiers": {
+     "1": 6,
+     "3": 1
+    }
+   }
+  },
+  {
+   "id": "medium-03",
+   "seed": 20260770782137,
+   "size": 7,
+   "difficulty": "medium",
+   "rooms": [
+    [
+     2,
+     2,
+     2,
+     2,
+     4,
+     4,
+     4
+    ],
+    [
+     2,
+     2,
+     2,
+     2,
+     4,
+     4,
+     4
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     4,
+     4,
+     4
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     5,
+     5,
+     5
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     5,
+     5,
+     5
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     0,
+     0,
+     0
+    ]
+   ],
+   "sizes": [
+    "small",
+    "medium",
     "medium",
     "medium",
     "medium",
     "medium",
     "large"
    ],
-   "clues": [
-    {
-     "type": "in_room",
-     "a": 0,
-     "room": 6
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 3,
-     "dir": "left"
-    },
-    {
-     "type": "in_room",
-     "a": 2,
-     "room": 2
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 5,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 3,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 6,
-     "dir": "left"
-    },
-    {
-     "type": "same_room",
-     "a": 1,
-     "b": 7
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 6,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "right"
-    }
-   ],
-   "solution": [
+   "obstacles": [
     [
-     4,
-     0
+     5,
+     3
+    ],
+    [
+     5,
+     4
+    ],
+    [
+     6,
+     4
     ],
     [
      6,
      5
+    ]
+   ],
+   "clues": [
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 14
+    },
+    {
+     "type": "diag_adj",
+     "a": 0,
+     "b": 2
+    },
+    {
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 5
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 19
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 3,
+     "dir": "left"
+    },
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 1
+    }
+   ],
+   "solution": [
+    [
+     3,
+     0
     ],
     [
      1,
-     4
+     5
     ],
     [
-     5,
+     4,
      1
     ],
     [
-     2,
-     7
-    ],
-    [
-     3,
-     3
-    ],
-    [
-     0,
+     5,
      6
     ],
     [
-     7,
+     6,
+     3
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     0,
      2
     ]
    ],
    "stats": {
-    "clues": 13,
+    "clues": 6,
     "max_tier": 3,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 9,
+    "steps": 8,
     "tiers": {
      "1": 4,
-     "2": 2,
-     "3": 3
+     "2": 3,
+     "3": 1
     }
    }
   },
   {
-   "id": "medium-03",
-   "seed": 20260769782134,
+   "id": "medium-04",
+   "seed": 20260770782147,
    "size": 8,
    "difficulty": "medium",
    "rooms": [
     [
-     4,
-     4,
-     4,
-     4,
-     5,
+     0,
+     0,
+     0,
      6,
      6,
-     7
-    ],
-    [
-     4,
-     4,
-     4,
-     4,
-     5,
-     6,
-     6,
-     7
-    ],
-    [
-     4,
-     4,
-     4,
-     4,
-     5,
-     6,
-     6,
+     7,
+     7,
      7
     ],
     [
      0,
      0,
-     1,
-     1,
-     1,
-     2,
-     2,
-     2
+     0,
+     6,
+     6,
+     7,
+     7,
+     7
     ],
     [
      0,
      0,
-     1,
-     1,
-     1,
-     2,
-     2,
-     2
+     0,
+     6,
+     6,
+     7,
+     7,
+     7
     ],
     [
      0,
      0,
+     0,
      1,
      1,
-     1,
-     2,
-     2,
-     2
+     4,
+     4,
+     5
     ],
     [
      0,
      0,
+     0,
      1,
      1,
-     1,
+     4,
+     4,
+     5
+    ],
+    [
+     2,
+     2,
+     2,
+     2,
+     3,
      3,
      3,
      3
     ],
     [
-     0,
-     0,
-     1,
-     1,
-     1,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     2,
+     2,
+     2,
+     2,
+     3,
      3,
      3,
      3
@@ -2794,53 +2989,56 @@
     "medium",
     "large",
     "medium",
+    "medium",
+    "medium",
     "small",
-    "medium",
-    "medium",
     "medium"
+   ],
+   "obstacles": [
+    [
+     2,
+     1
+    ],
+    [
+     3,
+     1
+    ]
    ],
    "clues": [
     {
-     "type": "relpos",
-     "a": 0,
-     "b": 3,
-     "dir": "above"
+     "type": "in_col",
+     "a": 7,
+     "line": 4
     },
     {
-     "type": "relpos",
-     "a": 1,
-     "b": 3,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 6,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 6,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
+     "type": "in_col",
      "a": 2,
-     "b": 3,
-     "dir": "left"
+     "line": 5
+    },
+    {
+     "type": "in_room",
+     "a": 6,
+     "room": 7
+    },
+    {
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 24
+    },
+    {
+     "type": "in_col",
+     "a": 4,
+     "line": 6
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 48
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 39
     },
     {
      "type": "in_room",
@@ -2848,895 +3046,580 @@
      "room": 1
     },
     {
-     "type": "relpos",
-     "a": 5,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 7,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 6,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
+     "type": "adj_furn",
      "a": 0,
-     "b": 5,
-     "dir": "right"
+     "cell": 1
     },
     {
      "type": "relpos",
      "a": 1,
-     "b": 4,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 3,
-     "dir": "right"
-    },
-    {
-     "type": "in_room",
-     "a": 5,
-     "room": 1
-    }
-   ],
-   "solution": [
-    [
-     0,
-     3
-    ],
-    [
-     2,
-     5
-    ],
-    [
-     3,
-     0
-    ],
-    [
-     1,
-     1
-    ],
-    [
-     7,
-     6
-    ],
-    [
-     5,
-     2
-    ],
-    [
-     4,
-     7
-    ],
-    [
-     6,
-     4
-    ]
-   ],
-   "stats": {
-    "clues": 15,
-    "max_tier": 3,
-    "chain_depth": 0,
-    "chain_passes": 0,
-    "steps": 14,
-    "tiers": {
-     "1": 7,
-     "2": 4,
-     "3": 3
-    }
-   }
-  },
-  {
-   "id": "medium-04",
-   "seed": 20260769782139,
-   "size": 8,
-   "difficulty": "medium",
-   "rooms": [
-    [
-     2,
-     2,
-     3,
-     3,
-     3,
-     5,
-     5,
-     5
-    ],
-    [
-     2,
-     2,
-     3,
-     3,
-     3,
-     6,
-     6,
-     6
-    ],
-    [
-     2,
-     2,
-     3,
-     3,
-     3,
-     6,
-     6,
-     6
-    ],
-    [
-     2,
-     2,
-     4,
-     4,
-     4,
-     7,
-     7,
-     7
-    ],
-    [
-     2,
-     2,
-     4,
-     4,
-     4,
-     7,
-     7,
-     7
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     1,
-     1,
-     1,
-     1
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     1,
-     1,
-     1,
-     1
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     1,
-     1,
-     1,
-     1
-    ]
-   ],
-   "sizes": [
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "small",
-    "medium",
-    "large",
-    "medium"
-   ],
-   "clues": [
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 6,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 3,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 6,
-     "dir": "left"
-    },
-    {
-     "type": "in_room",
-     "a": 1,
-     "room": 4
-    },
-    {
-     "type": "in_room",
-     "a": 0,
-     "room": 0
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 4,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 7,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 4,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 1,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 6,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "diag_adj",
-     "a": 4,
-     "b": 6
-    },
-    {
-     "type": "relpos",
-     "a": 0,
      "b": 2,
-     "dir": "below"
+     "dir": "above"
     }
    ],
    "solution": [
     [
-     7,
-     3
-    ],
-    [
-     4,
+     0,
      2
     ],
     [
-     6,
-     7
-    ],
-    [
      5,
-     4
+     3
     ],
     [
-     2,
+     7,
      5
     ],
     [
-     0,
-     1
+     2,
+     0
     ],
     [
-     3,
+     4,
      6
     ],
     [
+     6,
+     1
+    ],
+    [
      1,
-     0
+     7
+    ],
+    [
+     3,
+     4
     ]
    ],
    "stats": {
-    "clues": 15,
+    "clues": 10,
     "max_tier": 3,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 14,
+    "steps": 7,
     "tiers": {
-     "1": 7,
-     "2": 4,
-     "3": 3
+     "1": 5,
+     "2": 1,
+     "3": 1
     }
    }
   },
   {
    "id": "medium-05",
-   "seed": 20260769782144,
+   "seed": 20260770782148,
    "size": 8,
    "difficulty": "medium",
    "rooms": [
     [
-     5,
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     6
-    ],
-    [
-     5,
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     6
-    ],
-    [
-     5,
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     6
-    ],
-    [
-     5,
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     6
-    ],
-    [
-     3,
-     3,
-     3,
-     3,
-     4,
-     1,
-     1,
-     1
-    ],
-    [
-     3,
-     3,
-     3,
-     3,
-     4,
-     1,
-     1,
-     1
-    ],
-    [
-     3,
-     3,
-     3,
-     3,
-     4,
      2,
      2,
-     2
-    ],
-    [
-     3,
-     3,
-     3,
-     3,
-     4,
+     2,
+     2,
+     0,
      0,
      0,
      0
+    ],
+    [
+     2,
+     2,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     5,
+     5,
+     5,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     4,
+     5,
+     5,
+     5,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     1,
+     1,
+     1,
+     1
     ]
    ],
    "sizes": [
+    "medium",
+    "medium",
+    "medium",
+    "medium",
     "small",
+    "medium",
     "large",
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "medium",
     "medium"
    ],
+   "obstacles": [],
    "clues": [
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 6,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 7,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 3,
-     "dir": "above"
-    },
     {
      "type": "relpos",
      "a": 2,
      "b": 5,
-     "dir": "below"
-    },
-    {
-     "type": "diag_adj",
-     "a": 0,
-     "b": 3
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 4,
      "dir": "right"
     },
     {
-     "type": "in_room",
-     "a": 3,
-     "room": 4
+     "type": "relpos",
+     "a": 2,
+     "b": 4,
+     "dir": "above"
     },
     {
      "type": "relpos",
      "a": 5,
-     "b": 7,
-     "dir": "left"
+     "b": 6,
+     "dir": "above"
+    },
+    {
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 27
     },
     {
      "type": "relpos",
      "a": 1,
-     "b": 6,
-     "dir": "left"
+     "b": 7,
+     "dir": "right"
     },
     {
-     "type": "relpos",
-     "a": 2,
-     "b": 4,
-     "dir": "left"
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 37
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 9
     },
     {
      "type": "relpos",
      "a": 0,
-     "b": 4,
-     "dir": "below"
+     "b": 5,
+     "dir": "left"
+    },
+    {
+     "type": "same_room",
+     "a": 1,
+     "b": 7
     },
     {
      "type": "relpos",
-     "a": 3,
-     "b": 5,
-     "dir": "above"
+     "a": 1,
+     "b": 7,
+     "dir": "below"
+    },
+    {
+     "type": "diag_adj",
+     "a": 1,
+     "b": 3
     }
    ],
    "solution": [
     [
-     4,
+     5,
      5
+    ],
+    [
+     3,
+     2
+    ],
+    [
+     0,
+     7
+    ],
+    [
+     4,
+     3
     ],
     [
      1,
      0
     ],
     [
-     7,
-     2
-    ],
-    [
-     5,
-     4
-    ],
-    [
-     3,
-     3
-    ],
-    [
      6,
      6
     ],
     [
-     0,
-     1
+     7,
+     4
     ],
     [
      2,
-     7
+     1
     ]
    ],
    "stats": {
-    "clues": 14,
+    "clues": 11,
     "max_tier": 3,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 12,
+    "steps": 10,
     "tiers": {
-     "1": 6,
+     "1": 5,
      "2": 3,
-     "3": 3
+     "3": 2
     }
    }
   },
   {
    "id": "medium-06",
-   "seed": 20260769782145,
-   "size": 8,
+   "seed": 20260770782152,
+   "size": 7,
    "difficulty": "medium",
    "rooms": [
     [
+     2,
      3,
      3,
+     5,
+     5,
+     4,
+     4
+    ],
+    [
      2,
-     2,
-     2,
+     3,
+     3,
+     6,
+     6,
+     4,
+     4
+    ],
+    [
+     1,
+     1,
+     1,
+     6,
+     6,
+     4,
+     4
+    ],
+    [
+     1,
+     1,
+     1,
+     0,
      0,
      0,
      0
     ],
     [
-     3,
-     3,
-     2,
-     2,
-     2,
+     1,
+     1,
+     1,
+     0,
      0,
      0,
      0
     ],
     [
-     4,
-     4,
-     2,
-     2,
-     2,
      1,
      1,
-     1
+     1,
+     0,
+     0,
+     0,
+     0
     ],
     [
-     4,
-     4,
-     2,
-     2,
-     2,
      1,
      1,
-     1
-    ],
-    [
-     4,
-     4,
-     2,
-     2,
-     2,
      1,
-     1,
-     1
-    ],
-    [
-     5,
-     5,
-     6,
-     6,
-     6,
-     1,
-     1,
-     1
-    ],
-    [
-     5,
-     5,
-     6,
-     6,
-     6,
-     1,
-     1,
-     1
-    ],
-    [
-     5,
-     5,
-     7,
-     7,
-     7,
-     1,
-     1,
-     1
+     0,
+     0,
+     0,
+     0
     ]
    ],
    "sizes": [
+    "medium",
     "small",
     "medium",
     "medium",
     "medium",
     "medium",
-    "medium",
-    "large",
-    "medium"
+    "large"
+   ],
+   "obstacles": [
+    [
+     6,
+     6
+    ]
    ],
    "clues": [
     {
-     "type": "diag_adj",
-     "a": 0,
-     "b": 4
-    },
-    {
-     "type": "relpos",
+     "type": "adj_furn",
      "a": 3,
-     "b": 6,
-     "dir": "left"
+     "cell": 28
     },
     {
      "type": "relpos",
-     "a": 5,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
+     "a": 0,
      "b": 3,
      "dir": "below"
     },
     {
-     "type": "same_room",
+     "type": "in_row",
+     "a": 6,
+     "line": 5
+    },
+    {
+     "type": "in_row",
+     "a": 5,
+     "line": 4
+    },
+    {
+     "type": "relpos",
      "a": 4,
-     "b": 7
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 4,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 5,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 7,
+     "b": 6,
      "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 3,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 3,
-     "dir": "left"
     },
     {
      "type": "in_room",
-     "a": 6,
-     "room": 0
+     "a": 2,
+     "room": 5
+    },
+    {
+     "type": "in_room",
+     "a": 4,
+     "room": 1
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 24
     }
    ],
    "solution": [
-    [
-     2,
-     1
-    ],
-    [
-     5,
-     0
-    ],
-    [
-     7,
-     4
-    ],
     [
      6,
      5
     ],
     [
      1,
-     2
-    ],
-    [
-     3,
-     7
+     6
     ],
     [
      0,
-     6
+     4
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     2,
+     2
     ],
     [
      4,
      3
+    ],
+    [
+     5,
+     1
     ]
    ],
    "stats": {
-    "clues": 12,
+    "clues": 8,
     "max_tier": 3,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 15,
+    "steps": 7,
     "tiers": {
-     "1": 7,
-     "2": 6,
-     "3": 2
+     "1": 5,
+     "2": 1,
+     "3": 1
     }
    }
   },
   {
    "id": "medium-07",
-   "seed": 20260769782149,
+   "seed": 20260770782153,
    "size": 8,
    "difficulty": "medium",
    "rooms": [
     [
+     0,
+     0,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
      4,
      4,
-     0,
-     0,
-     0,
-     0,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     1,
+     1,
+     1,
      6,
-     6
-    ],
-    [
-     4,
-     4,
-     0,
-     0,
-     0,
-     0,
      6,
-     6
-    ],
-    [
-     4,
-     4,
-     1,
-     1,
-     1,
-     1,
+     6,
      7,
      7
     ],
     [
-     4,
-     4,
      1,
      1,
      1,
-     1,
+     6,
+     6,
+     6,
      7,
      7
     ],
     [
-     5,
-     5,
      1,
      1,
      1,
-     1,
+     6,
+     6,
+     6,
      7,
      7
     ],
     [
-     5,
-     5,
-     2,
-     2,
-     2,
-     2,
-     3,
-     3
-    ],
-    [
-     5,
-     5,
-     2,
-     2,
-     2,
-     2,
-     3,
-     3
-    ],
-    [
-     5,
-     5,
-     2,
-     2,
-     2,
-     2,
-     3,
-     3
+     1,
+     1,
+     1,
+     6,
+     6,
+     6,
+     7,
+     7
     ]
    ],
    "sizes": [
     "medium",
-    "small",
-    "medium",
-    "medium",
     "medium",
     "medium",
     "large",
-    "medium"
+    "medium",
+    "medium",
+    "medium",
+    "small"
+   ],
+   "obstacles": [
+    [
+     5,
+     4
+    ],
+    [
+     5,
+     5
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     6,
+     4
+    ]
    ],
    "clues": [
     {
-     "type": "in_room",
-     "a": 6,
-     "room": 6
+     "type": "adj_furn",
+     "a": 7,
+     "cell": 14
     },
     {
-     "type": "relpos",
-     "a": 2,
-     "b": 3,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
+     "type": "same_room",
      "a": 0,
-     "b": 1,
-     "dir": "below"
+     "b": 5
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 53
     },
     {
      "type": "relpos",
-     "a": 4,
-     "b": 5,
-     "dir": "below"
-    },
-    {
-     "type": "not_in_room",
-     "a": 5,
-     "room": 4
+     "a": 1,
+     "b": 4,
+     "dir": "right"
     },
     {
      "type": "relpos",
@@ -3745,290 +3628,230 @@
      "dir": "above"
     },
     {
-     "type": "relpos",
-     "a": 2,
-     "b": 7,
-     "dir": "below"
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 48
     },
     {
-     "type": "relpos",
+     "type": "adj_furn",
      "a": 0,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 5,
-     "dir": "below"
+     "cell": 26
     },
     {
      "type": "diag_adj",
-     "a": 4,
-     "b": 5
-    },
-    {
-     "type": "in_room",
-     "a": 4,
-     "room": 5
-    },
-    {
-     "type": "relpos",
      "a": 2,
-     "b": 7,
-     "dir": "left"
+     "b": 3
     },
     {
-     "type": "relpos",
-     "a": 4,
-     "b": 5,
-     "dir": "right"
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 22
     }
    ],
    "solution": [
     [
-     7,
-     5
+     3,
+     3
     ],
     [
-     6,
+     2,
      7
     ],
     [
-     3,
-     3
+     4,
+     1
+    ],
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     6
     ],
     [
      0,
      2
     ],
     [
-     5,
-     1
-    ],
-    [
-     4,
-     0
+     7,
+     4
     ],
     [
      1,
-     6
-    ],
-    [
-     2,
-     4
+     5
     ]
    ],
    "stats": {
-    "clues": 14,
+    "clues": 9,
     "max_tier": 3,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 11,
+    "steps": 8,
     "tiers": {
-     "1": 8,
+     "1": 6,
      "2": 1,
-     "3": 2
+     "3": 1
     }
    }
   },
   {
    "id": "medium-08",
-   "seed": 20260769782155,
-   "size": 8,
+   "seed": 20260770782159,
+   "size": 7,
    "difficulty": "medium",
    "rooms": [
     [
-     0,
-     0,
-     0,
-     6,
-     6,
-     6,
-     7,
-     7
-    ],
-    [
-     0,
-     0,
-     0,
-     6,
-     6,
-     6,
-     7,
-     7
-    ],
-    [
-     0,
-     0,
-     0,
-     6,
-     6,
-     6,
-     7,
-     7
-    ],
-    [
-     0,
-     0,
-     0,
-     4,
-     4,
-     4,
-     1,
-     1
-    ],
-    [
-     0,
-     0,
-     0,
-     4,
-     4,
-     4,
-     1,
-     1
-    ],
-    [
-     2,
-     2,
+     3,
      3,
      4,
      4,
+     5,
+     5,
+     6
+    ],
+    [
+     3,
+     3,
      4,
-     1,
-     1
+     4,
+     5,
+     5,
+     6
     ],
     [
+     0,
+     0,
+     0,
+     0,
      2,
      2,
-     3,
-     5,
-     5,
-     5,
-     1,
-     1
+     2
     ],
     [
+     0,
+     0,
+     0,
+     0,
      2,
      2,
-     3,
-     5,
-     5,
-     5,
+     2
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     2,
+     2,
+     2
+    ],
+    [
      1,
-     1
+     1,
+     1,
+     1,
+     2,
+     2,
+     2
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     2,
+     2,
+     2
     ]
    ],
    "sizes": [
-    "medium",
-    "large",
-    "medium",
-    "medium",
     "small",
     "medium",
     "medium",
+    "medium",
+    "medium",
+    "large",
     "medium"
+   ],
+   "obstacles": [
+    [
+     6,
+     3
+    ]
    ],
    "clues": [
     {
-     "type": "relpos",
-     "a": 0,
-     "b": 1,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
+     "type": "in_col",
      "a": 4,
-     "b": 5,
-     "dir": "right"
+     "line": 0
     },
     {
-     "type": "relpos",
-     "a": 1,
-     "b": 7,
-     "dir": "below"
+     "type": "in_row",
+     "a": 4,
+     "line": 1
+    },
+    {
+     "type": "adj_furn",
+     "a": 2,
+     "cell": 37
+    },
+    {
+     "type": "in_row",
+     "a": 2,
+     "line": 6
     },
     {
      "type": "in_room",
-     "a": 1,
-     "room": 7
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 4,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 3,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
      "a": 0,
-     "b": 5,
-     "dir": "below"
-    },
-    {
-     "type": "in_room",
-     "a": 3,
-     "room": 3
-    },
-    {
-     "type": "diag_adj",
-     "a": 2,
-     "b": 3
+     "room": 0
     },
     {
      "type": "relpos",
+     "a": 5,
+     "b": 6,
+     "dir": "right"
+    },
+    {
+     "type": "in_row",
+     "a": 0,
+     "line": 3
+    },
+    {
+     "type": "adj_furn",
      "a": 3,
-     "b": 4,
-     "dir": "above"
+     "cell": 24
+    },
+    {
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 33
+    },
+    {
+     "type": "in_room",
+     "a": 5,
+     "room": 5
     }
    ],
    "solution": [
     [
-     4,
-     7
+     3,
+     1
     ],
     [
-     2,
+     4,
      6
     ],
     [
      6,
-     3
-    ],
-    [
-     5,
      2
     ],
     [
-     7,
-     1
+     2,
+     3
     ],
     [
-     3,
+     1,
      0
     ],
     [
@@ -4036,123 +3859,124 @@
      5
     ],
     [
-     1,
+     5,
      4
     ]
    ],
    "stats": {
-    "clues": 12,
+    "clues": 10,
     "max_tier": 3,
     "chain_depth": 0,
     "chain_passes": 0,
-    "steps": 4,
+    "steps": 5,
     "tiers": {
-     "1": 2,
-     "3": 2
+     "1": 3,
+     "2": 1,
+     "3": 1
     }
    }
   },
   {
    "id": "hard-01",
-   "seed": 20260769782136,
+   "seed": 20260770782134,
    "size": 9,
    "difficulty": "hard",
    "rooms": [
     [
-     2,
-     2,
-     2,
-     2,
-     2,
-     2,
      5,
      5,
-     5
+     5,
+     5,
+     5,
+     5,
+     3,
+     3,
+     3
     ],
     [
-     2,
-     2,
-     2,
-     2,
-     2,
-     2,
      5,
      5,
-     5
+     5,
+     5,
+     5,
+     5,
+     3,
+     3,
+     3
     ],
     [
-     2,
-     2,
-     2,
-     2,
-     2,
-     2,
      5,
      5,
-     5
+     5,
+     5,
+     5,
+     5,
+     4,
+     4,
+     4
     ],
     [
-     2,
-     2,
-     2,
-     2,
-     2,
-     2,
      6,
      6,
-     6
+     6,
+     6,
+     6,
+     6,
+     4,
+     4,
+     4
     ],
     [
-     3,
-     3,
-     3,
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     4,
+     4,
+     4
+    ],
+    [
+     6,
+     6,
+     6,
+     6,
+     6,
+     6,
+     4,
+     4,
+     4
+    ],
+    [
      1,
      1,
-     1,
+     2,
+     2,
+     2,
+     0,
      0,
      0,
      0
     ],
     [
-     3,
-     3,
-     3,
      1,
      1,
-     1,
+     2,
+     2,
+     2,
      0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     1,
-     1,
-     1,
      0,
      0,
      0
     ],
     [
-     4,
-     4,
-     4,
      1,
      1,
-     1,
+     2,
+     2,
+     2,
      0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     1,
-     1,
-     1,
      0,
      0,
      0
@@ -4162,149 +3986,149 @@
     "medium",
     "medium",
     "medium",
+    "small",
     "medium",
     "large",
-    "small",
     "medium",
     "medium",
     "medium"
    ],
+   "obstacles": [],
    "clues": [
+    {
+     "type": "in_room",
+     "a": 4,
+     "room": 2
+    },
     {
      "type": "relpos",
      "a": 1,
-     "b": 6,
+     "b": 2,
      "dir": "below"
     },
     {
      "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "left"
-    },
-    {
-     "type": "diag_adj",
      "a": 2,
-     "b": 3
-    },
-    {
-     "type": "relpos",
-     "a": 5,
      "b": 8,
      "dir": "above"
     },
     {
      "type": "relpos",
-     "a": 2,
-     "b": 3,
-     "dir": "right"
+     "a": 1,
+     "b": 5,
+     "dir": "left"
     },
     {
      "type": "relpos",
-     "a": 5,
+     "a": 6,
      "b": 7,
-     "dir": "right"
+     "dir": "above"
     },
     {
-     "type": "same_room",
-     "a": 1,
-     "b": 5
+     "type": "relpos",
+     "a": 0,
+     "b": 5,
+     "dir": "left"
     },
     {
      "type": "relpos",
      "a": 3,
-     "b": 4,
-     "dir": "right"
+     "b": 5,
+     "dir": "below"
     },
     {
      "type": "relpos",
      "a": 4,
-     "b": 7,
+     "b": 6,
      "dir": "above"
     },
     {
      "type": "relpos",
+     "a": 3,
+     "b": 7,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
      "a": 0,
+     "b": 5,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 4,
      "b": 6,
+     "dir": "right"
+    },
+    {
+     "type": "diff_room",
+     "a": 6,
+     "b": 7
+    },
+    {
+     "type": "relpos",
+     "a": 6,
+     "b": 8,
      "dir": "right"
     },
     {
      "type": "relpos",
      "a": 1,
-     "b": 8,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 3,
+     "b": 5,
      "dir": "below"
     },
     {
+     "type": "relpos",
+     "a": 6,
+     "b": 7,
+     "dir": "right"
+    },
+    {
      "type": "diag_adj",
-     "a": 6,
-     "b": 8
+     "a": 1,
+     "b": 5
     },
     {
-     "type": "relpos",
-     "a": 3,
-     "b": 4,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
+     "type": "same_room",
      "a": 0,
-     "b": 3,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 8,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 8,
-     "dir": "left"
+     "b": 5
     }
    ],
    "solution": [
     [
-     4,
-     3
-    ],
-    [
-     3,
-     0
-    ],
-    [
-     6,
-     8
-    ],
-    [
-     5,
-     7
-    ],
-    [
-     7,
+     2,
      6
+    ],
+    [
+     4,
+     7
     ],
     [
      0,
      5
     ],
     [
-     1,
-     1
+     5,
+     0
     ],
     [
-     8,
+     6,
      4
     ],
     [
-     2,
+     3,
+     8
+    ],
+    [
+     7,
+     3
+    ],
+    [
+     8,
+     1
+    ],
+    [
+     1,
      2
     ]
    ],
@@ -4312,106 +4136,51 @@
     "clues": 17,
     "max_tier": 4,
     "chain_depth": 4,
-    "chain_passes": 2,
-    "steps": 31,
+    "chain_passes": 1,
+    "steps": 20,
     "tiers": {
      "1": 8,
-     "2": 8,
-     "3": 13,
-     "4": 2
+     "2": 4,
+     "3": 7,
+     "4": 1
     }
    }
   },
   {
    "id": "hard-02",
-   "seed": 20260769782146,
+   "seed": 20260770782144,
    "size": 9,
    "difficulty": "hard",
    "rooms": [
     [
-     7,
-     7,
-     7,
-     8,
-     8,
-     8,
      0,
      0,
-     0
-    ],
-    [
-     7,
-     7,
-     7,
-     8,
-     8,
-     8,
      0,
-     0,
-     0
-    ],
-    [
-     7,
-     7,
-     7,
-     8,
-     8,
-     8,
-     0,
-     0,
-     0
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     1,
-     1,
-     0,
-     0,
-     0
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     1,
-     1,
-     0,
-     0,
-     0
-    ],
-    [
-     4,
-     4,
-     5,
-     5,
-     5,
-     5,
      2,
      2,
-     2
+     3,
+     3,
+     3,
+     3
     ],
     [
-     4,
-     4,
-     6,
-     6,
-     6,
-     6,
+     0,
+     0,
+     0,
      2,
      2,
-     2
+     3,
+     3,
+     3,
+     3
     ],
     [
-     4,
-     4,
-     6,
-     6,
-     6,
-     6,
+     0,
+     0,
+     0,
+     2,
+     2,
+     3,
      3,
      3,
      3
@@ -4419,17 +4188,335 @@
     [
      4,
      4,
-     6,
-     6,
-     6,
-     6,
-     3,
-     3,
-     3
+     4,
+     4,
+     7,
+     7,
+     7,
+     7,
+     6
+    ],
+    [
+     4,
+     4,
+     4,
+     4,
+     8,
+     8,
+     8,
+     8,
+     6
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     8,
+     8,
+     8,
+     8,
+     6
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     8,
+     8,
+     8,
+     8,
+     6
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     1,
+     1,
+     1,
+     1,
+     1
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     1,
+     1,
+     1,
+     1,
+     1
     ]
    ],
    "sizes": [
     "medium",
+    "large",
+    "medium",
+    "small",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "obstacles": [
+    [
+     0,
+     7
+    ]
+   ],
+   "clues": [
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 6,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 6,
+     "b": 8,
+     "dir": "left"
+    },
+    {
+     "type": "same_room",
+     "a": 0,
+     "b": 1
+    },
+    {
+     "type": "relpos",
+     "a": 3,
+     "b": 5,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 4,
+     "b": 5,
+     "dir": "left"
+    },
+    {
+     "type": "diff_room",
+     "a": 6,
+     "b": 8
+    },
+    {
+     "type": "relpos",
+     "a": 6,
+     "b": 7,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 0,
+     "b": 8,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 5,
+     "b": 7,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 0,
+     "b": 1,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 3,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 5,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 4,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 7,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
+     "a": 0,
+     "b": 4,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 6,
+     "b": 8,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 0,
+     "b": 3,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 3,
+     "b": 8,
+     "dir": "above"
+    }
+   ],
+   "solution": [
+    [
+     0,
+     6
+    ],
+    [
+     2,
+     7
+    ],
+    [
+     7,
+     2
+    ],
+    [
+     5,
+     8
+    ],
+    [
+     1,
+     0
+    ],
+    [
+     4,
+     1
+    ],
+    [
+     8,
+     4
+    ],
+    [
+     3,
+     3
+    ],
+    [
+     6,
+     5
+    ]
+   ],
+   "stats": {
+    "clues": 18,
+    "max_tier": 4,
+    "chain_depth": 3,
+    "chain_passes": 1,
+    "steps": 15,
+    "tiers": {
+     "1": 7,
+     "2": 3,
+     "3": 4,
+     "4": 1
+    }
+   }
+  },
+  {
+   "id": "hard-03",
+   "seed": 20260770782164,
+   "size": 8,
+   "difficulty": "hard",
+   "rooms": [
+    [
+     0,
+     0,
+     3,
+     3,
+     3,
+     3,
+     4,
+     4
+    ],
+    [
+     0,
+     0,
+     3,
+     3,
+     3,
+     3,
+     4,
+     4
+    ],
+    [
+     0,
+     0,
+     3,
+     3,
+     3,
+     3,
+     4,
+     4
+    ],
+    [
+     0,
+     0,
+     3,
+     3,
+     3,
+     3,
+     4,
+     4
+    ],
+    [
+     0,
+     0,
+     3,
+     3,
+     3,
+     3,
+     4,
+     4
+    ],
+    [
+     1,
+     1,
+     2,
+     2,
+     2,
+     5,
+     5,
+     5
+    ],
+    [
+     1,
+     1,
+     2,
+     2,
+     2,
+     5,
+     5,
+     5
+    ],
+    [
+     1,
+     1,
+     2,
+     2,
+     2,
+     6,
+     6,
+     6
+    ]
+   ],
+   "sizes": [
     "medium",
     "medium",
     "medium",
@@ -4439,386 +4526,129 @@
     "small",
     "medium"
    ],
-   "clues": [
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "in_room",
-     "a": 8,
-     "room": 8
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 5,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 4,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 7,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 8,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 3,
-     "dir": "right"
-    },
-    {
-     "type": "diff_room",
-     "a": 1,
-     "b": 5
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 6,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 8,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 8,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 5,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 4,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 7,
-     "dir": "left"
-    },
-    {
-     "type": "diff_room",
-     "a": 6,
-     "b": 7
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 8,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 8,
-     "dir": "left"
-    }
-   ],
-   "solution": [
-    [
-     3,
-     8
-    ],
-    [
-     8,
-     3
-    ],
-    [
-     0,
-     1
-    ],
-    [
-     5,
-     7
-    ],
-    [
-     6,
-     0
-    ],
-    [
-     7,
-     6
-    ],
+   "obstacles": [
     [
      2,
-     5
-    ],
-    [
-     4,
-     2
-    ],
-    [
-     1,
      4
-    ]
-   ],
-   "stats": {
-    "clues": 19,
-    "max_tier": 4,
-    "chain_depth": 4,
-    "chain_passes": 2,
-    "steps": 20,
-    "tiers": {
-     "1": 8,
-     "2": 4,
-     "3": 6,
-     "4": 2
-    }
-   }
-  },
-  {
-   "id": "hard-03",
-   "seed": 20260769782160,
-   "size": 8,
-   "difficulty": "hard",
-   "rooms": [
+    ],
     [
-     2,
-     2,
      3,
+     4
+    ],
+    [
      3,
-     4,
-     5,
-     5,
      5
     ],
     [
-     2,
-     2,
      3,
-     3,
-     4,
-     5,
-     5,
-     5
-    ],
-    [
-     2,
-     2,
-     3,
-     3,
-     4,
-     6,
-     6,
      6
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     1,
-     6,
-     6,
-     6
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     1,
-     6,
-     6,
-     6
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     1,
-     6,
-     6,
-     6
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0
     ]
-   ],
-   "sizes": [
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "large",
-    "medium",
-    "medium",
-    "small"
    ],
    "clues": [
     {
      "type": "relpos",
-     "a": 4,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "in_room",
      "a": 0,
-     "room": 4
+     "b": 6,
+     "dir": "below"
     },
     {
-     "type": "relpos",
-     "a": 4,
-     "b": 5,
-     "dir": "left"
+     "type": "adj_furn",
+     "a": 3,
+     "cell": 60
+    },
+    {
+     "type": "diff_room",
+     "a": 1,
+     "b": 4
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 36
     },
     {
      "type": "relpos",
      "a": 3,
-     "b": 4,
+     "b": 7,
      "dir": "above"
     },
     {
      "type": "relpos",
-     "a": 1,
+     "a": 0,
      "b": 7,
      "dir": "right"
     },
     {
      "type": "diag_adj",
-     "a": 3,
-     "b": 6
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 6,
-     "dir": "left"
-    },
-    {
-     "type": "diag_adj",
-     "a": 0,
-     "b": 5
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 2,
-     "dir": "right"
-    },
-    {
-     "type": "diag_adj",
-     "a": 0,
+     "a": 1,
      "b": 2
     },
     {
      "type": "relpos",
-     "a": 0,
-     "b": 2,
-     "dir": "below"
+     "a": 3,
+     "b": 5,
+     "dir": "right"
+    },
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 0
     },
     {
      "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "above"
+     "a": 4,
+     "b": 7,
+     "dir": "left"
     },
     {
-     "type": "same_room",
-     "a": 3,
-     "b": 4
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 17
     }
    ],
    "solution": [
     [
+     5,
+     7
+    ],
+    [
+     3,
+     1
+    ],
+    [
      2,
+     2
+    ],
+    [
+     6,
      4
     ],
     [
      0,
-     7
+     5
     ],
     [
-     1,
+     4,
      3
     ],
     [
-     6,
+     1,
      0
     ],
     [
      7,
-     2
-    ],
-    [
-     3,
-     5
-    ],
-    [
-     5,
-     1
-    ],
-    [
-     4,
      6
     ]
    ],
    "stats": {
-    "clues": 13,
+    "clues": 11,
     "max_tier": 4,
-    "chain_depth": 2,
+    "chain_depth": 1,
     "chain_passes": 1,
-    "steps": 13,
+    "steps": 12,
     "tiers": {
      "1": 6,
-     "2": 3,
+     "2": 2,
      "3": 3,
      "4": 1
     }
@@ -4826,8 +4656,8 @@
   },
   {
    "id": "hard-04",
-   "seed": 20260769782162,
-   "size": 8,
+   "seed": 20260770782189,
+   "size": 9,
    "difficulty": "hard",
    "rooms": [
     [
@@ -4835,36 +4665,318 @@
      1,
      1,
      1,
+     1,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     1,
+     1,
+     1,
+     1,
+     1,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     2,
+     2,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     5,
+     6,
+     6,
+     3,
+     3,
+     3,
+     3
+    ],
+    [
+     5,
+     5,
+     5,
+     6,
+     6,
      4,
      4,
+     4,
+     4
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     4,
+     4,
+     4,
+     4
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     4,
+     4,
+     4,
+     4
+    ]
+   ],
+   "sizes": [
+    "medium",
+    "large",
+    "medium",
+    "small",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "obstacles": [
+    [
+     5,
+     0
+    ],
+    [
+     6,
+     0
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     7,
+     1
+    ]
+   ],
+   "clues": [
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 37
+    },
+    {
+     "type": "relpos",
+     "a": 4,
+     "b": 6,
+     "dir": "right"
+    },
+    {
+     "type": "adj_furn",
+     "a": 7,
+     "cell": 51
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 3,
+     "dir": "below"
+    },
+    {
+     "type": "diag_adj",
+     "a": 2,
+     "b": 3
+    },
+    {
+     "type": "relpos",
+     "a": 3,
+     "b": 5,
+     "dir": "right"
+    },
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 53
+    },
+    {
+     "type": "diff_room",
+     "a": 2,
+     "b": 5
+    },
+    {
+     "type": "relpos",
+     "a": 5,
+     "b": 6,
+     "dir": "above"
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 40
+    },
+    {
+     "type": "adj_furn",
+     "a": 2,
+     "cell": 19
+    },
+    {
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 62
+    }
+   ],
+   "solution": [
+    [
+     5,
+     7
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     1,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     3,
+     4
+    ],
+    [
+     4,
+     0
+    ],
+    [
+     8,
+     3
+    ],
+    [
+     6,
+     6
+    ],
+    [
+     2,
+     5
+    ]
+   ],
+   "stats": {
+    "clues": 12,
+    "max_tier": 4,
+    "chain_depth": 1,
+    "chain_passes": 1,
+    "steps": 7,
+    "tiers": {
+     "1": 3,
+     "3": 3,
+     "4": 1
+    }
+   }
+  },
+  {
+   "id": "hard-05",
+   "seed": 20260770782195,
+   "size": 8,
+   "difficulty": "hard",
+   "rooms": [
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     4,
+     4,
+     5,
+     5,
      5,
      5
     ],
     [
      1,
      1,
-     1,
-     1,
      4,
      4,
+     5,
+     5,
      5,
      5
     ],
     [
      2,
      2,
+     4,
+     4,
+     6,
+     6,
+     6,
+     6
+    ],
+    [
      2,
      2,
      4,
      4,
-     5,
-     5
+     6,
+     6,
+     6,
+     6
     ],
     [
      2,
      2,
-     2,
-     2,
+     3,
+     3,
      3,
      3,
      3,
@@ -4873,38 +4985,8 @@
     [
      2,
      2,
-     2,
-     2,
      3,
      3,
-     3,
-     3
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     3,
-     3,
-     3,
-     3
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     3,
-     3,
-     3,
-     3
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
      3,
      3,
      3,
@@ -4913,47 +4995,472 @@
    ],
    "sizes": [
     "medium",
+    "medium",
+    "medium",
     "large",
+    "medium",
+    "small",
+    "medium",
+    "medium"
+   ],
+   "obstacles": [],
+   "clues": [
+    {
+     "type": "in_room",
+     "a": 3,
+     "room": 3
+    },
+    {
+     "type": "diag_adj",
+     "a": 2,
+     "b": 3
+    },
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 34
+    },
+    {
+     "type": "adj_furn",
+     "a": 7,
+     "cell": 60
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 4,
+     "dir": "right"
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 20
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 3,
+     "dir": "right"
+    },
+    {
+     "type": "adj_furn",
+     "a": 4,
+     "cell": 25
+    },
+    {
+     "type": "adj_furn",
+     "a": 6,
+     "cell": 22
+    },
+    {
+     "type": "diag_adj",
+     "a": 5,
+     "b": 6
+    }
+   ],
+   "solution": [
+    [
+     4,
+     1
+    ],
+    [
+     0,
+     2
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     6,
+     6
+    ],
+    [
+     3,
+     0
+    ],
+    [
+     1,
+     4
+    ],
+    [
+     2,
+     5
+    ],
+    [
+     7,
+     3
+    ]
+   ],
+   "stats": {
+    "clues": 10,
+    "max_tier": 4,
+    "chain_depth": 2,
+    "chain_passes": 2,
+    "steps": 12,
+    "tiers": {
+     "1": 6,
+     "2": 2,
+     "3": 2,
+     "4": 2
+    }
+   }
+  },
+  {
+   "id": "hard-06",
+   "seed": 20260770782197,
+   "size": 8,
+   "difficulty": "hard",
+   "rooms": [
+    [
+     4,
+     4,
+     4,
+     4,
+     4,
+     1,
+     1,
+     1
+    ],
+    [
+     4,
+     4,
+     4,
+     4,
+     4,
+     1,
+     1,
+     1
+    ],
+    [
+     4,
+     4,
+     4,
+     4,
+     4,
+     1,
+     1,
+     1
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     5,
+     1,
+     1,
+     1
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     5,
+     1,
+     1,
+     1
+    ],
+    [
+     5,
+     5,
+     5,
+     5,
+     5,
+     2,
+     2,
+     3
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     2,
+     3
+    ],
+    [
+     0,
+     0,
+     0,
+     0,
+     0,
+     2,
+     2,
+     3
+    ]
+   ],
+   "sizes": [
+    "large",
+    "small",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "obstacles": [],
+   "clues": [
+    {
+     "type": "relpos",
+     "a": 3,
+     "b": 7,
+     "dir": "below"
+    },
+    {
+     "type": "same_room",
+     "a": 6,
+     "b": 7
+    },
+    {
+     "type": "in_room",
+     "a": 0,
+     "room": 2
+    },
+    {
+     "type": "relpos",
+     "a": 0,
+     "b": 4,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 6,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 7,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
+     "a": 4,
+     "b": 5,
+     "dir": "right"
+    },
+    {
+     "type": "adj_furn",
+     "a": 0,
+     "cell": 52
+    },
+    {
+     "type": "adj_furn",
+     "a": 5,
+     "cell": 58
+    },
+    {
+     "type": "adj_furn",
+     "a": 1,
+     "cell": 36
+    },
+    {
+     "type": "relpos",
+     "a": 3,
+     "b": 4,
+     "dir": "above"
+    },
+    {
+     "type": "adj_furn",
+     "a": 2,
+     "cell": 22
+    }
+   ],
+   "solution": [
+    [
+     6,
+     5
+    ],
+    [
+     4,
+     3
+    ],
+    [
+     1,
+     6
+    ],
+    [
+     3,
+     7
+    ],
+    [
+     5,
+     2
+    ],
+    [
+     7,
+     1
+    ],
+    [
+     2,
+     0
+    ],
+    [
+     0,
+     4
+    ]
+   ],
+   "stats": {
+    "clues": 12,
+    "max_tier": 4,
+    "chain_depth": 3,
+    "chain_passes": 3,
+    "steps": 17,
+    "tiers": {
+     "1": 8,
+     "2": 2,
+     "3": 4,
+     "4": 3
+    }
+   }
+  },
+  {
+   "id": "expert-01",
+   "seed": 20260770782162,
+   "size": 9,
+   "difficulty": "expert",
+   "rooms": [
+    [
+     0,
+     0,
+     0,
+     4,
+     4,
+     4,
+     6,
+     6,
+     6
+    ],
+    [
+     0,
+     0,
+     0,
+     4,
+     4,
+     4,
+     6,
+     6,
+     6
+    ],
+    [
+     0,
+     0,
+     0,
+     4,
+     4,
+     4,
+     6,
+     6,
+     6
+    ],
+    [
+     0,
+     0,
+     0,
+     4,
+     4,
+     4,
+     7,
+     7,
+     7
+    ],
+    [
+     0,
+     0,
+     0,
+     5,
+     5,
+     5,
+     7,
+     7,
+     7
+    ],
+    [
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3
+    ],
+    [
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3
+    ],
+    [
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3
+    ],
+    [
+     1,
+     1,
+     1,
+     2,
+     2,
+     2,
+     3,
+     3,
+     3
+    ]
+   ],
+   "sizes": [
+    "medium",
     "medium",
     "medium",
     "medium",
     "medium",
     "small",
+    "medium",
+    "large",
     "medium"
    ],
+   "obstacles": [],
    "clues": [
     {
-     "type": "in_room",
-     "a": 2,
-     "room": 2
-    },
-    {
      "type": "diag_adj",
-     "a": 2,
-     "b": 5
+     "a": 6,
+     "b": 8
     },
     {
      "type": "relpos",
-     "a": 0,
+     "a": 1,
      "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "in_room",
-     "a": 5,
-     "room": 1
+     "dir": "left"
     },
     {
      "type": "relpos",
-     "a": 1,
-     "b": 4,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 4,
+     "a": 4,
+     "b": 5,
      "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 5,
+     "b": 7,
+     "dir": "left"
     },
     {
      "type": "relpos",
@@ -4965,214 +5472,30 @@
      "type": "relpos",
      "a": 3,
      "b": 7,
-     "dir": "left"
-    },
-    {
-     "type": "in_room",
-     "a": 0,
-     "room": 0
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 5,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 6,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 4,
-     "dir": "above"
+     "dir": "below"
     },
     {
      "type": "relpos",
      "a": 3,
      "b": 7,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
+     "a": 4,
+     "b": 8,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 5,
+     "b": 8,
      "dir": "below"
     },
     {
-     "type": "same_room",
+     "type": "diag_adj",
      "a": 3,
      "b": 7
-    }
-   ],
-   "solution": [
-    [
-     5,
-     2
-    ],
-    [
-     7,
-     7
-    ],
-    [
-     2,
-     0
-    ],
-    [
-     4,
-     4
-    ],
-    [
-     6,
-     6
-    ],
-    [
-     1,
-     1
-    ],
-    [
-     0,
-     3
-    ],
-    [
-     3,
-     5
-    ]
-   ],
-   "stats": {
-    "clues": 14,
-    "max_tier": 4,
-    "chain_depth": 3,
-    "chain_passes": 2,
-    "steps": 15,
-    "tiers": {
-     "1": 7,
-     "2": 1,
-     "3": 5,
-     "4": 2
-    }
-   }
-  },
-  {
-   "id": "hard-05",
-   "seed": 20260769782168,
-   "size": 9,
-   "difficulty": "hard",
-   "rooms": [
-    [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0
-    ],
-    [
-     5,
-     5,
-     5,
-     5,
-     2,
-     2,
-     1,
-     1,
-     1
-    ],
-    [
-     5,
-     5,
-     5,
-     5,
-     2,
-     2,
-     1,
-     1,
-     1
-    ],
-    [
-     5,
-     5,
-     5,
-     5,
-     3,
-     3,
-     1,
-     1,
-     1
-    ],
-    [
-     5,
-     5,
-     5,
-     5,
-     3,
-     3,
-     1,
-     1,
-     1
-    ],
-    [
-     6,
-     6,
-     6,
-     6,
-     3,
-     3,
-     1,
-     1,
-     1
-    ],
-    [
-     6,
-     6,
-     6,
-     6,
-     4,
-     4,
-     1,
-     1,
-     1
-    ]
-   ],
-   "sizes": [
-    "medium",
-    "medium",
-    "medium",
-    "large",
-    "medium",
-    "medium",
-    "small",
-    "medium",
-    "medium"
-   ],
-   "clues": [
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 7,
-     "dir": "below"
     },
     {
      "type": "relpos",
@@ -5182,61 +5505,278 @@
     },
     {
      "type": "relpos",
-     "a": 5,
+     "a": 6,
      "b": 8,
      "dir": "right"
     },
     {
      "type": "relpos",
-     "a": 1,
-     "b": 8,
-     "dir": "left"
+     "a": 0,
+     "b": 3,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 3,
+     "dir": "below"
+    },
+    {
+     "type": "same_room",
+     "a": 4,
+     "b": 6
     },
     {
      "type": "relpos",
      "a": 1,
-     "b": 5,
+     "b": 4,
      "dir": "below"
     },
     {
      "type": "relpos",
-     "a": 1,
+     "a": 0,
+     "b": 2,
+     "dir": "left"
+    }
+   ],
+   "solution": [
+    [
+     0,
+     0
+    ],
+    [
+     8,
+     2
+    ],
+    [
+     3,
+     1
+    ],
+    [
+     2,
+     4
+    ],
+    [
+     7,
+     8
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     5,
+     7
+    ],
+    [
+     1,
+     5
+    ],
+    [
+     4,
+     6
+    ]
+   ],
+   "stats": {
+    "clues": 17,
+    "max_tier": 4,
+    "chain_depth": 10,
+    "chain_passes": 4,
+    "steps": 23,
+    "tiers": {
+     "1": 9,
+     "2": 4,
+     "3": 6,
+     "4": 4
+    }
+   }
+  },
+  {
+   "id": "expert-02",
+   "seed": 20260770782165,
+   "size": 9,
+   "difficulty": "expert",
+   "rooms": [
+    [
+     3,
+     3,
+     2,
+     2,
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    [
+     3,
+     3,
+     2,
+     2,
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    [
+     4,
+     4,
+     2,
+     2,
+     5,
+     5,
+     5,
+     5,
+     5
+    ],
+    [
+     4,
+     4,
+     2,
+     2,
+     6,
+     6,
+     6,
+     6,
+     6
+    ],
+    [
+     1,
+     1,
+     2,
+     2,
+     6,
+     6,
+     6,
+     6,
+     6
+    ],
+    [
+     1,
+     1,
+     2,
+     2,
+     6,
+     6,
+     6,
+     6,
+     6
+    ],
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ]
+   ],
+   "sizes": [
+    "medium",
+    "small",
+    "medium",
+    "medium",
+    "large",
+    "medium",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "obstacles": [
+    [
+     7,
+     6
+    ],
+    [
+     7,
+     7
+    ],
+    [
+     8,
+     5
+    ],
+    [
+     8,
+     6
+    ]
+   ],
+   "clues": [
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 6,
+     "dir": "left"
+    },
+    {
+     "type": "in_room",
+     "a": 7,
+     "room": 4
+    },
+    {
+     "type": "diff_room",
+     "a": 3,
+     "b": 5
+    },
+    {
+     "type": "relpos",
+     "a": 4,
+     "b": 5,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 5,
+     "b": 6,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 3,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 4,
      "b": 8,
      "dir": "above"
     },
     {
      "type": "relpos",
-     "a": 4,
+     "a": 7,
      "b": 8,
-     "dir": "right"
-    },
-    {
-     "type": "same_room",
-     "a": 5,
-     "b": 6
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
      "dir": "left"
     },
     {
-     "type": "diag_adj",
-     "a": 4,
-     "b": 8
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 6,
-     "dir": "left"
+     "type": "in_room",
+     "a": 6,
+     "room": 5
     },
     {
      "type": "relpos",
@@ -5246,613 +5786,67 @@
     },
     {
      "type": "relpos",
-     "a": 2,
-     "b": 7,
-     "dir": "right"
+     "a": 1,
+     "b": 3,
+     "dir": "left"
     },
     {
      "type": "relpos",
-     "a": 5,
-     "b": 6,
-     "dir": "below"
+     "a": 3,
+     "b": 5,
+     "dir": "above"
     },
     {
      "type": "relpos",
      "a": 4,
-     "b": 8,
-     "dir": "below"
+     "b": 5,
+     "dir": "above"
     },
     {
      "type": "relpos",
-     "a": 6,
-     "b": 7,
+     "a": 2,
+     "b": 6,
      "dir": "above"
     },
     {
      "type": "diff_room",
-     "a": 1,
-     "b": 7
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 6,
-     "dir": "above"
-    }
-   ],
-   "solution": [
-    [
-     3,
-     0
-    ],
-    [
-     4,
-     3
-    ],
-    [
-     0,
-     2
-    ],
-    [
-     8,
-     7
-    ],
-    [
-     6,
-     5
-    ],
-    [
-     2,
-     6
-    ],
-    [
-     1,
-     8
-    ],
-    [
-     7,
-     1
-    ],
-    [
-     5,
-     4
-    ]
-   ],
-   "stats": {
-    "clues": 19,
-    "max_tier": 4,
-    "chain_depth": 3,
-    "chain_passes": 1,
-    "steps": 17,
-    "tiers": {
-     "1": 7,
-     "2": 4,
-     "3": 5,
-     "4": 1
-    }
-   }
-  },
-  {
-   "id": "hard-06",
-   "seed": 20260769782170,
-   "size": 9,
-   "difficulty": "hard",
-   "rooms": [
-    [
-     0,
-     0,
-     0,
-     0,
-     1,
-     1,
-     2,
-     2,
-     2
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     1,
-     1,
-     2,
-     2,
-     2
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     1,
-     1,
-     2,
-     2,
-     2
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     1,
-     1,
-     2,
-     2,
-     2
-    ],
-    [
-     0,
-     0,
-     0,
-     0,
-     1,
-     1,
-     2,
-     2,
-     2
-    ],
-    [
-     3,
-     3,
-     4,
-     4,
-     4,
-     4,
-     6,
-     6,
-     6
-    ],
-    [
-     3,
-     3,
-     4,
-     4,
-     4,
-     4,
-     6,
-     6,
-     6
-    ],
-    [
-     3,
-     3,
-     5,
-     5,
-     5,
-     5,
-     7,
-     7,
-     7
-    ],
-    [
-     3,
-     3,
-     5,
-     5,
-     5,
-     5,
-     7,
-     7,
-     7
-    ]
-   ],
-   "sizes": [
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "small",
-    "medium",
-    "large",
-    "medium",
-    "medium"
-   ],
-   "clues": [
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 8,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 6,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 6,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 8,
-     "dir": "right"
+     "a": 5,
+     "b": 8
     },
     {
      "type": "diag_adj",
      "a": 1,
-     "b": 2
+     "b": 3
     },
     {
-     "type": "relpos",
-     "a": 1,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 7,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 6,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
+     "type": "diag_adj",
      "a": 0,
-     "b": 4,
-     "dir": "above"
-    },
-    {
-     "type": "same_room",
-     "a": 1,
-     "b": 7
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 5,
-     "dir": "below"
-    },
-    {
-     "type": "same_room",
-     "a": 4,
-     "b": 8
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 8,
-     "dir": "right"
+     "b": 1
     }
    ],
    "solution": [
     [
-     5,
-     0
+     3,
+     2
     ],
     [
      4,
      3
     ],
     [
-     3,
-     2
-    ],
-    [
      0,
-     8
-    ],
-    [
-     7,
      5
     ],
     [
-     2,
-     6
-    ],
-    [
-     6,
-     7
-    ],
-    [
-     1,
-     1
-    ],
-    [
-     8,
-     4
-    ]
-   ],
-   "stats": {
-    "clues": 18,
-    "max_tier": 4,
-    "chain_depth": 2,
-    "chain_passes": 2,
-    "steps": 18,
-    "tiers": {
-     "1": 6,
-     "2": 3,
-     "3": 7,
-     "4": 2
-    }
-   }
-  },
-  {
-   "id": "expert-01",
-   "seed": 20260769782140,
-   "size": 9,
-   "difficulty": "expert",
-   "rooms": [
-    [
-     0,
-     0,
-     0,
      5,
-     5,
-     5,
-     6,
-     6,
-     6
-    ],
-    [
-     0,
-     0,
-     0,
-     5,
-     5,
-     5,
-     6,
-     6,
-     6
-    ],
-    [
-     0,
-     0,
-     0,
-     5,
-     5,
-     5,
-     6,
-     6,
-     6
-    ],
-    [
-     1,
-     1,
-     1,
-     3,
-     3,
-     4,
-     4,
-     4,
      4
     ],
     [
-     1,
-     1,
-     1,
-     3,
-     3,
-     4,
-     4,
-     4,
-     4
-    ],
-    [
-     1,
-     1,
-     1,
-     3,
-     3,
-     4,
-     4,
-     4,
-     4
-    ],
-    [
-     1,
-     1,
-     1,
-     3,
-     3,
-     4,
-     4,
-     4,
-     4
-    ],
-    [
-     1,
-     1,
-     1,
-     2,
-     2,
-     2,
-     2,
-     2,
-     2
-    ],
-    [
-     1,
-     1,
-     1,
-     2,
-     2,
-     2,
-     2,
-     2,
-     2
-    ]
-   ],
-   "sizes": [
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "small",
-    "large"
-   ],
-   "clues": [
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "below"
-    },
-    {
-     "type": "same_room",
-     "a": 3,
-     "b": 4
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 5,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 6,
-     "dir": "left"
-    },
-    {
-     "type": "diff_room",
-     "a": 0,
-     "b": 7
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 4,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 8,
-     "dir": "left"
-    },
-    {
-     "type": "same_room",
-     "a": 1,
-     "b": 8
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 8,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 4,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 2,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 5,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 7,
-     "dir": "above"
-    }
-   ],
-   "solution": [
-    [
-     2,
-     3
-    ],
-    [
-     4,
-     0
-    ],
-    [
-     3,
-     1
-    ],
-    [
-     7,
+     6,
      8
     ],
     [
      8,
-     4
-    ],
-    [
-     5,
-     5
-    ],
-    [
-     0,
      7
     ],
     [
@@ -5860,805 +5854,549 @@
      6
     ],
     [
-     6,
-     2
+     2,
+     0
+    ],
+    [
+     7,
+     1
     ]
    ],
    "stats": {
     "clues": 17,
     "max_tier": 4,
     "chain_depth": 5,
-    "chain_passes": 3,
-    "steps": 21,
+    "chain_passes": 8,
+    "steps": 34,
     "tiers": {
-     "1": 7,
-     "2": 2,
-     "3": 9,
-     "4": 3
-    }
-   }
-  },
-  {
-   "id": "expert-02",
-   "seed": 20260769782141,
-   "size": 9,
-   "difficulty": "expert",
-   "rooms": [
-    [
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     0,
-     0,
-     0
-    ],
-    [
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     0,
-     0,
-     0
-    ],
-    [
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     0,
-     0,
-     0
-    ],
-    [
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     0,
-     0,
-     0
-    ],
-    [
-     5,
-     5,
-     5,
-     6,
-     6,
-     6,
-     3,
-     3,
-     3
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     2,
-     2,
-     4,
-     4,
-     4
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     2,
-     2,
-     4,
-     4,
-     4
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     2,
-     2,
-     4,
-     4,
-     4
-    ],
-    [
-     1,
-     1,
-     1,
-     1,
-     2,
-     2,
-     4,
-     4,
-     4
-    ]
-   ],
-   "sizes": [
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "small",
-    "medium",
-    "large"
-   ],
-   "clues": [
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 6,
-     "dir": "below"
-    },
-    {
-     "type": "not_in_room",
-     "a": 8,
-     "room": 6
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 8,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 8,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 7,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 5,
-     "b": 7,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "left"
-    },
-    {
-     "type": "diag_adj",
-     "a": 1,
-     "b": 2
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 2,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 5,
-     "dir": "above"
-    },
-    {
-     "type": "in_room",
-     "a": 3,
-     "room": 3
-    },
-    {
-     "type": "relpos",
-     "a": 2,
-     "b": 6,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 8,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 4,
-     "dir": "left"
-    }
-   ],
-   "solution": [
-    [
-     8,
-     1
-    ],
-    [
-     3,
-     4
-    ],
-    [
-     2,
-     5
-    ],
-    [
-     4,
-     6
-    ],
-    [
-     0,
-     7
-    ],
-    [
-     6,
-     0
-    ],
-    [
-     5,
-     3
-    ],
-    [
-     7,
-     8
-    ],
-    [
-     1,
-     2
-    ]
-   ],
-   "stats": {
-    "clues": 16,
-    "max_tier": 4,
-    "chain_depth": 4,
-    "chain_passes": 4,
-    "steps": 21,
-    "tiers": {
-     "1": 8,
-     "2": 2,
-     "3": 7,
-     "4": 4
+     "1": 10,
+     "2": 3,
+     "3": 13,
+     "4": 8
     }
    }
   },
   {
    "id": "expert-03",
-   "seed": 20260769782150,
+   "seed": 20260770782168,
    "size": 9,
    "difficulty": "expert",
    "rooms": [
     [
-     4,
-     4,
-     4,
-     3,
-     3,
-     3,
      0,
      0,
-     0
-    ],
-    [
-     4,
-     4,
-     4,
-     3,
-     3,
-     3,
      0,
      0,
-     0
-    ],
-    [
-     5,
-     5,
-     5,
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     2,
-     2,
-     6,
-     6,
-     6,
-     6,
-     0,
-     0,
-     0
-    ],
-    [
-     2,
-     2,
-     6,
-     6,
-     6,
-     6,
-     0,
-     0,
-     0
-    ],
-    [
-     2,
-     2,
-     7,
-     7,
-     7,
-     7,
-     0,
-     0,
-     0
-    ],
-    [
-     2,
-     2,
-     7,
-     7,
-     7,
-     7,
+     1,
+     1,
      1,
      1,
      1
     ],
     [
-     2,
-     2,
-     7,
-     7,
-     7,
-     7,
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
      1,
      1,
      1
     ],
     [
+     7,
+     7,
+     7,
+     7,
      2,
      2,
+     2,
+     2,
+     2
+    ],
+    [
      7,
      7,
      7,
      7,
-     1,
-     1,
-     1
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    [
+     8,
+     8,
+     8,
+     8,
+     2,
+     2,
+     2,
+     2,
+     2
+    ],
+    [
+     8,
+     8,
+     8,
+     8,
+     3,
+     4,
+     4,
+     4,
+     4
+    ],
+    [
+     8,
+     8,
+     8,
+     8,
+     3,
+     4,
+     4,
+     4,
+     4
+    ],
+    [
+     5,
+     5,
+     5,
+     6,
+     3,
+     4,
+     4,
+     4,
+     4
+    ],
+    [
+     5,
+     5,
+     5,
+     6,
+     3,
+     4,
+     4,
+     4,
+     4
     ]
    ],
    "sizes": [
+    "small",
+    "medium",
     "medium",
     "large",
-    "medium",
-    "small",
     "medium",
     "medium",
     "medium",
     "medium",
     "medium"
    ],
+   "obstacles": [],
    "clues": [
     {
-     "type": "same_room",
-     "a": 1,
-     "b": 4
+     "type": "relpos",
+     "a": 0,
+     "b": 3,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 5,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 7,
+     "b": 8,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 4,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 4,
+     "b": 7,
+     "dir": "below"
     },
     {
      "type": "diag_adj",
      "a": 1,
-     "b": 2
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 6,
-     "dir": "below"
+     "b": 8
     },
     {
      "type": "same_room",
-     "a": 4,
+     "a": 7,
      "b": 8
     },
     {
      "type": "relpos",
-     "a": 3,
-     "b": 5,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 8,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
      "a": 1,
-     "b": 7,
+     "b": 6,
      "dir": "left"
     },
     {
      "type": "relpos",
      "a": 3,
-     "b": 5,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 4,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 7,
+     "b": 6,
      "dir": "above"
     },
     {
-     "type": "relpos",
-     "a": 4,
-     "b": 8,
-     "dir": "below"
+     "type": "diag_adj",
+     "a": 7,
+     "b": 8
     },
     {
-     "type": "diag_adj",
-     "a": 3,
-     "b": 5
+     "type": "relpos",
+     "a": 4,
+     "b": 5,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
+     "a": 4,
+     "b": 6,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 6,
+     "b": 8,
+     "dir": "above"
     },
     {
      "type": "relpos",
      "a": 0,
      "b": 3,
-     "dir": "below"
+     "dir": "above"
     },
     {
      "type": "relpos",
-     "a": 1,
+     "a": 0,
      "b": 2,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 6,
      "dir": "left"
     }
    ],
    "solution": [
     [
-     3,
-     7
+     0,
+     1
     ],
     [
      5,
-     5
-    ],
-    [
-     4,
-     4
-    ],
-    [
-     2,
-     0
-    ],
-    [
-     7,
      3
-    ],
-    [
-     1,
-     1
-    ],
-    [
-     0,
-     8
-    ],
-    [
-     8,
-     6
-    ],
-    [
-     6,
-     2
-    ]
-   ],
-   "stats": {
-    "clues": 16,
-    "max_tier": 4,
-    "chain_depth": 5,
-    "chain_passes": 2,
-    "steps": 25,
-    "tiers": {
-     "1": 5,
-     "2": 8,
-     "3": 10,
-     "4": 2
-    }
-   }
-  },
-  {
-   "id": "expert-04",
-   "seed": 20260769782153,
-   "size": 9,
-   "difficulty": "expert",
-   "rooms": [
-    [
-     7,
-     7,
-     7,
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     7,
-     7,
-     7,
-     3,
-     3,
-     3,
-     0,
-     0,
-     0
-    ],
-    [
-     7,
-     7,
-     7,
-     4,
-     4,
-     4,
-     0,
-     0,
-     0
-    ],
-    [
-     8,
-     8,
-     8,
-     4,
-     4,
-     4,
-     0,
-     0,
-     0
-    ],
-    [
-     5,
-     6,
-     6,
-     6,
-     1,
-     1,
-     1,
-     1,
-     1
-    ],
-    [
-     5,
-     6,
-     6,
-     6,
-     1,
-     1,
-     1,
-     1,
-     1
-    ],
-    [
-     5,
-     6,
-     6,
-     6,
-     1,
-     1,
-     1,
-     1,
-     1
-    ],
-    [
-     2,
-     2,
-     2,
-     2,
-     1,
-     1,
-     1,
-     1,
-     1
-    ],
-    [
-     2,
-     2,
-     2,
-     2,
-     1,
-     1,
-     1,
-     1,
-     1
-    ]
-   ],
-   "sizes": [
-    "medium",
-    "small",
-    "medium",
-    "medium",
-    "medium",
-    "medium",
-    "large",
-    "medium",
-    "medium"
-   ],
-   "clues": [
-    {
-     "type": "same_room",
-     "a": 2,
-     "b": 3
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 6,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 5,
-     "dir": "below"
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 5,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 8,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 3,
-     "dir": "left"
-    },
-    {
-     "type": "diag_adj",
-     "a": 2,
-     "b": 4
-    },
-    {
-     "type": "relpos",
-     "a": 6,
-     "b": 7,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 4,
-     "dir": "right"
-    },
-    {
-     "type": "relpos",
-     "a": 4,
-     "b": 5,
-     "dir": "above"
-    },
-    {
-     "type": "relpos",
-     "a": 3,
-     "b": 5,
-     "dir": "left"
-    },
-    {
-     "type": "not_in_room",
-     "a": 0,
-     "room": 4
-    },
-    {
-     "type": "relpos",
-     "a": 0,
-     "b": 7,
-     "dir": "left"
-    },
-    {
-     "type": "relpos",
-     "a": 1,
-     "b": 8,
-     "dir": "above"
-    },
-    {
-     "type": "diag_adj",
-     "a": 1,
-     "b": 3
-    }
-   ],
-   "solution": [
-    [
-     1,
-     5
     ],
     [
      7,
      2
     ],
     [
-     4,
-     1
-    ],
-    [
-     6,
-     3
-    ],
-    [
-     3,
+     1,
      0
     ],
     [
-     5,
-     4
+     6,
+     7
     ],
     [
-     0,
-     7
+     8,
+     8
     ],
     [
      2,
      6
     ],
     [
-     8,
-     8
+     3,
+     5
+    ],
+    [
+     4,
+     4
     ]
    ],
    "stats": {
     "clues": 15,
     "max_tier": 4,
-    "chain_depth": 10,
-    "chain_passes": 3,
-    "steps": 22,
+    "chain_depth": 12,
+    "chain_passes": 7,
+    "steps": 23,
     "tiers": {
-     "1": 7,
-     "2": 5,
+     "1": 6,
+     "2": 3,
      "3": 7,
-     "4": 3
+     "4": 7
+    }
+   }
+  },
+  {
+   "id": "expert-04",
+   "seed": 20260770782174,
+   "size": 9,
+   "difficulty": "expert",
+   "rooms": [
+    [
+     1,
+     1,
+     1,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     1,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     1,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     1,
+     1,
+     1,
+     2,
+     2,
+     0,
+     0,
+     0,
+     0
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     4,
+     4,
+     5,
+     5,
+     5
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     4,
+     4,
+     5,
+     5,
+     5
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     4,
+     4,
+     6,
+     6,
+     6
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     4,
+     4,
+     6,
+     6,
+     6
+    ],
+    [
+     3,
+     3,
+     3,
+     3,
+     4,
+     4,
+     6,
+     6,
+     6
+    ]
+   ],
+   "sizes": [
+    "medium",
+    "large",
+    "medium",
+    "medium",
+    "medium",
+    "small",
+    "medium",
+    "medium",
+    "medium"
+   ],
+   "obstacles": [],
+   "clues": [
+    {
+     "type": "in_room",
+     "a": 8,
+     "room": 2
+    },
+    {
+     "type": "relpos",
+     "a": 3,
+     "b": 4,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 5,
+     "b": 7,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 0,
+     "b": 3,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 6,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 0,
+     "b": 4,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 5,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 2,
+     "b": 4,
+     "dir": "right"
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 6,
+     "dir": "right"
+    },
+    {
+     "type": "same_room",
+     "a": 1,
+     "b": 7
+    },
+    {
+     "type": "relpos",
+     "a": 6,
+     "b": 7,
+     "dir": "below"
+    },
+    {
+     "type": "relpos",
+     "a": 5,
+     "b": 7,
+     "dir": "left"
+    },
+    {
+     "type": "relpos",
+     "a": 3,
+     "b": 8,
+     "dir": "above"
+    },
+    {
+     "type": "relpos",
+     "a": 3,
+     "b": 4,
+     "dir": "left"
+    },
+    {
+     "type": "diag_adj",
+     "a": 1,
+     "b": 5
+    },
+    {
+     "type": "relpos",
+     "a": 1,
+     "b": 5,
+     "dir": "right"
+    }
+   ],
+   "solution": [
+    [
+     0,
+     5
+    ],
+    [
+     5,
+     2
+    ],
+    [
+     8,
+     8
+    ],
+    [
+     2,
+     6
+    ],
+    [
+     1,
+     7
+    ],
+    [
+     4,
+     1
+    ],
+    [
+     7,
+     0
+    ],
+    [
+     6,
+     3
+    ],
+    [
+     3,
+     4
+    ]
+   ],
+   "stats": {
+    "clues": 16,
+    "max_tier": 4,
+    "chain_depth": 6,
+    "chain_passes": 2,
+    "steps": 21,
+    "tiers": {
+     "1": 8,
+     "2": 6,
+     "3": 5,
+     "4": 2
     }
    }
   }

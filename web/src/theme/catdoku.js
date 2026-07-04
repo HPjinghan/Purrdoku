@@ -149,6 +149,20 @@ export const CLUE_TEMPLATES = {
     ({ room, furniture, sizeLabel }) => `${room}的${furniture}上是一只${sizeLabel}猫`,
     ({ spot, sizeLabel }) => `${spot}蹲着一只${sizeLabel}猫`,
   ],
+  // Line clues — which row / column the cat is in.
+  in_row: [
+    ({ A, line }) => `${A} 在从上往下第 ${line} 排`,
+    ({ A, line }) => `${A} 待的那一横排是第 ${line} 排`,
+  ],
+  in_col: [
+    ({ A, line }) => `${A} 在从左往右第 ${line} 列`,
+    ({ A, line }) => `${A} 待的那一竖列是第 ${line} 列`,
+  ],
+  // Furniture-adjacency — cat is right next to a piece of furniture.
+  adj_furn: [
+    ({ A, furniture, room }) => `${A} 就守在${room}的${furniture}旁边(紧挨着)`,
+    ({ A, furniture, room }) => `${room}的${furniture}旁边那格,趴的是 ${A}`,
+  ],
 };
 
 export const TITLE_TEMPLATES = [

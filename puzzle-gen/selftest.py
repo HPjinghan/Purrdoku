@@ -88,13 +88,14 @@ def test_end_to_end_levels() -> None:
                 break
             got = None
         assert got is not None, f"could not build a {lid} puzzle in 200 attempts"
-        geo = Geometry(got.n, got.rooms)
+        geo = Geometry(got.n, got.rooms, got.obstacles)
         assert count_solutions(geo, got.clues, limit=2) == 1
         res = LogicalSolver(geo, got.clues).solve(LogicalSolver.MAX_TIER)
         assert res.solved and res.solution == got.pos
         assert all(clue_holds(cl, got.pos, geo) for cl in got.clues)
         assert len(got.sizes) == got.n and set(got.sizes) <= {"large", "medium", "small"}
         assert got.sizes.count("large") <= 3 and got.sizes.count("small") <= 2
+        assert not (set(got.obstacles) & set(got.pos))  # never on the solution
         check(
             f"end-to-end {lid}: n={got.n} clues={len(got.clues)} "
             f"tier={got.max_tier} cdepth={got.chain_depth} "
