@@ -26,7 +26,7 @@ export default function App() {
   const [selectedCat, setSelectedCat] = useState(0);
   const [notesMode, setNotesMode] = useState(false);
   const [checked, setChecked] = useState(false);
-  const [revealRooms, setRevealRooms] = useState(true);
+  const [showDressing, setShowDressing] = useState(true);
 
   // load pack
   useEffect(() => {
@@ -43,8 +43,8 @@ export default function App() {
           ? settings.lastPuzzle
           : data.puzzles[0]?.id;
         setPuzzleId(first);
-        if (typeof settings.revealRooms === "boolean")
-          setRevealRooms(settings.revealRooms);
+        if (typeof settings.showDressing === "boolean")
+          setShowDressing(settings.showDressing);
       })
       .catch((e) => setError(String(e)));
   }, []);
@@ -131,9 +131,9 @@ export default function App() {
     clearProgress(puzzle.id);
   }
 
-  function toggleReveal() {
-    setRevealRooms((v) => {
-      saveSettings({ ...loadSettings(), revealRooms: !v });
+  function toggleDressing() {
+    setShowDressing((v) => {
+      saveSettings({ ...loadSettings(), showDressing: !v });
       return !v;
     });
   }
@@ -187,7 +187,7 @@ export default function App() {
               setChecked(false);
               toggleNote(cell);
             }}
-            revealRooms={revealRooms}
+            showDressing={showDressing}
           />
           <CatPalette
             skin={skin}
@@ -204,8 +204,8 @@ export default function App() {
               ✏️ 笔记{notesMode ? "·开" : ""}
             </button>
             <button onClick={() => setChecked(true)}>🔍 检查</button>
-            <button onClick={toggleReveal}>
-              {revealRooms ? "🙈 隐藏房间图标" : "🏠 显示房间图标"}
+            <button onClick={toggleDressing}>
+              {showDressing ? "🙈 隐藏房间/家具" : "🏠 房间/家具"}
             </button>
             <button onClick={resetPuzzle}>🧹 重来</button>
           </div>

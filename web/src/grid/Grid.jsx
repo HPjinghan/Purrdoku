@@ -13,7 +13,7 @@ export default function Grid({
   selectedCat,
   onCellClick,
   onCellRightClick,
-  revealRooms,
+  showDressing,
 }) {
   const n = puzzle.size;
   return (
@@ -33,6 +33,8 @@ export default function Grid({
         const rid = roomOf(puzzle.rooms, cell, n);
         const cellNotes = notes[cell] || [];
         const conflict = conflicts.has(cell);
+        const furniture = showDressing ? skin.furniture?.[cell] : null;
+        const isAnchor = showDressing && skin.roomAnchor?.[rid] === cell;
         const cls = [
           "cell",
           b.top ? "bt" : "",
@@ -57,15 +59,29 @@ export default function Grid({
               e.preventDefault();
               onCellRightClick(cell);
             }}
-            aria-label={`格子 ${r + 1},${c + 1}`}
+            aria-label={`${isAnchor ? skin.roomNames[rid] + " " : ""}格子 ${
+              r + 1
+            },${c + 1}${furniture ? " · " + furniture.name : ""}`}
           >
-            {revealRooms && (
-              <span className="room-icon" aria-hidden>
-                {skin.roomMess[rid]?.emoji}
+            {isAnchor && (
+              <span className="room-label" aria-hidden>
+                {skin.roomNames[rid]}
+              </span>
+            )}
+            {furniture && (
+              <span
+                className={`furniture ${cat ? "perch" : ""}`}
+                aria-hidden
+                title={furniture.name}
+              >
+                {furniture.emoji}
               </span>
             )}
             {cat ? (
-              <span className="cat" title={cat.name}>
+              <span
+                className="cat"
+                title={furniture ? `${cat.name} 趴在${furniture.name}上` : cat.name}
+              >
                 {cat.emoji}
               </span>
             ) : cellNotes.length ? (

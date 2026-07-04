@@ -6,8 +6,10 @@ import {
   CATS,
   CLUE_TEMPLATES,
   DIR_LABEL,
+  GENERIC_FURNITURE,
   MESS,
   QUIRKS,
+  ROOM_FURNITURE,
   ROOMS,
   TITLE_TEMPLATES,
 } from "./catdoku.js";
@@ -70,13 +72,33 @@ export function skinPuzzle(puzzle) {
   // Per-room decorative mess icon (helps read spatial clues, spec §10.3).
   const roomMess = roomNames.map(() => pick(MESS, rng));
 
+  // Group cells by room. Row-major order means cells[0] is the top-left-most
+  // cell of the room — a stable anchor to drop the room-name label on.
+  const roomCells = Array.from({ length: kRooms }, () => []);
+  for (let cell = 0; cell < n * n; cell++) {
+    roomCells[puzzle.rooms[Math.floor(cell / n)][cell % n]].push(cell);
+  }
+  const roomAnchor = roomCells.map((cells) => cells[0]);
+
+  // Furnish each room from its typed set (cats may perch on any cell). Cycle
+  // the shuffled set across the room's cells; deterministic in the seed.
+  const furniture = Array(n * n).fill(null);
+  roomCells.forEach((cells, rid) => {
+    const base = roomNames[rid].replace(/\d+$/, "");
+    const set = ROOM_FURNITURE[base] || GENERIC_FURNITURE;
+    const shuffled = sampleWithoutReplacement(set, set.length, rng);
+    cells.forEach((cell, i) => {
+      furniture[cell] = shuffled[i % shuffled.length];
+    });
+  });
+
   const title = renderTitle(rng, cats, roomNames, roomMess);
   const clues = puzzle.clues.map((clue) => ({
     ...clue,
     text: renderClue(clue, rng, cats, roomNames, roomMess),
   }));
 
-  return { cats, roomNames, roomMess, title, clues };
+  return { cats, roomNames, roomMess, roomAnchor, furniture, title, clues };
 }
 
 function renderTitle(rng, cats, roomNames, roomMess) {

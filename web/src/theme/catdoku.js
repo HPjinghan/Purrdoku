@@ -42,6 +42,74 @@ export const QUIRKS = [
   "爱打翻东西", "爱躲纸箱", "爱咬线", "爱扒拉小物", "爱蹬翻水杯",
 ];
 
+// Furniture per room type — cats may perch on any of it. Purely decorative;
+// placed in cells by seed so a room reads as that room at a glance. Keyed by
+// the base room name (numeric suffixes on cycled rooms are stripped).
+export const ROOM_FURNITURE = {
+  客厅: [
+    { name: "沙发", emoji: "🛋️" },
+    { name: "电视", emoji: "📺" },
+    { name: "落地灯", emoji: "💡" },
+    { name: "绿植", emoji: "🪴" },
+  ],
+  厨房: [
+    { name: "炉灶", emoji: "🍳" },
+    { name: "冰箱", emoji: "🧊" },
+    { name: "咖啡机", emoji: "☕" },
+    { name: "刀架", emoji: "🔪" },
+  ],
+  卧室: [
+    { name: "床", emoji: "🛏️" },
+    { name: "梳妆镜", emoji: "🪞" },
+    { name: "台灯", emoji: "💡" },
+    { name: "抱枕", emoji: "🧸" },
+  ],
+  书房: [
+    { name: "书架", emoji: "📚" },
+    { name: "电脑", emoji: "🖥️" },
+    { name: "椅子", emoji: "🪑" },
+    { name: "文件柜", emoji: "🗄️" },
+  ],
+  阳台: [
+    { name: "盆栽", emoji: "🪴" },
+    { name: "晾衣架", emoji: "🧺" },
+    { name: "摇椅", emoji: "🪑" },
+    { name: "花架", emoji: "🌿" },
+  ],
+  玄关: [
+    { name: "鞋柜", emoji: "👟" },
+    { name: "挂钩", emoji: "🧥" },
+    { name: "伞架", emoji: "☂️" },
+    { name: "钥匙盘", emoji: "🔑" },
+  ],
+  浴室: [
+    { name: "浴缸", emoji: "🛁" },
+    { name: "花洒", emoji: "🚿" },
+    { name: "洗漱台", emoji: "🪥" },
+    { name: "卷纸架", emoji: "🧻" },
+  ],
+  储物间: [
+    { name: "纸箱", emoji: "📦" },
+    { name: "工具箱", emoji: "🧰" },
+    { name: "水桶", emoji: "🪣" },
+    { name: "扫把", emoji: "🧹" },
+  ],
+  儿童房: [
+    { name: "玩偶", emoji: "🧸" },
+    { name: "气球", emoji: "🎈" },
+    { name: "积木", emoji: "🧩" },
+    { name: "小车", emoji: "🚗" },
+  ],
+};
+
+// Fallback for any room without a typed set (e.g. cycled extras).
+export const GENERIC_FURNITURE = [
+  { name: "抱枕", emoji: "🧸" },
+  { name: "纸箱", emoji: "📦" },
+  { name: "绿植", emoji: "🪴" },
+  { name: "小凳", emoji: "🪑" },
+];
+
 // Direction labels for relative-position clues.
 export const DIR_LABEL = {
   left: "左", right: "右", above: "上", below: "下",
