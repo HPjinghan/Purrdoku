@@ -17,6 +17,20 @@ export default function Grid({
   showDressing,
 }) {
   const n = puzzle.size;
+
+  // Every placed cat rules out the rest of its row and column (permutation
+  // rule), so mark those empty cells as "no cat can stand here".
+  const blocked = new Set();
+  placement.forEach((cell) => {
+    if (cell == null) return;
+    const r = Math.floor(cell / n);
+    const c = cell % n;
+    for (let i = 0; i < n; i++) {
+      blocked.add(r * n + i);
+      blocked.add(i * n + c);
+    }
+  });
+
   return (
     <div
       className="grid"
@@ -36,6 +50,7 @@ export default function Grid({
         const conflict = conflicts.has(cell);
         const furniture = showDressing ? skin.furniture?.[cell] : null;
         const isAnchor = showDressing && skin.roomAnchor?.[rid] === cell;
+        const isBlocked = !cat && blocked.has(cell);
         const cls = [
           "cell",
           b.top ? "bt" : "",
@@ -44,6 +59,7 @@ export default function Grid({
           b.left ? "bl" : "",
           conflict ? "conflict" : "",
           cat ? "filled" : "",
+          isBlocked ? "blocked" : "",
         ]
           .filter(Boolean)
           .join(" ");
@@ -79,26 +95,35 @@ export default function Grid({
               </span>
             )}
             {cat ? (
-              <span
-                className={`cat size-${cat.size}`}
-                title={
-                  furniture ? `${cat.name} 趴在${furniture.name}上` : cat.name
-                }
-              >
-                <CatIcon cat={cat} />
-              </span>
+              <>
+                <span
+                  className={`cat size-${cat.size}`}
+                  title={
+                    furniture ? `${cat.name} 趴在${furniture.name}上` : cat.name
+                  }
+                >
+                  <CatIcon cat={cat} />
+                </span>
+                <span className="cat-label" style={{ "--cat-color": cat.color }}>
+                  {cat.name}
+                </span>
+              </>
             ) : cellNotes.length ? (
               <span className="notes">
                 {cellNotes.map((ci) => (
                   <span
                     key={ci}
                     className="note-dot"
-                    style={{ background: skin.cats[ci]?.color }}
+                    style={{ "--cat-color": skin.cats[ci]?.color }}
                     title={skin.cats[ci]?.name}
                   >
-                    {skin.cats[ci]?.emoji}
+                    {skin.cats[ci]?.name}
                   </span>
                 ))}
+              </span>
+            ) : isBlocked ? (
+              <span className="blocked-mark" aria-hidden>
+                ✕
               </span>
             ) : selectedCat != null ? (
               <span className="ghost" aria-hidden>

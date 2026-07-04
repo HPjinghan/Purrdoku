@@ -175,6 +175,41 @@ body {
   background: #ffd9d9;
   box-shadow: inset 0 0 0 2px #ff6b6b;
 }
+/* cells ruled out by an already-placed cat (same row / column) */
+.cell.blocked {
+  background: repeating-linear-gradient(
+    45deg,
+    #ececec,
+    #ececec 4px,
+    #f4f4f4 4px,
+    #f4f4f4 8px
+  );
+}
+.cell .blocked-mark {
+  font-size: 0.6em;
+  color: #b9b3bd;
+  opacity: 0.7;
+}
+/* name chip under a placed cat, so you always know who's who */
+.cell .cat-label {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 96%;
+  font-size: 0.3em;
+  font-weight: 800;
+  line-height: 1.25;
+  padding: 0.05em 0.5em;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--cat-color) 32%, #fff);
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  z-index: 5;
+  pointer-events: none;
+}
 /* thick room borders */
 .cell.bt { border-top: 2.5px solid var(--line-strong); }
 .cell.br { border-right: 2.5px solid var(--line-strong); }
@@ -267,14 +302,14 @@ body {
   max-width: 100%;
 }
 .cell .note-dot {
-  font-size: 0.34em;
-  width: 1.35em;
-  height: 1.35em;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #fff8;
+  font-size: 0.26em;
+  font-weight: 800;
+  line-height: 1.2;
+  padding: 0.08em 0.34em;
+  border-radius: 6px;
+  color: var(--ink);
+  background: color-mix(in srgb, var(--cat-color) 22%, #fff);
+  border: 1px solid color-mix(in srgb, var(--cat-color) 55%, #fff);
 }
 
 /* ---- palette ---- */

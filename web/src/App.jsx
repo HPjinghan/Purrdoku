@@ -90,17 +90,24 @@ export default function App() {
       toggleNote(cell);
       return;
     }
+    const occupant = placement.findIndex((p) => p === cell);
+    if (occupant >= 0) {
+      // clicking a placed cat lifts it off (this is how you cancel/undo) and
+      // selects it, so you can drop it somewhere else right away
+      setSelectedCat(occupant);
+      setPlacement((prev) => {
+        const next = prev.slice();
+        next[occupant] = null;
+        return next;
+      });
+      return;
+    }
+    // empty cell: drop the selected cat here (vacating its previous spot)
     setPlacement((prev) => {
       const next = prev.slice();
-      const occupant = next.findIndex((p) => p === cell);
-      if (occupant === selectedCat) {
-        next[selectedCat] = null; // click own cat -> pick it up
-      } else {
-        next[selectedCat] = cell; // move selected cat here (vacates old spot)
-      }
+      next[selectedCat] = cell;
       return next;
     });
-    // clear pencil notes on a filled cell
     setNotes((prev) => {
       if (!prev[cell]) return prev;
       const next = { ...prev };
