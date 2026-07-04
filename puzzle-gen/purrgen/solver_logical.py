@@ -73,7 +73,10 @@ class LogicalSolver:
         self.n = geo.n
         self.clues = list(clues)
         self.unary = [cl for cl in self.clues if cl.is_unary]
-        self.binary = [cl for cl in self.clues if not cl.is_unary]
+        self.cell = [cl for cl in self.clues if cl.is_cell]
+        self.binary = [
+            cl for cl in self.clues if not cl.is_unary and not cl.is_cell
+        ]
         self._last_chain_depth = 0
 
     def initial_state(self) -> State:
@@ -128,6 +131,19 @@ class LogicalSolver:
             if m != st.cand[cl.a]:
                 st.cand[cl.a] = m
                 changed = True
+        for cl in self.cell:  # CELL_SIZE
+            if len(cl.cats) == 1:  # unique-size cat → pin it to the cell
+                c = cl.cats[0]
+                m = st.cand[c] & (1 << cl.cell)
+                if m != st.cand[c]:
+                    st.cand[c] = m
+                    changed = True
+            else:  # reserve the cell for the same-size cats
+                bit = ~(1 << cl.cell)
+                for x in range(self.n):
+                    if x not in cl.cats and (st.cand[x] >> cl.cell) & 1:
+                        st.cand[x] &= bit
+                        changed = True
         for cl in self.binary:
             fa, fb = st.fixed[cl.a], st.fixed[cl.b]
             if fa is not None and fb is None:

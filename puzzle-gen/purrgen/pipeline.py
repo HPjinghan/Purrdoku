@@ -22,8 +22,10 @@ from dataclasses import dataclass, field
 
 from .clues import enumerate_pool
 from .difficulty import BY_ID, LEVELS, Level, level_for
-from .layout import force_cat_at, generate_solution
+from .layout import generate_solution
 from .model import (
+    AT_CELL,
+    CELL_SIZE,
     DIAG_ADJ,
     DIFF_ROOM,
     IN_ROOM,
@@ -37,22 +39,48 @@ from .rooms import generate_rooms
 from .solver_complete import count_solutions
 from .solver_logical import LogicalSolver
 
+# Cat size classes. Each puzzle gets exactly one large and one small cat (the
+# rest medium), so "the big cat is on X" / "the small cat is on X" uniquely
+# identifies a cat — a decisive, beginner-friendly size clue. The theme pack
+# ships enough photos of each class for the frontend to always match.
+
 # Clue-type weight priors per tier; jittered per puzzle for variety
-# (structure randomness, spec 10.6 B).
+# (structure randomness, spec 10.6 B). AT_CELL (a direct pin) and CELL_SIZE
+# make the low tiers easy WITHOUT resorting to many tiny rooms, so they are
+# weighted high there and dropped from the pool at tier >= 3 (see ALLOWED).
 TYPE_PRIORS: dict[int, dict[str, float]] = {
-    1: {IN_ROOM: 5.0, NOT_IN_ROOM: 1.5, SAME_ROOM: 2.0, DIAG_ADJ: 1.5, RELPOS: 1.0, DIFF_ROOM: 0.5},
-    2: {IN_ROOM: 3.0, NOT_IN_ROOM: 1.5, SAME_ROOM: 2.5, DIAG_ADJ: 1.5, RELPOS: 1.5, DIFF_ROOM: 1.0},
+    1: {AT_CELL: 5.0, CELL_SIZE: 4.0, IN_ROOM: 2.5, NOT_IN_ROOM: 1.0, SAME_ROOM: 1.5, DIAG_ADJ: 1.0, RELPOS: 1.0, DIFF_ROOM: 0.5},
+    2: {AT_CELL: 2.0, IN_ROOM: 2.5, NOT_IN_ROOM: 1.5, SAME_ROOM: 2.0, DIAG_ADJ: 1.5, RELPOS: 1.5, DIFF_ROOM: 1.0},
     3: {IN_ROOM: 1.5, NOT_IN_ROOM: 1.5, SAME_ROOM: 2.0, DIAG_ADJ: 2.0, RELPOS: 2.5, DIFF_ROOM: 1.5},
     4: {IN_ROOM: 0.8, NOT_IN_ROOM: 1.2, SAME_ROOM: 1.5, DIAG_ADJ: 2.0, RELPOS: 3.0, DIFF_ROOM: 2.0},
     5: {IN_ROOM: 0.4, NOT_IN_ROOM: 1.0, SAME_ROOM: 1.2, DIAG_ADJ: 2.0, RELPOS: 3.0, DIFF_ROOM: 2.5},
 }
+
+# Which clue types may appear at each tier. The outright pins (AT_CELL and, for
+# the singleton size classes, CELL_SIZE) are reserved for the tutorial tiers so
+# they cannot trivialise the harder puzzles.
+ALLOWED: dict[int, set] = {t: set(pri) for t, pri in TYPE_PRIORS.items()}
 
 
 CANDIDATE_SCAN = 12  # progressing candidates compared before committing one
 
 # Trim priority during polish: drop the strongest clue kinds first so the
 # surviving set leans on weak clues, which is what forces chain reasoning.
-TRIM_RANK = {IN_ROOM: 0, DIAG_ADJ: 1, SAME_ROOM: 2, NOT_IN_ROOM: 3, RELPOS: 4, DIFF_ROOM: 5}
+TRIM_RANK = {AT_CELL: 0, CELL_SIZE: 1, IN_ROOM: 2, DIAG_ADJ: 3, SAME_ROOM: 4,
+             NOT_IN_ROOM: 5, RELPOS: 6, DIFF_ROOM: 7}
+
+
+def assign_sizes(n: int, rng: random.Random) -> list[str]:
+    """Exactly one large + one small cat (rest medium), so each of those size
+    classes is a singleton and "the big/small cat is on X" is a decisive pin."""
+    sizes = ["medium"] * n
+    idx = list(range(n))
+    rng.shuffle(idx)
+    if n >= 2:
+        sizes[idx[0]] = "large"
+    if n >= 3:
+        sizes[idx[1]] = "small"
+    return sizes
 
 
 def _solved_within(geo: Geometry, clues: list[Clue], cap: int) -> bool:
@@ -77,6 +105,7 @@ class Puzzle:
     rooms: list[list[int]]
     pos: list[int]  # solution: cell per cat
     clues: list[Clue]
+    sizes: list[str]  # size class per cat (large/medium/small)
     level_id: str
     seed: int
     max_tier: int
@@ -94,6 +123,7 @@ class Puzzle:
             "size": n,
             "difficulty": self.level_id,
             "rooms": self.rooms,
+            "sizes": self.sizes,
             "clues": [cl.to_json() for cl in self.clues],
             "solution": [[p // n, p % n] for p in self.pos],
             "stats": {
@@ -116,49 +146,25 @@ def _weighted_order(pool: list[Clue], weights: dict[str, float], rng: random.Ran
     )
 
 
-def attempt_puzzle(
-    level: Level, seed: int, tiny=None, max_room=None
-) -> Puzzle | None:
+def attempt_puzzle(level: Level, seed: int, max_room=None) -> Puzzle | None:
     rng = random.Random(seed)
     n = rng.randint(*level.sizes)
-    if tiny is None:
-        # A few 1-cell "closets" at the low tiers give an in_room clue something
-        # decisive to pin, without which those puzzles rarely stay tier-1/2.
-        tiny = 3 if level.tier == 1 else (2 if level.tier == 2 else 0)
-    # Home-like floor plan: a sensible room COUNT with sizes varying naturally,
-    # capped so no single room swallows the grid. Low tiers use a tighter cap
-    # (smaller, more decisive rooms → an in_room clue can pin a cat, keeping
-    # them tier-1/2 solvable); high tiers use a loose cap (a few large rooms,
-    # cleaner plan). Difficulty is set mainly by the forcing polish + clue mix.
+    # Home-like floor plan for EVERY tier now: a sensible room count (~6-9) with
+    # sizes varying naturally, and a loose cap so no room swallows the grid.
+    # The low tiers stay easy via the AT_CELL pin + CELL_SIZE clues rather than
+    # via many tiny rooms, so beginner boards can be clean too.
     k = max(5, min(9, round(n * 0.85))) + rng.randint(-1, 1)
     k = max(4, k)
     if max_room is None:
-        max_room = 5 if level.tier <= 2 else max(6, round(0.42 * n * n))
-    rooms = generate_rooms(n, rng, k, tiny, max_room=max_room)
+        max_room = max(6, round(0.42 * n * n))
+    rooms = generate_rooms(n, rng, k, tiny=0, max_room=max_room)
     geo = Geometry(n, rooms)
     pos = generate_solution(n, rng)
+    sizes = assign_sizes(n, rng)
 
-    # Bootstrap pins: at low tiers the deduction cascade can only start from a
-    # cat that an in_room clue pins outright, so occupy the 1-cell rooms.
-    if tiny:
-        tiny_cells = [
-            i for i in range(geo.nn)
-            if geo.room_mask[geo.room_of[i]].bit_count() == 1
-        ]
-        rng.shuffle(tiny_cells)
-        cats = list(range(n))
-        rng.shuffle(cats)
-        used_rows: set[int] = set()
-        used_cols: set[int] = set()
-        for cell, cat in zip(tiny_cells, cats):
-            r, c = divmod(cell, n)
-            if r in used_rows or c in used_cols:
-                continue  # two tiny rooms share a line; only one can host a cat
-            force_cat_at(pos, n, cat, cell)
-            used_rows.add(r)
-            used_cols.add(c)
-
-    pool = enumerate_pool(geo, pos, rng)
+    pool = enumerate_pool(geo, pos, rng, sizes)
+    allowed = ALLOWED[level.tier]
+    pool = [cl for cl in pool if cl.type in allowed]
 
     priors = TYPE_PRIORS[level.tier]
     weights = {t: w * rng.uniform(0.5, 1.6) for t, w in priors.items()}
@@ -263,6 +269,7 @@ def attempt_puzzle(
         rooms=rooms,
         pos=pos,
         clues=chosen,
+        sizes=sizes,
         level_id="",  # assigned at bucketing time
         seed=seed,
         max_tier=res.max_tier,

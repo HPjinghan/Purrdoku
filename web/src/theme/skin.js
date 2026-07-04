@@ -1,19 +1,19 @@
 // Apply the theme pack to a logic-only puzzle. Deterministic in the puzzle's
-// seed (spec §10.6): the same puzzle always renders the same cats/rooms/title,
-// so a shared or daily puzzle looks identical for everyone.
+// seed (spec §10.6): the same puzzle always renders the same cats/rooms/title.
 
 import {
-  CATS,
+  CAT_META,
+  CAT_POOL,
   CLUE_TEMPLATES,
   DIR_LABEL,
   MESS,
   QUIRKS,
   ROOM_TYPES,
+  SIZE_LABEL,
   TITLE_TEMPLATES,
   catImage,
 } from "./catdoku.js";
 
-// mulberry32 — tiny reproducible PRNG.
 function makeRng(seed) {
   let a = seed >>> 0;
   return function () {
@@ -46,27 +46,38 @@ export function skinPuzzle(puzzle) {
   const rng = makeRng((puzzle.seed ^ 0x9e3779b9) >>> 0);
   const n = puzzle.size;
   const kRooms = roomCount(puzzle.rooms);
+  const sizes = puzzle.sizes || Array(n).fill("medium");
+  const roomOf = (cell) => puzzle.rooms[Math.floor(cell / n)][cell % n];
 
-  // Cats: sample N of the 9-cat roster. Fixed id↔photo, plus a quirk and a
-  // favourite mess (cosmetic — logic never reads them).
-  const cats = sampleWithoutReplacement(CATS, n, rng).map((c) => ({
-    ...c,
-    img: catImage(c.id),
-    quirk: pick(QUIRKS, rng),
-    mess: pick(MESS, rng),
-  }));
+  // Assign each cat a photo matching its size class (so "big cat" clues are
+  // truthful). The cat's NAME is its image filename, per the player's request.
+  const picks = {};
+  for (const cls of ["large", "medium", "small"]) {
+    const need = sizes.filter((s) => s === cls).length;
+    picks[cls] = sampleWithoutReplacement(CAT_POOL[cls], need, rng);
+  }
+  const cats = sizes.map((cls) => {
+    const name = picks[cls].shift() ?? CAT_POOL.medium[0];
+    const meta = CAT_META[name] || { color: "#ff9ec0", emoji: "🐱" };
+    return {
+      name,
+      size: cls,
+      img: catImage(name),
+      color: meta.color,
+      emoji: meta.emoji,
+      quirk: pick(QUIRKS, rng),
+      mess: pick(MESS, rng),
+    };
+  });
 
   // Group cells by room; row-major order makes cells[0] the top-left anchor.
   const roomCells = Array.from({ length: kRooms }, () => []);
-  for (let cell = 0; cell < n * n; cell++) {
-    roomCells[puzzle.rooms[Math.floor(cell / n)][cell % n]].push(cell);
-  }
+  for (let cell = 0; cell < n * n; cell++) roomCells[roomOf(cell)].push(cell);
   const roomAnchor = roomCells.map((cells) => cells[0]);
 
-  // Name rooms by size rank: biggest room → 客厅, smallest → 储物间/衣帽间, so
-  // the label is plausible for the shape. Ties broken by anchor for stability.
+  // Name rooms by size rank: biggest → 客厅, smallest → 储物间/衣帽间.
   const rankOrder = roomCells
-    .map((cells, rid) => rid)
+    .map((_, rid) => rid)
     .sort((a, b) =>
       roomCells[b].length - roomCells[a].length || roomAnchor[a] - roomAnchor[b]
     );
@@ -79,47 +90,55 @@ export function skinPuzzle(puzzle) {
     roomType[rid] = t;
   });
 
-  // Furnish each room with a sensible number of DISTINCT pieces (~60% of its
-  // cells, capped by the type's set), scattered across cells; rest stay empty.
+  // Cells a clue points at MUST be furnished, so "趴在客厅的沙发上" always has
+  // a piece to name. Furnish those first, then fill ~60% of each room.
+  const mustFurnish = new Set();
+  for (const clue of puzzle.clues) if (clue.cell != null) mustFurnish.add(clue.cell);
   const furniture = Array(n * n).fill(null);
   roomCells.forEach((cells, rid) => {
     const set = roomType[rid].furniture;
-    const count = Math.max(1, Math.min(set.length, Math.round(cells.length * 0.6)));
-    const pieces = sampleWithoutReplacement(set, count, rng);
-    const spots = sampleWithoutReplacement(cells, count, rng);
-    spots.forEach((cell, i) => {
-      furniture[cell] = pieces[i];
+    const forced = cells.filter((c) => mustFurnish.has(c));
+    const rest = cells.filter((c) => !mustFurnish.has(c));
+    const target = Math.max(forced.length, Math.min(set.length, Math.round(cells.length * 0.6)));
+    const extra = sampleWithoutReplacement(rest, Math.max(0, target - forced.length), rng);
+    const chosenCells = [...forced, ...extra];
+    const pieces = sampleWithoutReplacement(set, Math.min(set.length, Math.max(1, chosenCells.length)), rng);
+    chosenCells.forEach((cell, i) => {
+      furniture[cell] = pieces[i % pieces.length];
     });
   });
 
-  // Signature knockable item per room (clue/title flavor).
   const roomMess = roomNames.map(() => pick(MESS, rng));
 
-  const title = renderTitle(rng, cats, roomNames, roomMess);
-  const clues = puzzle.clues.map((clue) => ({
-    ...clue,
-    text: renderClue(clue, rng, cats, roomNames, roomMess),
-  }));
+  const spotOf = (cell) => {
+    const r = Math.floor(cell / n);
+    const c = cell % n;
+    const room = roomNames[roomOf(cell)];
+    const f = furniture[cell];
+    return f
+      ? { room, furniture: f.name, spot: `${room}的${f.name}` }
+      : { room, furniture: "角落", spot: `第${r + 1}行第${c + 1}列` };
+  };
 
-  return { cats, roomNames, roomMess, roomAnchor, furniture, title, clues };
-}
+  const renderClue = (clue) => {
+    const tmplPool = CLUE_TEMPLATES[clue.type];
+    const tmpl = tmplPool[Math.floor(rng() * tmplPool.length)];
+    const A = clue.a != null && clue.a >= 0 ? cats[clue.a]?.name : undefined;
+    const B = clue.b != null ? cats[clue.b]?.name : undefined;
+    const dir = clue.dir ? DIR_LABEL[clue.dir] : undefined;
+    const s = clue.cell != null ? spotOf(clue.cell) : {};
+    const room = clue.room != null ? roomNames[clue.room] : s.room;
+    const mess = clue.room != null ? roomMess[clue.room]?.name : pick(roomMess, rng).name;
+    const sizeLabel = clue.size ? SIZE_LABEL[clue.size] || "" : undefined;
+    return tmpl({ A, B, room, mess, dir, furniture: s.furniture, spot: s.spot, sizeLabel });
+  };
 
-function renderTitle(rng, cats, roomNames, roomMess) {
-  const tmpl = pick(TITLE_TEMPLATES, rng);
-  return tmpl({
+  const title = pick(TITLE_TEMPLATES, rng)({
     room: pick(roomNames, rng),
     mess: pick(roomMess, rng).name,
-    cat: pick(cats, rng).nick,
+    cat: pick(cats, rng).name,
   });
-}
+  const clues = puzzle.clues.map((clue) => ({ ...clue, text: renderClue(clue) }));
 
-function renderClue(clue, rng, cats, roomNames, roomMess) {
-  const pool = CLUE_TEMPLATES[clue.type];
-  const tmpl = pool[Math.floor(rng() * pool.length)];
-  const A = cats[clue.a]?.nick ?? `${clue.a + 1}号`;
-  const B = clue.b != null ? cats[clue.b]?.nick ?? `${clue.b + 1}号` : undefined;
-  const room = clue.room != null ? roomNames[clue.room] : undefined;
-  const mess = clue.room != null ? roomMess[clue.room]?.name : pick(roomMess, rng).name;
-  const dir = clue.dir ? DIR_LABEL[clue.dir] : undefined;
-  return tmpl({ A, B, room, mess, dir });
+  return { cats, roomNames, roomMess, roomAnchor, furniture, title, clues };
 }

@@ -11,11 +11,9 @@ export default function WinBanner({ skin, onNext }) {
         <ul className="confess">
           {skin.cats.map((cat, i) => (
             <li key={i} style={{ "--cat-color": cat.color }}>
-              <CatIcon cat={cat} className="confess-icon" badge />
+              <CatIcon cat={cat} className="confess-icon" />
               <span className="confess-body">
-                <span className="confess-cat">
-                  {cat.id}号 {cat.nick}
-                </span>
+                <span className="confess-cat">{cat.name}</span>
                 <span className="confess-mess">
                   {cat.quirk},闯的祸:{cat.mess.emoji} {cat.mess.name}
                 </span>

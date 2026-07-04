@@ -1,8 +1,10 @@
 import CatIcon from "./CatIcon.jsx";
 
+const SIZE_TEXT = { large: "大", medium: "中", small: "小" };
+
 // Cat picker. Selected cat is what a cell click places. Shows which cats are
 // still unplaced (dimmed once on the board). Each cat is a photo (with emoji
-// fallback), its number badge, and its nickname.
+// fallback) plus its name (its image filename).
 
 export default function CatPalette({ skin, placement, selectedCat, onSelect }) {
   return (
@@ -19,10 +21,10 @@ export default function CatPalette({ skin, placement, selectedCat, onSelect }) {
             }`}
             style={{ "--cat-color": cat.color }}
             onClick={() => onSelect(i)}
-            title={`${cat.id}号 ${cat.nick} · ${cat.quirk}`}
+            title={`${cat.name} · ${SIZE_TEXT[cat.size]}猫 · ${cat.quirk}`}
           >
-            <CatIcon cat={cat} className="pal-icon" badge />
-            <span className="pal-name">{cat.nick}</span>
+            <CatIcon cat={cat} className="pal-icon" />
+            <span className="pal-name">{cat.name}</span>
             {placed && <span className="pal-check" aria-hidden>✓</span>}
           </button>
         );

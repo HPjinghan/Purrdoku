@@ -80,12 +80,12 @@ export default function Grid({
             )}
             {cat ? (
               <span
-                className="cat"
+                className={`cat size-${cat.size}`}
                 title={
-                  furniture ? `${cat.nick} 趴在${furniture.name}上` : cat.nick
+                  furniture ? `${cat.name} 趴在${furniture.name}上` : cat.name
                 }
               >
-                <CatIcon cat={cat} badge />
+                <CatIcon cat={cat} />
               </span>
             ) : cellNotes.length ? (
               <span className="notes">
@@ -94,7 +94,7 @@ export default function Grid({
                     key={ci}
                     className="note-dot"
                     style={{ background: skin.cats[ci]?.color }}
-                    title={skin.cats[ci]?.nick}
+                    title={skin.cats[ci]?.name}
                   >
                     {skin.cats[ci]?.emoji}
                   </span>

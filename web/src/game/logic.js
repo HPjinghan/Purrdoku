@@ -13,8 +13,18 @@ export function roomOf(rooms, cell, n) {
 
 // placement: Array<cell|null> indexed by cat. Returns true iff the clue holds
 // for the cats it references being placed; unresolved (unplaced) => null.
-export function clueStatus(clue, placement, rooms, n) {
+export function clueStatus(clue, placement, rooms, n, sizes) {
+  if (clue.type === "cell_size") {
+    // whichever cat sits on `cell` must be of the clue's size class
+    const occupant = placement.findIndex((p) => p === clue.cell);
+    if (occupant < 0) return null;
+    return (sizes ? sizes[occupant] : "medium") === clue.size;
+  }
   const pa = placement[clue.a];
+  if (clue.type === "at_cell") {
+    if (pa == null) return null;
+    return pa === clue.cell;
+  }
   if (clue.type === "in_room" || clue.type === "not_in_room") {
     if (pa == null) return null;
     const inRoom = roomOf(rooms, pa, n) === clue.room;
@@ -69,7 +79,9 @@ export function evaluate(puzzle, placement) {
   const n = puzzle.size;
   const complete = isComplete(placement, n);
   const conflicts = conflictCells(placement, n);
-  const clues = puzzle.clues.map((clue) => clueStatus(clue, placement, puzzle.rooms, n));
+  const clues = puzzle.clues.map((clue) =>
+    clueStatus(clue, placement, puzzle.rooms, n, puzzle.sizes)
+  );
   const violated = puzzle.clues.filter((_, i) => clues[i] === false).length;
   const won =
     complete &&

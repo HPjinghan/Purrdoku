@@ -196,35 +196,17 @@ body {
   justify-content: center;
   line-height: 1;
 }
+/* full-body cat illustration, whole cat shown, scaled by body size */
 .caticon .cat-photo {
-  width: 1.55em;
-  height: 1.55em;
-  border-radius: 50%;
-  object-fit: cover;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  width: calc(1.72em * var(--cat-scale, 1));
+  height: calc(1.72em * var(--cat-scale, 1));
+  object-fit: contain;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.22));
 }
 .caticon .cat-emoji {
-  font-size: 1.35em;
+  font-size: calc(1.4em * var(--cat-scale, 1));
   line-height: 1;
   filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.14));
-}
-.caticon .cat-badge {
-  position: absolute;
-  right: -0.15em;
-  bottom: -0.2em;
-  min-width: 0.62em;
-  height: 0.62em;
-  padding: 0 0.16em;
-  border-radius: 999px;
-  background: var(--cat-color, var(--pink-deep));
-  color: #fff;
-  font-size: 0.42em;
-  font-weight: 800;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1.5px solid #fff;
 }
 @keyframes pop {
   from { transform: scale(0.4); opacity: 0; }

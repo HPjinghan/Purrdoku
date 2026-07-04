@@ -15,9 +15,17 @@ def count_solutions(geo: Geometry, clues: list[Clue], limit: int = 2) -> int:
     for cl in clues:
         if cl.is_unary:
             cand[cl.a] &= geo.unary_mask(cl)
+        elif cl.is_cell:  # CELL_SIZE
+            if len(cl.cats) == 1:  # unique-size cat → pin it to the cell
+                cand[cl.cats[0]] &= 1 << cl.cell
+            else:  # narrow the cell to the same-size cats
+                bit = ~(1 << cl.cell)
+                for x in range(n):
+                    if x not in cl.cats:
+                        cand[x] &= bit
     by_cat: list[list[tuple[Clue, str]]] = [[] for _ in range(n)]
     for cl in clues:
-        if not cl.is_unary:
+        if not cl.is_unary and not cl.is_cell:
             by_cat[cl.a].append((cl, "a"))
             by_cat[cl.b].append((cl, "b"))
 

@@ -18,10 +18,14 @@ IN_ROOM = "in_room"
 NOT_IN_ROOM = "not_in_room"
 RELPOS = "relpos"
 DIAG_ADJ = "diag_adj"
+AT_CELL = "at_cell"      # cat A sits at exactly this cell (rendered as "on the X")
+CELL_SIZE = "cell_size"  # the cat at this cell is of a given size class
 
-UNARY_TYPES = (IN_ROOM, NOT_IN_ROOM)
+# Unary = restricts a single cat's candidate cells.
+UNARY_TYPES = (IN_ROOM, NOT_IN_ROOM, AT_CELL)
 BINARY_TYPES = (SAME_ROOM, DIFF_ROOM, RELPOS, DIAG_ADJ)
-ALL_TYPES = UNARY_TYPES + BINARY_TYPES
+CELL_TYPES = (CELL_SIZE,)  # restricts which cats may occupy a given cell
+ALL_TYPES = UNARY_TYPES + BINARY_TYPES + CELL_TYPES
 
 DIRS = ("left", "right", "above", "below")
 
@@ -29,23 +33,36 @@ DIRS = ("left", "right", "above", "below")
 @dataclass(frozen=True)
 class Clue:
     type: str
-    a: int
+    a: int = -1
     b: Optional[int] = None
     room: Optional[int] = None
     dir: Optional[str] = None
+    cell: Optional[int] = None
+    size: Optional[str] = None
+    cats: Optional[tuple] = None  # for CELL_SIZE: cats allowed at `cell`
 
     @property
     def is_unary(self) -> bool:
         return self.type in UNARY_TYPES
 
+    @property
+    def is_cell(self) -> bool:
+        return self.type in CELL_TYPES
+
     def to_json(self) -> dict:
-        d = {"type": self.type, "a": self.a}
+        d = {"type": self.type}
+        if self.a >= 0:
+            d["a"] = self.a
         if self.b is not None:
             d["b"] = self.b
         if self.room is not None:
             d["room"] = self.room
         if self.dir is not None:
             d["dir"] = self.dir
+        if self.cell is not None:
+            d["cell"] = self.cell
+        if self.size is not None:
+            d["size"] = self.size
         return d
 
 
@@ -119,6 +136,8 @@ class Geometry:
             return self.room_mask[clue.room]
         if clue.type == NOT_IN_ROOM:
             return self.full & ~self.room_mask[clue.room]
+        if clue.type == AT_CELL:
+            return 1 << clue.cell
         raise ValueError(clue.type)
 
     def allowed_mask(self, clue: Clue, fixed_role: str, cell: int) -> int:
@@ -164,7 +183,12 @@ class Geometry:
 
 def clue_holds(clue: Clue, pos: list[int], geo: Geometry) -> bool:
     n = geo.n
+    if clue.type == CELL_SIZE:
+        # the cat occupying `cell` must be one of the allowed (same-size) cats
+        return any(pos[x] == clue.cell for x in clue.cats)
     pa = pos[clue.a]
+    if clue.type == AT_CELL:
+        return pa == clue.cell
     if clue.type == IN_ROOM:
         return geo.room_of[pa] == clue.room
     if clue.type == NOT_IN_ROOM:

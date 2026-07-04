@@ -93,6 +93,8 @@ def test_end_to_end_levels() -> None:
         res = LogicalSolver(geo, got.clues).solve(LogicalSolver.MAX_TIER)
         assert res.solved and res.solution == got.pos
         assert all(clue_holds(cl, got.pos, geo) for cl in got.clues)
+        assert len(got.sizes) == got.n and set(got.sizes) <= {"large", "medium", "small"}
+        assert got.sizes.count("large") <= 3 and got.sizes.count("small") <= 2
         check(
             f"end-to-end {lid}: n={got.n} clues={len(got.clues)} "
             f"tier={got.max_tier} cdepth={got.chain_depth} "

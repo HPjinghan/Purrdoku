@@ -3,23 +3,38 @@
 
 export const THEME_ID = "catdoku";
 
-// Cat roster: identified by a fixed number (1..9). The player supplies photos
-// named cat1.png … cat9.png in web/public/cats/ — each cat renders its photo,
-// falling back to the emoji when the file is absent. `nick` is a cute,
-// breed-agnostic handle used in clue text; `color` tints the cat's cells.
-export const CATS = [
-  { id: 1, nick: "团子", emoji: "🐱", color: "#f6a24a" },
-  { id: 2, nick: "毛球", emoji: "😸", color: "#c9a7d8" },
-  { id: 3, nick: "煤球", emoji: "🐈‍⬛", color: "#5b5566" },
-  { id: 4, nick: "汤圆", emoji: "🐈", color: "#e07a6d" },
-  { id: 5, nick: "布丁", emoji: "😺", color: "#b79b78" },
-  { id: 6, nick: "奶盖", emoji: "😻", color: "#9fb4c7" },
-  { id: 7, nick: "芝麻", emoji: "🐮", color: "#6d7f8c" },
-  { id: 8, nick: "花卷", emoji: "🙀", color: "#e8b7a0" },
-  { id: 9, nick: "大福", emoji: "😼", color: "#8a9a5b" },
-];
+// Cat photos supplied by the player in web/public/cats/, grouped by body size.
+// The generator assigns each cat a size class (large/medium/small); the skin
+// picks a matching photo, so a "这格是只大猫" clue is always truthful and big
+// cats really are drawn bigger. The cat's NAME is its filename (as requested).
+export const CAT_POOL = {
+  large: ["l1", "l2", "l3"],
+  medium: ["m1", "m2", "m3", "m4", "m5", "sp1", "sp2", "sp3", "sp4"],
+  small: ["s2", "s3"],
+};
 
-export const catImage = (id) => `./cats/cat${id}.png`;
+// Per-cat accent colour (tints its cells) + emoji fallback, keyed by filename.
+const CAT_ORDER = [
+  "l1", "l2", "l3", "m1", "m2", "m3", "m4", "m5",
+  "sp1", "sp2", "sp3", "sp4", "s2", "s3",
+];
+const CAT_COLORS = [
+  "#f6a24a", "#c9a7d8", "#5b5566", "#e07a6d", "#b79b78", "#9fb4c7", "#6d7f8c",
+  "#e8b7a0", "#8a9a5b", "#d98b6a", "#7a9cc6", "#c58fb0", "#8a8f6d", "#6d8f8a",
+];
+const FALLBACK_EMOJI = "🐱😸🐈‍⬛🐈😺😻🐮🙀😼".split(/(?=)/u).filter((c) => c.trim());
+export const CAT_META = Object.fromEntries(
+  CAT_ORDER.map((name, i) => [
+    name,
+    { color: CAT_COLORS[i % CAT_COLORS.length], emoji: FALLBACK_EMOJI[i % FALLBACK_EMOJI.length] },
+  ])
+);
+
+export const catImage = (name) => `./cats/${name}.png`;
+
+// Visual scale + label per size class.
+export const SIZE_SCALE = { large: 1.34, medium: 1.0, small: 0.82 };
+export const SIZE_LABEL = { large: "大", medium: "中等个头的", small: "小" };
 
 // Room types, ordered large → small. Rooms are named by size rank (the biggest
 // room becomes the 客厅, the smallest a 储物间 / 衣帽间), so names stay
@@ -122,6 +137,17 @@ export const CLUE_TEMPLATES = {
   diag_adj: [
     ({ A, B }) => `${A} 和 ${B} 在斜对角的两间,爪子都快够着了`,
     ({ A, B }) => `${A} 跟 ${B} 隔着一个斜角对望`,
+  ],
+  // Direct pin — the decisive beginner clue ("cat is on this exact furniture").
+  at_cell: [
+    ({ A, room, furniture }) => `${A} 就趴在${room}的${furniture}上不肯走`,
+    ({ A, room, furniture }) => `${room}的${furniture}上正瘫着 ${A}`,
+    ({ A, spot }) => `${A} 稳稳占着${spot}`,
+  ],
+  // Size hint — narrows a cell to same-size cats ("this spot is a big cat").
+  cell_size: [
+    ({ room, furniture, sizeLabel }) => `${room}的${furniture}上是一只${sizeLabel}猫`,
+    ({ spot, sizeLabel }) => `${spot}蹲着一只${sizeLabel}猫`,
   ],
 };
 
