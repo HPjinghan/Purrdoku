@@ -10,7 +10,11 @@ from purrgen.difficulty import BY_ID, grade
 from purrgen.layout import generate_solution
 from purrgen.model import Clue, Geometry, clue_holds, iter_bits
 from purrgen.pipeline import attempt_puzzle
-from purrgen.rooms import generate_rooms, rooms_are_contiguous
+from purrgen.rooms import (
+    generate_rooms,
+    rooms_are_contiguous,
+    rooms_are_rectangular,
+)
 from purrgen.solver_complete import count_solutions
 from purrgen.solver_logical import LogicalSolver
 
@@ -25,14 +29,19 @@ def test_room_generation() -> None:
     rng = random.Random(1)
     for n in (6, 7, 8, 9):
         for tiny in (0, 2):
-            rooms = generate_rooms(n, rng, k=min(9, n + 1), tiny=tiny)
-            flat = [rooms[r][c] for r in range(n) for c in range(n)]
-            k = max(flat) + 1
-            sizes = [flat.count(i) for i in range(k)]
-            assert rooms_are_contiguous(rooms), "contiguity"
-            assert sum(sizes) == n * n
-            assert sizes.count(1) >= tiny
-    check("rooms: contiguous partitions with size plans", True)
+            for max_room in (3, 5, None):
+                rooms = generate_rooms(n, rng, k=min(9, n + 1), tiny=tiny,
+                                       max_room=max_room)
+                flat = [rooms[r][c] for r in range(n) for c in range(n)]
+                k = max(flat) + 1
+                sizes = [flat.count(i) for i in range(k)]
+                assert rooms_are_contiguous(rooms), "contiguity"
+                assert rooms_are_rectangular(rooms), "rectangular"
+                assert sum(sizes) == n * n
+                assert sizes.count(1) >= tiny
+                if max_room:
+                    assert max(sizes) <= max_room, (n, max_room, sizes)
+    check("rooms: rectangular partitions, size cap, tiny quota", True)
 
 
 def test_complete_solver_unconstrained() -> None:
@@ -72,13 +81,13 @@ def test_end_to_end_levels() -> None:
         level = BY_ID[lid]
         t0 = time.time()
         got = None
-        for attempt in range(60):
+        for attempt in range(200):
             got = attempt_puzzle(level, seed=90_000 + attempt * 7 + level.tier)
             g = None if got is None else grade(got.max_tier, got.chain_depth, got.chain_passes)
             if g == level.tier:
                 break
             got = None
-        assert got is not None, f"could not build a {lid} puzzle in 60 attempts"
+        assert got is not None, f"could not build a {lid} puzzle in 200 attempts"
         geo = Geometry(got.n, got.rooms)
         assert count_solutions(geo, got.clues, limit=2) == 1
         res = LogicalSolver(geo, got.clues).solve(LogicalSolver.MAX_TIER)

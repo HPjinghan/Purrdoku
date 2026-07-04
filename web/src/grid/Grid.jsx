@@ -1,5 +1,6 @@
 import { cellBorders } from "./borders.js";
 import { roomOf } from "../game/logic.js";
+import CatIcon from "../components/CatIcon.jsx";
 
 // DOM/SVG-free grid (spec §5: no game engine). A CSS grid of cells; rooms are
 // drawn with thick borders, cats as emoji, pencil-notes as small breed dots.
@@ -80,9 +81,11 @@ export default function Grid({
             {cat ? (
               <span
                 className="cat"
-                title={furniture ? `${cat.name} 趴在${furniture.name}上` : cat.name}
+                title={
+                  furniture ? `${cat.nick} 趴在${furniture.name}上` : cat.nick
+                }
               >
-                {cat.emoji}
+                <CatIcon cat={cat} badge />
               </span>
             ) : cellNotes.length ? (
               <span className="notes">
@@ -91,7 +94,7 @@ export default function Grid({
                     key={ci}
                     className="note-dot"
                     style={{ background: skin.cats[ci]?.color }}
-                    title={skin.cats[ci]?.name}
+                    title={skin.cats[ci]?.nick}
                   >
                     {skin.cats[ci]?.emoji}
                   </span>

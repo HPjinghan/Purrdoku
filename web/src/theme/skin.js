@@ -6,12 +6,11 @@ import {
   CATS,
   CLUE_TEMPLATES,
   DIR_LABEL,
-  GENERIC_FURNITURE,
   MESS,
   QUIRKS,
-  ROOM_FURNITURE,
-  ROOMS,
+  ROOM_TYPES,
   TITLE_TEMPLATES,
+  catImage,
 } from "./catdoku.js";
 
 // mulberry32 — tiny reproducible PRNG.
@@ -35,11 +34,8 @@ function sampleWithoutReplacement(pool, count, rng) {
   return idx.slice(0, count).map((i) => pool[i]);
 }
 
-function pick(pool, rng) {
-  return pool[Math.floor(rng() * pool.length)];
-}
+const pick = (pool, rng) => pool[Math.floor(rng() * pool.length)];
 
-// roomCount from the room grid.
 function roomCount(rooms) {
   let m = 0;
   for (const row of rooms) for (const k of row) if (k > m) m = k;
@@ -51,46 +47,53 @@ export function skinPuzzle(puzzle) {
   const n = puzzle.size;
   const kRooms = roomCount(puzzle.rooms);
 
-  // Cats: N distinct breeds; each gets a quirk + a favourite mess (biased,
-  // but purely cosmetic — logic never reads it).
-  const catBase = sampleWithoutReplacement(CATS, n, rng);
-  const cats = catBase.map((c) => ({
+  // Cats: sample N of the 9-cat roster. Fixed id↔photo, plus a quirk and a
+  // favourite mess (cosmetic — logic never reads them).
+  const cats = sampleWithoutReplacement(CATS, n, rng).map((c) => ({
     ...c,
+    img: catImage(c.id),
     quirk: pick(QUIRKS, rng),
     mess: pick(MESS, rng),
   }));
 
-  // Rooms: name each logic room. Pool has 9; if more are needed, cycle with a
-  // numeric suffix so names stay unique.
-  const roomNames = [];
-  const shuffledRooms = sampleWithoutReplacement(ROOMS, Math.min(kRooms, ROOMS.length), rng);
-  for (let k = 0; k < kRooms; k++) {
-    if (k < shuffledRooms.length) roomNames.push(shuffledRooms[k]);
-    else roomNames.push(`${ROOMS[k % ROOMS.length]}${Math.floor(k / ROOMS.length) + 1}`);
-  }
-
-  // Per-room decorative mess icon (helps read spatial clues, spec §10.3).
-  const roomMess = roomNames.map(() => pick(MESS, rng));
-
-  // Group cells by room. Row-major order means cells[0] is the top-left-most
-  // cell of the room — a stable anchor to drop the room-name label on.
+  // Group cells by room; row-major order makes cells[0] the top-left anchor.
   const roomCells = Array.from({ length: kRooms }, () => []);
   for (let cell = 0; cell < n * n; cell++) {
     roomCells[puzzle.rooms[Math.floor(cell / n)][cell % n]].push(cell);
   }
   const roomAnchor = roomCells.map((cells) => cells[0]);
 
-  // Furnish each room from its typed set (cats may perch on any cell). Cycle
-  // the shuffled set across the room's cells; deterministic in the seed.
+  // Name rooms by size rank: biggest room → 客厅, smallest → 储物间/衣帽间, so
+  // the label is plausible for the shape. Ties broken by anchor for stability.
+  const rankOrder = roomCells
+    .map((cells, rid) => rid)
+    .sort((a, b) =>
+      roomCells[b].length - roomCells[a].length || roomAnchor[a] - roomAnchor[b]
+    );
+  const roomNames = Array(kRooms);
+  const roomType = Array(kRooms);
+  rankOrder.forEach((rid, rank) => {
+    const t = ROOM_TYPES[rank % ROOM_TYPES.length];
+    const suffix = rank >= ROOM_TYPES.length ? Math.floor(rank / ROOM_TYPES.length) + 1 : "";
+    roomNames[rid] = `${t.name}${suffix}`;
+    roomType[rid] = t;
+  });
+
+  // Furnish each room with a sensible number of DISTINCT pieces (~60% of its
+  // cells, capped by the type's set), scattered across cells; rest stay empty.
   const furniture = Array(n * n).fill(null);
   roomCells.forEach((cells, rid) => {
-    const base = roomNames[rid].replace(/\d+$/, "");
-    const set = ROOM_FURNITURE[base] || GENERIC_FURNITURE;
-    const shuffled = sampleWithoutReplacement(set, set.length, rng);
-    cells.forEach((cell, i) => {
-      furniture[cell] = shuffled[i % shuffled.length];
+    const set = roomType[rid].furniture;
+    const count = Math.max(1, Math.min(set.length, Math.round(cells.length * 0.6)));
+    const pieces = sampleWithoutReplacement(set, count, rng);
+    const spots = sampleWithoutReplacement(cells, count, rng);
+    spots.forEach((cell, i) => {
+      furniture[cell] = pieces[i];
     });
   });
+
+  // Signature knockable item per room (clue/title flavor).
+  const roomMess = roomNames.map(() => pick(MESS, rng));
 
   const title = renderTitle(rng, cats, roomNames, roomMess);
   const clues = puzzle.clues.map((clue) => ({
@@ -106,15 +109,15 @@ function renderTitle(rng, cats, roomNames, roomMess) {
   return tmpl({
     room: pick(roomNames, rng),
     mess: pick(roomMess, rng).name,
-    cat: pick(cats, rng).name,
+    cat: pick(cats, rng).nick,
   });
 }
 
 function renderClue(clue, rng, cats, roomNames, roomMess) {
   const pool = CLUE_TEMPLATES[clue.type];
   const tmpl = pool[Math.floor(rng() * pool.length)];
-  const A = cats[clue.a]?.name ?? `猫${clue.a}`;
-  const B = clue.b != null ? cats[clue.b]?.name ?? `猫${clue.b}` : undefined;
+  const A = cats[clue.a]?.nick ?? `${clue.a + 1}号`;
+  const B = clue.b != null ? cats[clue.b]?.nick ?? `${clue.b + 1}号` : undefined;
   const room = clue.room != null ? roomNames[clue.room] : undefined;
   const mess = clue.room != null ? roomMess[clue.room]?.name : pick(roomMess, rng).name;
   const dir = clue.dir ? DIR_LABEL[clue.dir] : undefined;

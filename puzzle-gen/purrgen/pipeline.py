@@ -116,14 +116,25 @@ def _weighted_order(pool: list[Clue], weights: dict[str, float], rng: random.Ran
     )
 
 
-def attempt_puzzle(level: Level, seed: int) -> Puzzle | None:
+def attempt_puzzle(
+    level: Level, seed: int, tiny=None, max_room=None
+) -> Puzzle | None:
     rng = random.Random(seed)
     n = rng.randint(*level.sizes)
-    tiny = 3 if level.tier == 1 else (2 if level.tier == 2 else 0)
-    k = max(5, min(9, n + rng.randint(-1, 1)))
-    if tiny:
-        k = max(k, min(9, n + 1))
-    rooms = generate_rooms(n, rng, k, tiny)
+    if tiny is None:
+        # A few 1-cell "closets" at the low tiers give an in_room clue something
+        # decisive to pin, without which those puzzles rarely stay tier-1/2.
+        tiny = 3 if level.tier == 1 else (2 if level.tier == 2 else 0)
+    # Home-like floor plan: a sensible room COUNT with sizes varying naturally,
+    # capped so no single room swallows the grid. Low tiers use a tighter cap
+    # (smaller, more decisive rooms → an in_room clue can pin a cat, keeping
+    # them tier-1/2 solvable); high tiers use a loose cap (a few large rooms,
+    # cleaner plan). Difficulty is set mainly by the forcing polish + clue mix.
+    k = max(5, min(9, round(n * 0.85))) + rng.randint(-1, 1)
+    k = max(4, k)
+    if max_room is None:
+        max_room = 5 if level.tier <= 2 else max(6, round(0.42 * n * n))
+    rooms = generate_rooms(n, rng, k, tiny, max_room=max_room)
     geo = Geometry(n, rooms)
     pos = generate_solution(n, rng)
 

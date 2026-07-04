@@ -1,5 +1,8 @@
+import CatIcon from "./CatIcon.jsx";
+
 // Cat picker. Selected cat is what a cell click places. Shows which cats are
-// still unplaced (dimmed once on the board).
+// still unplaced (dimmed once on the board). Each cat is a photo (with emoji
+// fallback), its number badge, and its nickname.
 
 export default function CatPalette({ skin, placement, selectedCat, onSelect }) {
   return (
@@ -16,10 +19,10 @@ export default function CatPalette({ skin, placement, selectedCat, onSelect }) {
             }`}
             style={{ "--cat-color": cat.color }}
             onClick={() => onSelect(i)}
-            title={`${cat.name} · ${cat.quirk}`}
+            title={`${cat.id}号 ${cat.nick} · ${cat.quirk}`}
           >
-            <span className="pal-emoji">{cat.emoji}</span>
-            <span className="pal-name">{cat.name}</span>
+            <CatIcon cat={cat} className="pal-icon" badge />
+            <span className="pal-name">{cat.nick}</span>
             {placed && <span className="pal-check" aria-hidden>✓</span>}
           </button>
         );

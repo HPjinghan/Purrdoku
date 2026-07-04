@@ -1,3 +1,5 @@
+import CatIcon from "./CatIcon.jsx";
+
 // Reveal moment (spec §10.1): every cat "认罪" with the mess it made.
 
 export default function WinBanner({ skin, onNext }) {
@@ -9,11 +11,14 @@ export default function WinBanner({ skin, onNext }) {
         <ul className="confess">
           {skin.cats.map((cat, i) => (
             <li key={i} style={{ "--cat-color": cat.color }}>
-              <span className="confess-cat">
-                {cat.emoji} {cat.name}
-              </span>
-              <span className="confess-mess">
-                {cat.quirk},闯的祸:{cat.mess.emoji} {cat.mess.name}
+              <CatIcon cat={cat} className="confess-icon" badge />
+              <span className="confess-body">
+                <span className="confess-cat">
+                  {cat.id}号 {cat.nick}
+                </span>
+                <span className="confess-mess">
+                  {cat.quirk},闯的祸:{cat.mess.emoji} {cat.mess.name}
+                </span>
               </span>
             </li>
           ))}
