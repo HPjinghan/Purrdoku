@@ -1,0 +1,20 @@
+{
+  "name": "拆家喵 · Purrdoku",
+  "short_name": "拆家喵",
+  "description": "纯逻辑推理的凶案谜题:N 只猫躲在家里,靠线索把每只归位。",
+  "lang": "zh-Hans",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff5f8",
+  "theme_color": "#ffb3c8",
+  "icons": [
+    {
+      "src": "./favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
